@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área Digital · TI — Planificación de Proyectos 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#151F47; --blue:#3061AA; --blue2:#4a7dbf;
+  --green:#1a7a4a; --green2:#2e9460;
+  --orange:#C9521A; --orange2:#d97040;
+  --purple:#5c2f90; --purple2:#7d4ab0;
+  --teal:#0d7a7a; --grape:#7c4d9e;
+  --cto:#A0720A; --cto2:#C49020;
+  --gray:#64748b; --gray2:#94a3b8;
+  --bg:#f0f3f8; --white:#fff; --border:#dde3ef;
+  --p1c:#C9521A; --p2c:#3061AA; --p3c:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--navy);line-height:1.5;}
+
+/* ── HEADER ── */
+.page-header{background:var(--navy);padding:48px 64px 44px;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;top:-90px;right:-90px;width:320px;height:320px;border-radius:50%;background:rgba(48,97,170,.15);}
+.page-header::after{content:'';position:absolute;bottom:-60px;left:28%;width:260px;height:260px;border-radius:50%;background:rgba(201,82,26,.10);}
+.header-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;position:relative;z-index:1;}
+.header-title{font-size:42px;font-weight:800;color:#fff;line-height:1.1;position:relative;z-index:1;}
+.header-title span{color:#7aaee0;}
+.header-sub{font-size:15px;color:rgba(255,255,255,.55);margin-top:8px;position:relative;z-index:1;}
+.header-accent{display:inline-block;width:40px;height:3px;background:var(--orange);border-radius:2px;margin-top:20px;position:relative;z-index:1;}
+.header-meta{position:absolute;top:48px;right:64px;z-index:1;text-align:right;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:1.5px;text-transform:uppercase;}
+
+/* ── STICKY NAV ── */
+.toc{background:#fff;border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;overflow-x:auto;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.toc-links{display:flex;gap:0;overflow-x:auto;flex-shrink:1;}
+.toc a{display:inline-flex;align-items:center;gap:6px;padding:14px 13px;font-size:12px;font-weight:600;color:var(--gray);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;}
+.toc a:hover{color:var(--navy);border-bottom-color:var(--border);}
+.toc a.gov{color:var(--blue);}.toc a.ops{color:var(--green);}
+.toc a.act{color:var(--orange);}.toc a.new{color:var(--purple);}.toc a.dist{color:var(--grape);}
+.toc-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.export-btn{background:var(--orange);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s;margin-left:12px;flex-shrink:0;}
+.export-btn:hover{background:#a83d0a;}
+.export-btn:disabled{background:var(--gray2);cursor:default;}
+
+/* ── CONTENT ── */
+.content{padding:48px 64px 80px;max-width:1600px;margin:0 auto;}
+.section-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* ── TEAM CARDS ── */
+.team-section-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin:18px 0 10px;padding-left:4px;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;}
+.team-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:15px 17px;display:flex;align-items:flex-start;gap:12px;}
+.team-card.dev{border-style:dashed;background:#f8fbfb;}
+.team-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
+.team-name{font-size:14px;font-weight:700;margin-bottom:2px;}
+.team-role{font-size:11px;color:var(--gray);margin-bottom:6px;}
+.team-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;color:#fff;}
+.dev-badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--teal);color:#fff;}
+
+/* ── PILLAR ── */
+.pillar{margin-bottom:52px;scroll-margin-top:54px;}
+.pillar-header{display:flex;align-items:center;gap:14px;padding:15px 22px 15px 18px;border-radius:10px;margin-bottom:16px;border-left:5px solid;}
+.pillar-header .pillar-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.pillar-header h2{font-size:18px;font-weight:700;}
+.pillar-header p{font-size:12px;margin-top:2px;}
+.pillar-gov{background:#dce8f7;border-color:var(--blue);}.pillar-gov .pillar-num{background:var(--blue);}.pillar-gov h2{color:var(--blue);}.pillar-gov p{color:var(--blue2);}
+.pillar-ops{background:#d5edd9;border-color:var(--green);}.pillar-ops .pillar-num{background:var(--green);}.pillar-ops h2{color:var(--green);}.pillar-ops p{color:var(--green2);}
+.pillar-act{background:#fde0d0;border-color:var(--orange);}.pillar-act .pillar-num{background:var(--orange);}.pillar-act h2{color:var(--orange);}.pillar-act p{color:var(--orange2);}
+.pillar-new{background:#ead8f5;border-color:var(--purple);}.pillar-new .pillar-num{background:var(--purple);}.pillar-new h2{color:var(--purple);}.pillar-new p{color:var(--purple2);}
+
+/* ── FOUNDATION CARDS ── */
+.foundation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.foundation-card{background:#fff;border-radius:10px;border:1.5px solid var(--blue);padding:14px 16px;}
+.foundation-card .fc-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+.foundation-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.foundation-card .fc-sub{font-size:11px;color:var(--gray);}
+.unlocks{margin-top:10px;font-size:11px;color:var(--blue);font-weight:600;line-height:1.6;}
+.foundation-note{font-size:11px;color:var(--gray);font-style:italic;margin-top:8px;padding-left:4px;}
+
+/* ── PROJECT PIPELINE CARD ── */
+.project-pipeline{background:#fff;border-radius:12px;border:1px solid var(--border);margin-bottom:13px;overflow:hidden;}
+.project-pipeline-head{display:flex;align-items:center;padding:13px 20px;gap:11px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.priority-badge{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;}
+.priority-badge.p1{background:var(--p1c);}.priority-badge.p2{background:var(--p2c);}.priority-badge.p3{background:var(--p3c);}
+.project-name{font-size:15px;font-weight:700;flex:1;min-width:200px;}
+.resp-chips{display:flex;flex-wrap:wrap;gap:5px;min-height:22px;}
+.resp-chip{font-size:11px;font-weight:600;padding:3px 11px;border-radius:20px;color:#fff;white-space:nowrap;}
+.resp-chip.actualab{background:var(--navy);}.resp-chip.dev{background:var(--teal);}
+.project-desc{padding:12px 20px;font-size:13px;color:var(--gray);line-height:1.65;background:#fafbfc;border-bottom:1px solid var(--border);}
+.project-desc strong{color:var(--navy);}
+.dep-row{padding:8px 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;border-bottom:1px solid var(--border);}
+.dep-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray2);}
+.dep-tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;border:1.5px solid;background:transparent;}
+.dep-tag::before{content:'🔗';font-size:9px;}
+.dep-tag-gov{color:var(--blue);border-color:var(--blue);}
+.dep-tag-ops{color:var(--green);border-color:var(--green);}
+.dep-tag-act{color:var(--orange);border-color:var(--orange);}
+.dep-none{font-size:11px;color:var(--gray2);font-style:italic;}
+.pipeline-track{padding:16px 20px 18px;display:flex;align-items:stretch;overflow-x:auto;min-height:74px;border-bottom:1px solid var(--border);}
+.pipeline-track::-webkit-scrollbar{height:4px;}
+.pipeline-track::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.phase{flex-shrink:0;border-radius:8px;padding:10px 13px;min-width:138px;max-width:196px;display:flex;flex-direction:column;justify-content:center;}
+.phase-num{font-size:9px;font-weight:700;letter-spacing:1px;opacity:.75;margin-bottom:4px;text-transform:uppercase;}
+.phase-name{font-size:12px;font-weight:600;line-height:1.35;}
+.phase-sub{font-size:10px;margin-top:4px;opacity:.72;}
+.phase-tag{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px;}
+.ph-internal{background:linear-gradient(135deg,#f0f7ff,#e8f2ff);border:1.5px solid #c0d5f0;}
+.ph-internal .phase-num{color:var(--blue2);}
+.ph-deploy{background:linear-gradient(135deg,#e8f5ec,#d0ecda);border:1.5px solid #85c49a;}
+.ph-deploy .phase-num{color:var(--green);}
+.ph-deploy-act{background:linear-gradient(135deg,#fdeee6,#fddfc8);border:1.5px solid #e0a060;}
+.ph-deploy-act .phase-num{color:var(--orange);}
+.ph-deploy-pur{background:linear-gradient(135deg,#f0e6ff,#e2d0f5);border:1.5px solid #b890e0;}
+.ph-deploy-pur .phase-num{color:var(--purple);}
+.ph-external{background:repeating-linear-gradient(-45deg,#fff8f5 0,#fff8f5 6px,#fde8dc 6px,#fde8dc 8px);border:2px dashed var(--orange2);}
+.ph-external .phase-num,.ph-external .phase-tag{color:var(--orange);}
+.ph-client{background:linear-gradient(135deg,#f5f0ff,#ede4fa);border:1.5px solid #c8a8e8;}
+.ph-client .phase-num,.ph-client .phase-tag{color:var(--purple2);}
+.ph-prereq{background:linear-gradient(135deg,#fff8e8,#ffedc8);border:2px dashed #e0a030;}
+.ph-prereq .phase-num,.ph-prereq .phase-tag{color:#b07a10;}
+.phase-arrow{display:flex;align-items:center;padding:0 5px;color:var(--gray2);font-size:22px;flex-shrink:0;user-select:none;}
+
+/* ── TOOLTIPS (JS-driven, anchored to body) ── */
+.has-tooltip{cursor:help;}
+#global-tooltip{
+  position:fixed;
+  background:var(--navy);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  font-family:'Inter',system-ui,sans-serif;
+  padding:6px 13px;
+  border-radius:7px;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .15s;
+  z-index:9999;
+  box-shadow:0 4px 16px rgba(0,0,0,.28);
+  white-space:nowrap;
+  letter-spacing:.2px;
+}
+#global-tooltip::after{
+  content:'';
+  position:absolute;
+  top:100%;
+  left:50%;
+  transform:translateX(-50%);
+  border:5px solid transparent;
+  border-top-color:var(--navy);
+}
+
+/* ── MEMBER PICKER (two-column) ── */
+.picker-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px 6px;}
+.picker-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);}
+.picker-count{font-size:11px;font-weight:600;color:var(--blue);background:#e8f2ff;padding:2px 10px;border-radius:20px;transition:background .2s;}
+.picker-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:6px 20px 16px;}
+.picker-group{background:#f5f7fb;border-radius:8px;padding:10px 12px;}
+.picker-group-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;color:var(--gray);}
+.picker-group-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.picker-items{display:flex;flex-direction:column;gap:4px;}
+.picker-item{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:7px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:12px;font-weight:500;user-select:none;transition:all .15s;}
+.picker-item:hover{border-color:var(--gray2);background:#f9fafb;}
+.picker-item input{display:none;}
+.pick-box{width:17px;height:17px;border-radius:4px;border:2px solid #cbd5e1;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:transparent;transition:all .15s;font-weight:700;}
+.picker-item.sel-actualab{background:var(--navy);border-color:var(--navy);color:#fff;}
+.picker-item.sel-actualab .pick-box{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);color:#fff;}
+.picker-item.sel-dev{background:var(--teal);border-color:var(--teal);color:#fff;}
+.picker-item.sel-dev .pick-box{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);color:#fff;}
+.pick-name{flex:1;}
+.pick-role{font-size:10px;opacity:.65;white-space:nowrap;padding-left:6px;}
+
+/* ── SUMMARY TABLE ── */
+#resumen{scroll-margin-top:54px;margin-bottom:52px;}
+.summary-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+.summary-table thead th{background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:12px 16px;text-align:left;}
+.summary-table tbody tr{border-bottom:1px solid var(--border);}
+.summary-table tbody tr.pillar-divider td{background:var(--bg);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-bottom:none;}
+.summary-table tbody tr:last-child{border-bottom:none;}
+.summary-table tbody tr:not(.pillar-divider):hover{background:#f8faff;}
+.summary-table tbody td{padding:11px 16px;font-size:13px;vertical-align:middle;}
+.summary-table tbody td:first-child{font-size:11px;color:var(--gray);font-weight:600;width:36px;}
+.pillar-tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;color:#fff;white-space:nowrap;display:inline-block;}
+.pillar-tag.gov{background:var(--blue);}.pillar-tag.ops{background:var(--green);}
+.pillar-tag.act{background:var(--orange);}.pillar-tag.new{background:var(--purple);}
+.no-members{font-size:12px;color:var(--gray2);font-style:italic;}
+
+/* ── DISTRIBUTION SECTION ── */
+#distribucion{scroll-margin-top:54px;margin-bottom:52px;}
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;align-items:center;}
+.filter-label{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:1px;text-transform:uppercase;margin-right:4px;white-space:nowrap;}
+.filter-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:#fff;cursor:pointer;font-size:12px;font-weight:600;color:var(--gray);transition:all .15s;white-space:nowrap;}
+.filter-btn:hover{border-color:var(--navy);color:var(--navy);}
+.filter-btn.f-all{}.filter-btn.f-all.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.filter-btn.f-actualab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.filter-btn.f-dev.active{background:var(--teal);border-color:var(--teal);color:#fff;}
+.filter-btn.f-grape.active{background:var(--grape);border-color:var(--grape);color:#fff;}
+.filter-btn.f-cto.active{background:var(--cto);border-color:var(--cto);color:#fff;}
+/* CTO team card */
+.team-card.cto{border-color:var(--cto);border-width:2px;background:linear-gradient(135deg,#fffbf0,#fff8e8);}
+.team-card.cto .team-tag{background:linear-gradient(135deg,var(--cto),var(--cto2));}
+.filter-avatar-sm{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;}
+
+/* All-persons grid */
+.dist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.dist-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:16px;transition:all .2s;cursor:pointer;position:relative;}
+.dist-card:hover{border-color:var(--navy);box-shadow:0 4px 14px rgba(21,31,71,.10);transform:translateY(-1px);}
+.dist-card.dimmed{opacity:.3;transform:none;}
+.dist-card-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.dist-name{font-size:13px;font-weight:700;line-height:1.2;}
+.dist-role{font-size:10px;color:var(--gray);margin-top:1px;}
+.dist-count-wrap{margin-left:auto;text-align:right;}
+.dist-count{font-size:26px;font-weight:800;color:var(--navy);line-height:1;}
+.dist-count-lbl{font-size:9px;font-weight:600;color:var(--gray2);letter-spacing:.5px;text-transform:uppercase;}
+.dist-bar-wrap{background:#f0f3f8;border-radius:4px;height:5px;margin-bottom:12px;overflow:hidden;}
+.dist-bar{height:100%;border-radius:4px;transition:width .5s ease;}
+.dist-pillar-list{display:flex;flex-direction:column;gap:5px;}
+.dist-pillar-row{display:flex;align-items:center;gap:8px;font-size:11px;}
+.dist-pillar-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dist-pillar-name{color:var(--gray);flex:1;}
+.dist-pillar-count{font-size:10px;font-weight:700;padding:1px 8px;border-radius:10px;color:#fff;}
+.dist-hint{font-size:11px;color:var(--gray2);font-style:italic;}
+.dist-click-hint{font-size:10px;color:var(--gray2);margin-top:10px;text-align:center;}
+
+/* Single-person expanded */
+.dist-expanded{background:#fff;border-radius:12px;border:1px solid var(--border);padding:28px;display:none;}
+.dist-expanded.visible{display:block;}
+.dist-exp-head{display:flex;align-items:center;gap:16px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+.dist-exp-title{font-size:20px;font-weight:800;}
+.dist-exp-role{font-size:13px;color:var(--gray);margin-top:2px;}
+.dist-exp-stats{display:flex;gap:16px;margin-left:auto;}
+.dist-stat-box{background:var(--bg);border-radius:10px;padding:10px 18px;text-align:center;}
+.dist-stat-num{font-size:24px;font-weight:800;color:var(--navy);display:block;line-height:1.1;}
+.dist-stat-lbl{font-size:9px;color:var(--gray2);text-transform:uppercase;letter-spacing:1px;}
+.dist-projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
+.dist-section-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;margin-top:18px;}
+.dist-section-header:first-child{margin-top:0;}
+.dist-section-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.dist-section-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;}
+.dist-project-item{display:flex;align-items:center;gap:9px;padding:9px 13px;border-radius:8px;border:1px solid var(--border);font-size:13px;font-weight:500;transition:background .15s;}
+.dist-project-item:hover{background:var(--bg);}
+.dist-prio{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff;flex-shrink:0;}
+.dp1{background:var(--p1c);}.dp2{background:var(--p2c);}.dp3{background:var(--p3c);}
+.dist-collab{font-size:12px;color:var(--gray);margin-top:18px;padding-top:14px;border-top:1px solid var(--border);line-height:1.6;}
+.dist-back{background:transparent;border:1.5px solid var(--border);padding:7px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;color:var(--gray);transition:all .15s;margin-bottom:20px;}
+.dist-back:hover{border-color:var(--navy);color:var(--navy);}
+
+/* ── BAR CHART ── */
+#chart-section{scroll-margin-top:54px;margin-bottom:52px;}
+.chart-wrap{background:#fff;border-radius:12px;border:1px solid var(--border);padding:28px 32px;}
+.chart-bars{display:flex;align-items:flex-end;gap:14px;height:200px;margin-bottom:12px;}
+.chart-col{display:flex;flex-direction:column;align-items:center;flex:1;min-width:48px;}
+.chart-bar-outer{width:100%;display:flex;flex-direction:column;justify-content:flex-end;flex:1;}
+.chart-bar{width:100%;border-radius:6px 6px 0 0;transition:height .5s ease;position:relative;min-height:4px;}
+.chart-bar-val{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:800;color:var(--navy);white-space:nowrap;}
+.chart-initials{font-size:12px;font-weight:700;color:var(--gray);margin-top:8px;letter-spacing:.5px;}
+.chart-name{font-size:10px;color:var(--gray2);margin-top:2px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.chart-baseline{border-top:2px solid var(--border);width:100%;}
+
+/* ── LEGEND ── */
+.legend-grid{display:flex;flex-wrap:wrap;gap:16px;background:#fff;border-radius:12px;border:1px solid var(--border);padding:22px 26px;margin-top:16px;}
+.legend-item{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;color:var(--navy);}
+.legend-swatch{width:42px;height:26px;border-radius:5px;flex-shrink:0;}
+.legend-swatch.internal{background:#e8f2ff;border:1.5px solid #c0d5f0;}
+.legend-swatch.external{background:repeating-linear-gradient(-45deg,#fff8f5 0,#fff8f5 6px,#fde8dc 6px,#fde8dc 8px);border:2px dashed var(--orange2);}
+.legend-swatch.client{background:#ede4fa;border:1.5px solid #c8a8e8;}
+.legend-swatch.prereq{background:#ffedc8;border:2px dashed #e0a030;}
+
+/* ── HOME BUTTON ── */
+.home-btn{background:var(--navy);color:#fff;border:none;padding:9px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s;margin-left:8px;flex-shrink:0;display:inline-flex;align-items:center;gap:5px;}
+.home-btn:hover{background:#0a1230;}
+
+/* ── PANEL SYSTEM ── */
+[data-panel]{display:none;}
+[data-panel].panel-active{display:block;}
+
+/* ── TAB ACTIVE STATES ── */
+.toc a.tab-active{font-weight:700;border-bottom-width:3px;}
+.toc a.tab-active:not(.gov):not(.ops):not(.act):not(.new):not(.dist):not(.cal){color:var(--navy);border-bottom-color:var(--navy);}
+.toc a.tab-active.gov{color:var(--blue);border-bottom-color:var(--blue);background:#f0f5ff;}
+.toc a.tab-active.ops{color:var(--green);border-bottom-color:var(--green);background:#f0f8f3;}
+.toc a.tab-active.act{color:var(--orange);border-bottom-color:var(--orange);background:#fff5f0;}
+.toc a.tab-active.new{color:var(--purple);border-bottom-color:var(--purple);background:#f7f0ff;}
+.toc a.tab-active.dist{color:var(--grape);border-bottom-color:var(--grape);background:#f5f0ff;}
+.toc a.tab-active.cal{color:var(--navy);border-bottom-color:var(--navy);background:#f0f3f8;}
+
+/* ── PRODUCT / CX MEMBER STYLES ── */
+.resp-chip.product{background:#b56030;}
+.picker-item.sel-product{background:#b56030;border-color:#b56030;color:#fff;}
+.picker-item.sel-product .pick-box{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);color:#fff;}
+.filter-btn.f-prod.active{background:#b56030;border-color:#b56030;color:#fff;}
+.filter-btn.f-cx.active{background:#1778a8;border-color:#1778a8;color:#fff;}
+.filter-btn.f-support.active{background:#c44c7a;border-color:#c44c7a;color:#fff;}
+.team-card.product{border-style:dashed;background:#fdf6f0;}
+
+/* ── MONTH SELECTOR ── */
+.month-row{display:flex;align-items:center;gap:12px;padding:10px 20px 14px;background:#fafbfc;border-top:1px solid var(--border);}
+.month-label{font-size:11px;font-weight:600;color:var(--gray);white-space:nowrap;display:flex;align-items:center;gap:5px;}
+.month-select{font-size:12px;font-weight:500;padding:5px 10px;border-radius:7px;border:1.5px solid var(--border);color:var(--navy);background:#fff;cursor:pointer;transition:border-color .15s;max-width:190px;}
+.month-select:focus{outline:none;border-color:var(--blue);}
+.month-badge-sm{font-size:10px;font-weight:600;padding:2px 9px;border-radius:10px;background:#e8f2ff;color:var(--blue);margin-left:auto;white-space:nowrap;}
+
+/* ── CALENDAR SECTION ── */
+#calendario{scroll-margin-top:54px;margin-bottom:52px;}
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:12px;}
+.cal-month{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;}
+.cal-month:hover{box-shadow:0 4px 14px rgba(21,31,71,.09);}
+.cal-month-head{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.cal-month-name{font-size:13px;font-weight:700;color:var(--navy);}
+.cal-count-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);color:var(--gray2);}
+.cal-count-badge.active{background:var(--navy);color:#fff;}
+.cal-body{padding:8px 12px 12px;min-height:44px;display:flex;flex-direction:column;gap:5px;}
+.cal-proj{display:flex;align-items:flex-start;gap:6px;padding:5px 8px;border-radius:7px;font-size:11px;font-weight:500;line-height:1.3;border-left:3px solid;}
+.cal-proj-prio{font-size:9px;font-weight:700;padding:1px 6px;border-radius:8px;color:#fff;flex-shrink:0;margin-top:1px;}
+.cal-proj-name{flex:1;color:var(--navy);}
+.cal-empty-msg{font-size:11px;color:var(--gray2);font-style:italic;padding:4px 2px;}
+.cal-quarter-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray2);padding:2px 0 4px;}
+
+/* ── PROJECT INDEX ── */
+#indice{scroll-margin-top:54px;margin-bottom:52px;}
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;}
+.index-pillar{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;}
+.index-pillar-head{padding:10px 16px;display:flex;align-items:center;gap:9px;}
+.index-pillar-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.index-items{padding:6px 10px 10px;display:flex;flex-direction:column;gap:2px;}
+.index-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:7px;text-decoration:none;color:var(--navy);font-size:13px;font-weight:500;transition:background .12s;}
+.index-item:hover{background:var(--bg);}
+.index-item:hover .index-arrow{opacity:1;transform:translateX(2px);}
+.index-prio{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;color:#fff;flex-shrink:0;}
+.ip1{background:var(--p1c);}.ip2{background:var(--p2c);}.ip3{background:var(--p3c);}
+.index-name{flex:1;line-height:1.3;}
+.index-arrow{color:var(--gray2);font-size:13px;opacity:.4;transition:all .15s;flex-shrink:0;}
+.project-pipeline{scroll-margin-top:62px;}
+
+/* ── FOOTER ── */
+.page-footer{background:var(--navy);padding:20px 64px;display:flex;align-items:center;justify-content:space-between;}
+.page-footer span{font-size:12px;color:rgba(255,255,255,.35);}
+
+@media(max-width:900px){
+  .content,.page-header,.page-footer{padding-left:20px;padding-right:20px;}
+  .toc{padding:0 12px;}
+  .foundation-grid{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .picker-body{grid-template-columns:1fr;}
+  .month-row{flex-wrap:wrap;}
+  .cal-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+}
+/* ── PRINT ASSIGNMENTS SECTION (hidden on screen) ── */
+#print-assignments{display:none;}
+
+/* ── PRINT VIEW STYLES ── */
+.pv-header{margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid #dde3ef;}
+.pv-header-title{font-size:18px;font-weight:800;color:#151F47;margin-bottom:3px;}
+.pv-header-meta{font-size:11px;color:#64748b;letter-spacing:.5px;}
+.pv-table{width:100%;border-collapse:collapse;}
+.pv-pillar-row td{padding:14px 0 5px;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
+.pv-row{border-bottom:1px solid #eef0f5;}
+.pv-row td{padding:9px 10px 9px 0;vertical-align:middle;}
+.pv-prio{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:10px;font-weight:700;color:#fff;}
+.pv-name{font-size:13px;font-weight:600;color:#151F47;padding-right:16px!important;}
+.pv-pillar-cell{font-size:10px;font-weight:700;padding-right:16px!important;white-space:nowrap;}
+.pv-chip{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;color:#fff;margin:2px 3px 2px 0;}
+.pv-none{font-size:11px;color:#94a3b8;font-style:italic;}
+.pv-signature{margin-top:40px;padding-top:14px;border-top:1px solid #dde3ef;display:flex;justify-content:space-between;font-size:10px;color:#94a3b8;}
+
+/* ── BONUS TAB ── */
+.toc a.bono{color:var(--orange);}
+.toc a.tab-active.bono{color:var(--orange);border-bottom-color:var(--orange);background:#fff5f0;}
+
+/* ── BONUS SECTION ── */
+.bonus-hero{display:grid;grid-template-columns:3fr 2fr;gap:0;margin-bottom:32px;background:#fff;border-radius:16px;border:1px solid var(--border);overflow:hidden;}
+.bonus-hero-left{padding:28px 32px;display:flex;flex-direction:column;gap:16px;}
+.bonus-hero-right{background:var(--navy);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;}
+.bonus-hero-pct{font-size:56px;font-weight:800;color:#fff;line-height:1;}
+.bonus-hero-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.bonus-weight-row{display:flex;gap:10px;align-items:stretch;}
+.bonus-weight-box{flex:1;padding:14px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg);text-align:center;position:relative;}
+.bonus-weight-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;}
+.bonus-weight-box.w-area::before{background:var(--navy);}
+.bonus-weight-box.w-delivery::before{background:var(--blue);}
+.bonus-weight-box.w-quality::before{background:var(--green);}
+.bonus-weight-num{font-size:28px;font-weight:800;line-height:1;}
+.bonus-weight-lbl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-top:4px;}
+.bonus-weight-desc{font-size:10px;color:var(--gray2);margin-top:6px;line-height:1.4;}
+.bonus-delivery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px;}
+.bonus-pillar-group{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;}
+.bonus-pillar-group:hover{box-shadow:0 4px 16px rgba(21,31,71,.07);}
+.bonus-pillar-head{padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);}
+.bonus-pillar-head-title{font-size:12px;font-weight:700;letter-spacing:.5px;}
+.bonus-pillar-head-score{margin-left:auto;font-size:16px;font-weight:800;display:flex;align-items:center;gap:6px;}
+.bonus-pillar-head-bar{width:48px;height:5px;border-radius:3px;background:var(--bg);overflow:hidden;}
+.bonus-pillar-head-bar-fill{height:100%;border-radius:3px;transition:width .3s;}
+.bonus-pillar-body{padding:8px 14px 14px;display:flex;flex-direction:column;gap:3px;}
+.bonus-proj-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-size:12px;font-weight:500;transition:all .12s;cursor:pointer;}
+.bonus-proj-row:hover{background:var(--bg);}
+.bonus-proj-row input[type="checkbox"]{width:18px;height:18px;accent-color:var(--green);cursor:pointer;flex-shrink:0;border-radius:4px;}
+.bonus-proj-row.delivered{background:#f0fdf4;}
+.bonus-proj-row.delivered .bonus-proj-name{text-decoration:line-through;color:var(--gray2);}
+.bonus-proj-name{flex:1;}
+.bonus-proj-owner{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);color:var(--gray);white-space:nowrap;}
+.bonus-curve-wrap{background:#fff;border-radius:14px;border:1px solid var(--border);padding:24px 28px;margin-bottom:32px;}
+.bonus-curve-header{display:flex;align-items:flex-end;gap:20px;margin-bottom:16px;flex-wrap:wrap;}
+.bonus-curve-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:4px;}
+.bonus-curve-formula{font-family:'SF Mono','Fira Code','Courier New',monospace;font-size:13px;color:var(--navy);background:var(--bg);padding:8px 14px;border-radius:8px;display:inline-block;}
+.bonus-curve-score{margin-left:auto;text-align:right;}
+.bonus-curve-score-val{font-size:48px;font-weight:800;color:var(--navy);line-height:1;}
+.bonus-curve-score-lbl{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-top:2px;}
+.bonus-table-wrap{overflow-x:auto;margin-bottom:32px;}
+.bonus-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+.bonus-table thead th{background:var(--navy);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 14px;text-align:center;white-space:nowrap;}
+.bonus-table thead th:first-child{text-align:center;width:36px;}
+.bonus-table thead th:nth-child(2){text-align:left;}
+.bonus-table tbody td{padding:10px 14px;font-size:12px;text-align:center;border-bottom:1px solid var(--border);vertical-align:middle;}
+.bonus-table tbody td:nth-child(2){text-align:left;}
+.bonus-table tbody tr:hover{background:#f8faff;}
+.bonus-table tbody tr.level1-row{background:#f0f5ff;}
+.bonus-table .score-input{width:54px;padding:6px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;text-align:center;transition:border-color .15s;background:#fff;}
+.bonus-table .score-input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(48,97,170,.12);}
+.bonus-total-cell{font-weight:800;font-size:15px !important;}
+.bonus-bar-mini{height:8px;border-radius:4px;background:var(--bg);overflow:hidden;min-width:80px;}
+.bonus-bar-mini-fill{height:100%;border-radius:4px;transition:width .4s ease;}
+.bonus-hierarchy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
+.bonus-hier-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:18px 20px;}
+.bonus-hier-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.bonus-hier-list{display:flex;flex-direction:column;gap:8px;}
+.bonus-hier-item{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;padding:6px 10px;border-radius:8px;border:1px solid transparent;transition:all .12s;}
+.bonus-hier-item:hover{background:var(--bg);border-color:var(--border);}
+.bonus-hier-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;}
+.bonus-transversal{font-size:9px;font-weight:600;padding:2px 8px;border-radius:10px;background:#fef3c7;color:#92400e;letter-spacing:.3px;}
+.bonus-scope-tag{font-size:9px;font-weight:600;padding:2px 8px;border-radius:10px;color:#fff;}
+.bonus-delivered-badge{display:inline-flex;align-items:center;gap:6px;font-size:20px;font-weight:800;color:var(--green);background:#f0fdf4;padding:6px 16px;border-radius:10px;border:1px solid #bbf7d0;}
+/* ── BONUS EXPLAINER ── */
+.bonus-explainer{margin-bottom:32px;}
+.bonus-explain-title{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.bonus-explain-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.bonus-explain-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px;}
+.bonus-explain-card{background:#fff;border-radius:14px;border:1px solid var(--border);padding:20px;position:relative;overflow:hidden;}
+.bonus-explain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.bonus-explain-card.ec-area::before{background:var(--navy);}
+.bonus-explain-card.ec-scope::before{background:var(--blue);}
+.bonus-explain-card.ec-quality::before{background:var(--green);}
+.bonus-explain-card h4{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.bonus-explain-card h4 .ec-pct{font-size:22px;font-weight:800;line-height:1;}
+.bonus-explain-card p{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:8px;}
+.bonus-explain-card ul{list-style:none;padding:0;margin:0;}
+.bonus-explain-card li{font-size:11px;color:var(--gray);line-height:1.5;padding:3px 0 3px 16px;position:relative;}
+.bonus-explain-card li::before{content:'';width:5px;height:5px;border-radius:50%;position:absolute;left:0;top:9px;}
+.ec-area li::before{background:var(--navy);}
+.ec-scope li::before{background:var(--blue);}
+.ec-quality li::before{background:var(--green);}
+.bonus-explain-card .ec-formula{font-family:'SF Mono','Fira Code',monospace;font-size:11px;background:var(--bg);padding:8px 12px;border-radius:6px;margin-top:8px;color:var(--navy);font-weight:600;}
+.bonus-scope-detail{margin-top:24px;margin-bottom:32px;}
+.bonus-scope-detail-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.bonus-scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.bonus-scope-block{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;}
+.bonus-scope-block-head{padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;border-bottom:1px solid var(--border);}
+.bonus-scope-block-body{padding:14px 18px;font-size:12px;color:var(--gray);line-height:1.6;}
+.bonus-scope-block-body table{width:100%;border-collapse:collapse;margin-top:8px;}
+.bonus-scope-block-body th{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray2);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);}
+.bonus-scope-block-body td{font-size:11px;padding:6px 8px;border-bottom:1px solid #f0f3f8;vertical-align:top;}
+.bonus-callout{border-radius:12px;padding:18px 20px;margin-top:16px;display:flex;gap:14px;align-items:flex-start;}
+.bonus-callout.callout-pb{background:#fef7f0;border:1px solid #fddcbe;}
+.bonus-callout.callout-rp{background:#f5f0ff;border:1px solid #d8c8f0;}
+.bonus-callout-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;}
+.bonus-callout-content{flex:1;}
+.bonus-callout-content strong{font-size:13px;color:var(--navy);display:block;margin-bottom:4px;}
+.bonus-callout-content p{font-size:12px;color:var(--gray);line-height:1.6;margin:0;}
+.bonus-callout-content .callout-metric{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;margin-top:6px;margin-right:4px;}
+.bonus-example-wrap{background:#fff;border-radius:14px;border:1px solid var(--border);padding:20px 24px;margin-bottom:32px;}
+.bonus-example-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.bonus-example-title span{font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;background:var(--bg);color:var(--gray);}
+.bonus-example-row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #f0f3f8;font-size:12px;}
+.bonus-example-row:last-child{border-bottom:none;font-weight:700;color:var(--navy);padding-top:12px;border-top:2px solid var(--border);}
+.bonus-example-label{flex:1;color:var(--gray);}
+.bonus-example-calc{color:var(--gray2);font-family:monospace;font-size:11px;min-width:160px;}
+.bonus-example-val{font-weight:700;min-width:60px;text-align:right;}
+
+/* ── BONUS MINI-PICKER ── */
+.bonus-proj-row-wrap{display:flex;flex-direction:column;}
+.bonus-mini-picker{display:none;padding:6px 10px 10px 46px;gap:5px;flex-wrap:wrap;}
+.bonus-mini-picker.open{display:flex;}
+.bonus-mini-chip{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;cursor:pointer;opacity:.35;transition:all .15s;border:2px solid transparent;flex-shrink:0;}
+.bonus-mini-chip:hover{opacity:.7;transform:scale(1.1);}
+.bonus-mini-chip.assigned{opacity:1;border-color:#fff;box-shadow:0 0 0 2px rgba(0,0,0,.15);}
+.bonus-proj-expand{font-size:10px;color:var(--gray2);cursor:pointer;margin-left:auto;padding:2px 8px;border-radius:6px;transition:all .15s;flex-shrink:0;}
+.bonus-proj-expand:hover{background:var(--bg);color:var(--navy);}
+
+/* ── SELECT ALL BUTTON ── */
+.bonus-select-all-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:5px 14px;border-radius:8px;border:1.5px solid var(--green);background:#f0fdf4;color:var(--green);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.bonus-select-all-btn:hover{background:var(--green);color:#fff;}
+.bonus-select-all-btn.all-on{border-color:#ef4444;background:#fef2f2;color:#ef4444;}
+.bonus-select-all-btn.all-on:hover{background:#ef4444;color:#fff;}
+
+/* ── GATE (50% threshold) ── */
+.bonus-gate-toggle{display:inline-flex;align-items:center;gap:4px;cursor:pointer;}
+.bonus-gate-toggle input{width:16px;height:16px;accent-color:#ef4444;cursor:pointer;}
+.bonus-table tbody tr.gated-row{opacity:.45;background:#fef2f2 !important;}
+.bonus-table tbody tr.gated-row .bonus-total-cell{text-decoration:line-through;color:#ef4444 !important;}
+.bonus-gate-badge{font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;background:#fef2f2;color:#ef4444;border:1px solid #fecaca;letter-spacing:.3px;}
+
+@media(max-width:900px){.bonus-hero{grid-template-columns:1fr;}.bonus-delivery-grid{grid-template-columns:1fr;}.bonus-hierarchy-grid{grid-template-columns:1fr;}.bonus-weight-row{flex-wrap:wrap;}.bonus-explain-grid{grid-template-columns:1fr;}.bonus-scope-grid{grid-template-columns:1fr;}}
+
+@media print{
+  /* Hide all interactive UI */
+  .toc,.page-header::before,.page-header::after,
+  .export-btn,.home-btn,.header-accent,.header-label,
+  .content>section{display:none!important;}
+
+  /* Show only the print view */
+  #print-assignments{display:block!important;}
+
+  body{background:#fff!important;}
+  .content{padding:24px 32px!important;max-width:100%!important;}
+  .page-header{padding:18px 32px!important;}
+  .header-title{font-size:22px!important;}
+  .header-sub{font-size:11px!important;}
+  .header-meta{position:static;text-align:left;display:block;}
+
+  /* Force colors through */
+  * { -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-meta">Área Digital · TI<br>Abril 2026 · Confidencial</div>
+  <div class="header-label">Planificación Estratégica 2026</div>
+  <h1 class="header-title">Área <span>Digital</span> · TI</h1>
+  <p class="header-sub">Unidad ActuaLab + Desarrolladores · Pipeline de Proyectos · Dependencias y Responsables</p>
+  <div class="header-accent"></div>
+</header>
+
+<!-- NAV -->
+<nav class="toc">
+  <div class="toc-links">
+    <a href="#" data-tab="inicio"    onclick="showTab('inicio');return false;">📋 Índice</a>
+    <a href="#" data-tab="equipo"   onclick="showTab('equipo');return false;">👥 Equipo</a>
+    <a href="#" data-tab="gov"  class="gov" onclick="showTab('gov');return false;"><span class="toc-dot" style="background:#3061AA"></span>① Gobernanza</a>
+    <a href="#" data-tab="ops"  class="ops" onclick="showTab('ops');return false;"><span class="toc-dot" style="background:#1a7a4a"></span>② Optimización</a>
+    <a href="#" data-tab="act"  class="act" onclick="showTab('act');return false;"><span class="toc-dot" style="background:#C9521A"></span>③ Actuaria+</a>
+    <a href="#" data-tab="new"  class="new" onclick="showTab('new');return false;"><span class="toc-dot" style="background:#5c2f90"></span>④ Nuevos</a>
+    <a href="#" data-tab="resumen"  onclick="showTab('resumen');return false;">📊 Resumen</a>
+    <a href="#" data-tab="calendario" class="cal" onclick="showTab('calendario');return false;">📅 Calendario</a>
+    <a href="#" data-tab="dist" class="dist" onclick="showTab('dist');return false;"><span class="toc-dot" style="background:#7c4d9e"></span>Distribución</a>
+    <a href="#" data-tab="bonos" class="bono" onclick="showTab('bonos');return false;"><span class="toc-dot" style="background:#C9521A"></span>Bonificaciones</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:0;flex-shrink:0;">
+    <button class="export-btn" onclick="exportPDF()">⬇ Exportar PDF</button>
+  </div>
+</nav>
+
+<main class="content">
+
+  <!-- ÍNDICE DE PROYECTOS -->
+  <section id="indice" data-panel="inicio">
+    <div class="section-label" style="color:var(--navy)">Índice de Proyectos</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:16px;">Selecciona un proyecto para ir directamente a su pipeline, fases e integrantes.</p>
+    <div class="index-grid" id="index-grid"></div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo" data-panel="equipo" style="scroll-margin-top:54px;margin-bottom:52px;">
+    <div class="section-label" style="color:var(--navy)">Equipo</div>
+    <p class="team-section-title">ActuaLab</p>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar" style="background:var(--navy)">PR</div><div><div class="team-name">Pablo Rueda</div><div class="team-role">Head de Data Governance</div><span class="team-tag" style="background:var(--blue)">Director del Área</span></div></div>
+      <div class="team-card"><div class="team-avatar" style="background:var(--green)">LT</div><div><div class="team-name">Lenin Torres</div><div class="team-role">Head de IA</div><span class="team-tag" style="background:var(--green)">Liderazgo Técnico IA</span></div></div>
+      <div class="team-card"><div class="team-avatar" style="background:var(--purple)">PE</div><div><div class="team-name">Pablo Encalada</div><div class="team-role">Analista de IA</div><span class="team-tag" style="background:var(--purple)">Desarrollo · IA</span></div></div>
+    </div>
+    <p class="team-section-title" style="margin-top:22px;">Desarrolladores · Área Digital (TI)</p>
+    <div class="team-grid">
+      <div class="team-card dev"><div class="team-avatar" style="background:var(--teal)">CP</div><div><div class="team-name">Cristopher Palacios</div><div class="team-role">Desarrollador Full Stack</div><span class="dev-badge">Desarrollador</span></div></div>
+      <div class="team-card dev"><div class="team-avatar" style="background:var(--teal)">CM</div><div><div class="team-name">Cristián Mejía</div><div class="team-role">Desarrollador Full Stack</div><span class="dev-badge">Desarrollador</span></div></div>
+      <div class="team-card dev"><div class="team-avatar" style="background:var(--teal)">AC</div><div><div class="team-name">Arthur Chavez</div><div class="team-role">Desarrollador Full Stack</div><span class="dev-badge">Desarrollador</span></div></div>
+      <div class="team-card cto" style="border-style:solid;"><div class="team-avatar" style="background:linear-gradient(135deg,var(--cto),var(--cto2));box-shadow:0 0 0 3px #fdeab8;">RF</div><div><div class="team-name">Raimundo Frohlich</div><div class="team-role">CTO · Área Digital TI</div><span class="team-tag" style="background:linear-gradient(135deg,var(--cto),var(--cto2));letter-spacing:.5px;">⭐ CTO</span></div></div>
+      <div class="team-card dev"><div class="team-avatar" style="background:#0d7a7a">CPc</div><div><div class="team-name">Carlos Puco</div><div class="team-role">Desarrollador</div><span class="dev-badge">Desarrollador</span></div></div>
+    </div>
+    <p class="team-section-title" style="margin-top:22px;">Producto · Operaciones</p>
+    <div class="team-grid">
+      <div class="team-card product"><div class="team-avatar" style="background:#2d6a9f">JN</div><div><div class="team-name">Jonathan Narváez</div><div class="team-role">Innovation Manager</div><span class="dev-badge" style="background:#2d6a9f">Innovation</span></div></div>
+      <div class="team-card product"><div class="team-avatar" style="background:#b56030">PB</div><div><div class="team-name">Pamela Beltran</div><div class="team-role">Product Operations</div><span class="dev-badge" style="background:#b56030">Producto</span></div></div>
+      <div class="team-card product"><div class="team-avatar" style="background:#1778a8">FV</div><div><div class="team-name">Fernanda Villa</div><div class="team-role">Especialista CX</div><span class="dev-badge" style="background:#1778a8">CX</span></div></div>
+      <div class="team-card product"><div class="team-avatar" style="background:var(--grape)">RP</div><div><div class="team-name">Renato Puente</div><div class="team-role">Especialista UI/UX</div><span class="dev-badge" style="background:var(--grape)">UI/UX</span></div></div>
+      <div class="team-card product"><div class="team-avatar" style="background:#c44c7a">CPo</div><div><div class="team-name">Cristina Porras</div><div class="team-role">Customer Support Analyst</div><span class="dev-badge" style="background:#c44c7a">Support</span></div></div>
+    </div>
+    <p style="font-size:11px;color:var(--gray);margin-top:10px;padding-left:4px;font-style:italic;">🔵 ActuaLab dirige y lidera todas las iniciativas. El equipo de Desarrolladores aporta la capacidad técnica en los productos digitales.</p>
+  </section>
+
+  <!-- ① GOBERNANZA -->
+  <section class="pillar" id="pillar-gov" data-panel="gov">
+    <div class="pillar-header pillar-gov"><div class="pillar-num">①</div><div><h2>Gobernanza de Datos</h2><p>Infraestructura analítica fundacional · Responsable: Pablo Rueda</p></div></div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:14px;padding-left:4px;">Los proyectos de Gobernanza son la <strong>base estructural</strong> del área. Se ejecutan en paralelo y desbloquean directamente múltiples proyectos de los pilares siguientes.</p>
+    <div class="foundation-grid">
+      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Migración Datos Históricos</h4><p class="fc-sub">Estudios Actuariales y Actas</p><div class="unlocks">🔓 Desbloquea:<br>Control Tributario de Provisiones<br>NavIA – Asistente Inteligente</div></div>
+      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Gobierno e Integración Datos Clientes</h4><p class="fc-sub">Salesforce · CRM</p><div class="unlocks">🔓 Desbloquea:<br>Automatización E2E del Estudio Actuarial<br>Automatización Comercial y Facturación</div></div>
+      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Data Hub Supercias (SCVS)</h4><p class="fc-sub">Datos públicos · analítica sectorial</p><div class="unlocks">🔓 Desbloquea:<br>Base Analítica Benchmark Salarial<br>Plataforma Benchmark · Análisis Competencia</div></div>
+      <div class="foundation-card" style="border-color:var(--blue2);"><div class="fc-label" style="color:var(--blue2);">P2 · Pablo Rueda</div><h4>Base Analítica Benchmark Salarial</h4><p class="fc-sub">Datasets enriquecidos de mercado</p><div class="unlocks" style="color:var(--blue2);">🔓 Desbloquea:<br>Plataforma de Benchmark Salarial</div></div>
+    </div>
+    <p class="foundation-note">* Data Hub Supercias → Base Analítica Benchmark Salarial (dependencia interna del pilar)</p>
+    <div style="margin-top:20px;">
+      <p class="team-section-title">Asignación de integrantes · proyectos Gobernanza</p>
+      <div class="project-pipeline">
+        <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Migración Datos Históricos</div><div class="resp-chips" id="chips-mig"></div></div>
+        <div class="project-desc">Consolidación y migración de todos los estudios actuariales históricos y actas patronales desde sistemas legacy (ActuaFast) hacia la plataforma de datos centralizada. Garantiza acceso estructurado, trazable y limpio a datos históricos para los análisis posteriores.</div>
+        <div id="picker-mig"></div>
+      </div>
+      <div class="project-pipeline">
+        <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Gobierno e Integración Datos Clientes (Salesforce)</div><div class="resp-chips" id="chips-govsf"></div></div>
+        <div class="project-desc">Estructuración del gobierno de datos de clientes con integración bidireccional a Salesforce CRM. Garantiza la calidad, trazabilidad y accesibilidad de los datos de clientes para procesos actuariales automatizados y flujos comerciales eficientes.</div>
+        <div id="picker-govsf"></div>
+      </div>
+      <div class="project-pipeline">
+        <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Data Hub Supercias (SCVS)</div><div class="resp-chips" id="chips-dhub"></div></div>
+        <div class="project-desc">Construcción de un hub de datos públicos de la Superintendencia de Compañías del Ecuador (SCVS) para análisis sectorial. Provee los cimientos de datos para la inteligencia de benchmark salarial y análisis competitivo del mercado ecuatoriano.</div>
+        <div id="picker-dhub"></div>
+      </div>
+      <div class="project-pipeline">
+        <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Base Analítica Benchmark Salarial</div><div class="resp-chips" id="chips-bab"></div></div>
+        <div class="project-desc">Creación y mantenimiento de datasets enriquecidos de estructuras salariales del mercado ecuatoriano, combinando datos SCVS, encuestas de compensación y fuentes externas. Alimenta directamente la Plataforma de Benchmark Salarial.</div>
+        <div id="picker-bab"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② OPTIMIZACIÓN -->
+  <section class="pillar" id="pillar-ops" data-panel="ops">
+    <div class="pillar-header pillar-ops"><div class="pillar-num">②</div><div><h2>Optimización de Procesos Operativos</h2><p>Automatizar, estandarizar y escalar la operación con IA · Lenin Torres</p></div></div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Automatización End-to-End del Estudio Actuarial</div><div class="resp-chips" id="chips-e2e"></div></div>
+      <div class="project-desc">Digitalización y automatización completa del proceso de estudio actuarial mediante <strong>agentes de IA</strong>. Cubre desde el levantamiento de información y los cálculos actuariales hasta la revisión automatizada, integración con CRM y generación del informe final.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Gobierno e Integración Salesforce</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Levantamiento información procesos actuales</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Implementación agentes de cálculo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">Validación de resultados de cálculo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 4</span><span class="phase-name">Implementación agentes revisores</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 5</span><span class="phase-name">Implementación agentes integración CRM</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 6</span><span class="phase-name">Definición nuevo flujo operacional</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy"><span class="phase-num">Fase 7</span><span class="phase-name">Implementación en producción</span></div>
+      </div>
+      <div id="picker-e2e"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Agente Virtual CX</div><div class="resp-chips" id="chips-vcx"></div></div>
+      <div class="project-desc">Agente conversacional con IA <strong>conectado a WhatsApp</strong> que atiende de manera inmediata y precisa las preguntas de clientes, reduciendo tiempos de respuesta y mejorando la experiencia de servicio. El agente identifica y <strong>deriva automáticamente los requerimientos específicos al equipo de operaciones</strong>, asegurando que cada solicitud llegue al responsable correcto sin intervención manual.</div>
+      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Levantamiento de flujos de atención al cliente</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Diseño del agente conversacional y árbol de decisiones</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">Integración con WhatsApp Business API</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 4</span><span class="phase-name">Pruebas de calidad y ajuste de flujos</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy"><span class="phase-num">Fase 5</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-vcx"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Suite de Asistentes Operativos</div><div class="resp-chips" id="chips-suite"></div></div>
+      <div class="project-desc">Conjunto de <strong>asistentes inteligentes especializados</strong> para las principales herramientas del área: estudios actuariales, cálculo de impuestos diferidos y actas de jubilación patronal. Sigue la misma lógica de agentes que la Automatización E2E.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-ops">Automatización E2E (contexto operativo)</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Levantamiento de procesos por herramienta</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Implementación agentes por herramienta</span><span class="phase-sub">estudios · impuestos · actas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">Validación de resultados</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 4</span><span class="phase-name">Implementación agentes revisores</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 5</span><span class="phase-name">Definición nuevo flujo operacional</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy"><span class="phase-num">Fase 6</span><span class="phase-name">Implementación en producción</span></div>
+      </div>
+      <div id="picker-suite"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Automatización Comercial y Facturación</div><div class="resp-chips" id="chips-com"></div></div>
+      <div class="project-desc">Automatización del ciclo comercial completo — propuestas, contratos, seguimiento y facturación — integrado con Salesforce CRM y el sistema contable. Elimina tareas manuales y reduce tiempos de respuesta al cliente.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Gobierno e Integración Datos Clientes (Salesforce)</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Mapeo proceso comercial y facturación actual</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Integración con CRM (Salesforce)</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">Automatización flujo de facturación</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 4</span><span class="phase-name">Validación</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy"><span class="phase-num">Fase 5</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-com"></div>
+    </div>
+  </section>
+
+  <!-- ③ ACTUARIA+ -->
+  <section class="pillar" id="pillar-act" data-panel="act">
+    <div class="pillar-header pillar-act"><div class="pillar-num">③</div><div><h2>Productos Digitales · Actuaria+</h2><p>Ingresos recurrentes y mayor valor para el cliente (SaaS)</p></div></div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Simulador de Beneficios Post-Empleo</div><div class="resp-chips" id="chips-sim"></div></div>
+      <div class="project-desc">Plataforma SaaS B2B para la simulación y análisis de <strong>beneficios post-empleo bajo NIIF 19</strong>. El proyecto contempla la <strong>actualización de funcionalidades y optimización de la herramienta</strong> en base al feedback de clientes, incluyendo una nueva conceptualización apegada a sus requerimientos. Incorpora <strong>información tributaria proveniente de los cálculos del Control Tributario de Provisiones</strong>, enriqueciendo el análisis de obligaciones laborales y provisiones actuariales.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Datos Históricos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-client"><span class="phase-tag">👥 Cliente</span><span class="phase-num">Fase 1</span><span class="phase-name">Reunión con clientes — feedback sobre funcionamiento</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Conceptualización interna de nuevas funcionalidades</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal" style="min-width:165px;"><span class="phase-num">Fase 3</span><span class="phase-name">Desarrollo nuevas funcionalidades backend + frontend</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-act"><span class="phase-num">Fase 4</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-sim"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Control Tributario de Provisiones</div><div class="resp-chips" id="chips-ctrl"></div></div>
+      <div class="project-desc">Herramienta digital para el control, seguimiento y reporte tributario de <strong>provisiones actuariales (NIIF 19)</strong>. Requiere una <strong>nueva conceptualización apegada al feedback de los clientes</strong>, junto con la reestructuración del motor de cálculo y un nuevo frontend más intuitivo. Requiere que la migración de datos ActuaFast esté completada previamente.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Datos Históricos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-prereq" style="min-width:162px;"><span class="phase-tag">⚠ Prereq. Externo</span><span class="phase-num">Fase 1</span><span class="phase-name">Migración datos ActuaFast completa</span><span class="phase-sub">No ejecutado por ActuaLab — mapear tiempos</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-external"><span class="phase-tag">↗ Externo (ActuaLab mapea)</span><span class="phase-num">Fase 2</span><span class="phase-name">Conceptualización del nuevo modelo</span><span class="phase-sub">Equipo externo al área</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-act" style="min-width:162px;"><span class="phase-num">Fase 3</span><span class="phase-name">Reestructuración cálculo + nuevo frontend</span></div>
+      </div>
+      <div id="picker-ctrl"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Actuaria+ con Pagos Integrados</div><div class="resp-chips" id="chips-pag"></div></div>
+      <div class="project-desc">Extensión de la plataforma Actuaria+ con un módulo de <strong>pagos y facturación directa integrado a CRM y ERP</strong> del cliente. Habilita cobros automáticos, conciliación contable y despacho de comprobantes electrónicos, cerrando el ciclo comercial dentro de la plataforma.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-ops">Automatización E2E (datos operativos)</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal" style="min-width:172px;"><span class="phase-num">Fase 1</span><span class="phase-name">Integración agentes con CRM y ERP (conexión directa)</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Validación de resultados</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-act"><span class="phase-num">Fase 3</span><span class="phase-name">Implementación en producción</span></div>
+      </div>
+      <div id="picker-pag"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">NavIA – Asistente Inteligente Actuarial</div><div class="resp-chips" id="chips-navia"></div></div>
+      <div class="project-desc"><strong>Chatbot de soporte inteligente</strong> integrado en el ecosistema Actuaria+. Enfocado en tres ejes: <strong>soporte en la carga de información</strong> (guía al usuario durante el ingreso de datos en cada módulo), <strong>asistencia en el uso de los distintos módulos</strong> (responde dudas operativas y funcionales en lenguaje natural), y <strong>generación de insights</strong> específicos por herramienta (analiza resultados del Control Tributario, Simulador y actas para destacar hallazgos relevantes). Se integra directamente en el frontend de cada herramienta del ecosistema.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Datos Históricos</span><span class="dep-tag dep-tag-act">Control Tributario de Provisiones</span><span class="dep-tag dep-tag-act">Simulador Beneficios Post-Empleo</span><span class="dep-tag dep-tag-act">Actuaria+ (plataforma host)</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal" style="min-width:172px;"><span class="phase-num">Fase 1</span><span class="phase-name">Integración BD resultados Control Tributario + Simulador</span><span class="phase-sub">Ambos deben estar en prod.</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal" style="min-width:165px;"><span class="phase-num">Fase 2</span><span class="phase-name">Integración actas jubilación patronal e impuestos diferidos</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal" style="min-width:158px;"><span class="phase-num">Fase 3</span><span class="phase-name">Integración con frontend de cada herramienta</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 4</span><span class="phase-name">Pruebas de funcionamiento</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-act"><span class="phase-num">Fase 5</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-navia"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">ActuaFast</div><div class="resp-chips" id="chips-afast"></div></div>
+      <div class="project-desc">Expansión y optimización de la plataforma ActuaFast para <strong>incorporar un mayor número de casos procesables directamente en la herramienta</strong>, reduciendo la dependencia de macros en el flujo de trabajo. El proyecto contempla además la <strong>gestión completa del estudio actuarial desde ActuaFast</strong>, incluyendo todo el seguimiento operativo y administrativo, eliminando la necesidad de acceder a Salesforce para la ejecución del proceso.</div>
+      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-act"><span class="phase-num">Fase 4</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-afast"></div>
+    </div>
+  </section>
+
+  <!-- ④ NUEVOS PRODUCTOS -->
+  <section class="pillar" id="pillar-new" data-panel="new">
+    <div class="pillar-header pillar-new"><div class="pillar-num">④</div><div><h2>Nuevos Productos Digitales</h2><p>Ciclo estándar: Diseño → Desarrollo → QA → Lanzamiento</p></div></div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Jubilación Ideal <span style="font-size:12px;font-weight:400;color:var(--gray);">· B2C · IESS</span></div><div class="resp-chips" id="chips-jub"></div></div>
+      <div class="project-desc">Producto digital <strong>B2C</strong> que permite a personas naturales simular y planificar su jubilación IESS con datos reales. Proyecta montos de pensión estimados, tiempos de aporte faltantes y estrategias de optimización, con experiencia accesible al público general.</div>
+      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-pur"><span class="phase-num">Fase 4</span><span class="phase-name">Lanzamiento</span></div>
+      </div>
+      <div id="picker-jub"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Plataforma de Benchmark Salarial</div><div class="resp-chips" id="chips-bench"></div></div>
+      <div class="project-desc">Plataforma SaaS que permite a empresas y consultoras de RRHH <strong>comparar estructuras salariales</strong> contra el mercado ecuatoriano con segmentación por industria, cargo y región. Monetiza directamente la Base Analítica del área.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Data Hub Supercias (SCVS)</span><span class="dep-tag dep-tag-gov">Base Analítica Benchmark Salarial</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-pur"><span class="phase-num">Fase 4</span><span class="phase-name">Lanzamiento</span></div>
+      </div>
+      <div id="picker-bench"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Producto de Análisis de Competencia</div><div class="resp-chips" id="chips-comp"></div></div>
+      <div class="project-desc">Herramienta de <strong>inteligencia competitiva</strong> basada en datos SCVS que permite analizar el posicionamiento financiero, laboral y operativo de competidores en el mercado ecuatoriano. Apoya la toma de decisiones estratégicas del cliente.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Data Hub Supercias (SCVS)</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-pur"><span class="phase-num">Fase 4</span><span class="phase-name">Lanzamiento</span></div>
+      </div>
+      <div id="picker-comp"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Asistente de Asesoría Legal</div><div class="resp-chips" id="chips-legal"></div></div>
+      <div class="project-desc">Asistente IA especializado en <strong>normativa laboral y legal ecuatoriana</strong> aplicada al ámbito empresarial y actuarial. Cubre consultas sobre el Código del Trabajo, IESS, NIIF, regulaciones tributarias y sectoriales. Reduce dependencia de asesoría legal externa.</div>
+      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-pur"><span class="phase-num">Fase 4</span><span class="phase-name">Lanzamiento</span></div>
+      </div>
+      <div id="picker-legal"></div>
+    </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p3">P3</div><div class="project-name">Sistema de Gestión de Nómina</div><div class="resp-chips" id="chips-nom"></div></div>
+      <div class="project-desc">Plataforma para la <strong>gestión integral de nómina empresarial</strong> con automatización de cálculos (décimos, fondos de reserva, IESS, beneficios patronales), cumplimiento normativo automático y generación de reportes contables y de RRHH.</div>
+      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-pur"><span class="phase-num">Fase 4</span><span class="phase-name">Lanzamiento</span></div>
+      </div>
+      <div id="picker-nom"></div>
+    </div>
+  </section>
+
+  <!-- RESUMEN POR PILAR -->
+  <section id="resumen" data-panel="resumen" style="margin-bottom:52px;">
+    <div class="section-label" style="color:var(--navy)">Resumen de Proyectos y Prioridades</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">Ordenado por pilar estratégico · Los integrantes se actualizan automáticamente al modificar la asignación en cada proyecto.</p>
+    <table class="summary-table">
+      <thead><tr><th>#</th><th>Proyecto</th><th>Pilar</th><th>Prioridad</th><th>Mes entrega</th><th>Integrantes asignados</th></tr></thead>
+      <tbody id="summary-body"></tbody>
+    </table>
+  </section>
+
+  <!-- DISTRIBUCIÓN POR PERSONA -->
+  <section id="distribucion" data-panel="dist">
+    <div class="section-label" style="color:var(--grape)">Distribución de Proyectos por Integrante</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:16px;">Selecciona una persona para ver el detalle completo de sus proyectos asignados. Haz clic en "Todos" para el resumen general.</p>
+    <div class="filter-row" id="filter-row"></div>
+    <div class="dist-grid" id="dist-grid"></div>
+    <div class="dist-expanded" id="dist-expanded"></div>
+  </section>
+
+  <!-- GRÁFICO PROYECTOS POR PERSONA -->
+  <section id="chart-section" data-panel="dist">
+    <div class="section-label" style="color:var(--navy)">Proyectos por Integrante</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:16px;">Distribución de carga de proyectos asignados por persona · Se actualiza al modificar integrantes.</p>
+    <div class="chart-wrap">
+      <div class="chart-bars" id="chart-bars"></div>
+      <div class="chart-baseline"></div>
+    </div>
+  </section>
+
+  <!-- LEYENDA -->
+  <section id="leyenda" data-panel="resumen" style="scroll-margin-top:54px;margin-bottom:52px;">
+    <div class="section-label" style="color:var(--navy)">Leyenda</div>
+    <div class="legend-grid">
+      <div class="legend-item"><div class="legend-swatch internal"></div><div><strong>Fase interna</strong><br><span style="color:var(--gray);font-size:11px;">Ejecutada por el equipo ActuaLab o TI bajo liderazgo de ActuaLab</span></div></div>
+      <div class="legend-item"><div class="legend-swatch external"></div><div><strong>Fase externa (ActuaLab mapea)</strong><br><span style="color:var(--gray);font-size:11px;">Ejecutada externamente; ActuaLab registra y hace seguimiento</span></div></div>
+      <div class="legend-item"><div class="legend-swatch client"></div><div><strong>Fase con cliente</strong><br><span style="color:var(--gray);font-size:11px;">Requiere participación activa del cliente</span></div></div>
+      <div class="legend-item"><div class="legend-swatch prereq"></div><div><strong>Prerrequisito externo</strong><br><span style="color:var(--gray);font-size:11px;">Debe completarse antes de iniciar — no ejecutado por ActuaLab</span></div></div>
+      <div class="legend-item" style="gap:10px;"><div style="display:flex;gap:5px;align-items:center;"><span class="resp-chip actualab" style="font-size:11px;">Nombre</span><span class="resp-chip dev" style="font-size:11px;">Nombre</span></div><div><strong>Chip responsable</strong><br><span style="color:var(--gray);font-size:11px;">Azul oscuro = ActuaLab &nbsp;·&nbsp; Verde azulado = Desarrollador TI</span></div></div>
+      <div class="legend-item" style="gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--p1c);width:36px;text-align:center;">P1</span><div><strong>Prioridad Alta</strong><br><span style="color:var(--gray);font-size:11px;">Arranque inmediato</span></div></div>
+      <div class="legend-item" style="gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--p2c);width:36px;text-align:center;">P2</span><div><strong>Prioridad Media</strong><br><span style="color:var(--gray);font-size:11px;">Inicia tras desbloqueo de P1</span></div></div>
+      <div class="legend-item" style="gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--p3c);width:36px;text-align:center;">P3</span><div><strong>Prioridad Baja</strong><br><span style="color:var(--gray);font-size:11px;">Segunda ola</span></div></div>
+    </div>
+  </section>
+
+  <!-- CALENDARIO POR MES -->
+  <section id="calendario" data-panel="calendario">
+    <div class="section-label" style="color:var(--navy)">Calendario de Proyectos 2026</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:16px;">Proyectos agrupados por mes de entrega estimado. Asigna el mes de entrega en cada proyecto usando el selector debajo del picker de integrantes.</p>
+    <div class="cal-grid" id="cal-grid"></div>
+  </section>
+
+  <!-- BONIFICACIONES -->
+  <section id="bonificaciones" data-panel="bonos" style="margin-bottom:52px;">
+    <div class="section-label" style="color:var(--orange)">Bonificación 1 · Entrega de Productos · Abril–Octubre 2026</div>
+
+    <!-- Hero -->
+    <div class="bonus-hero">
+      <div class="bonus-hero-left">
+        <div style="font-size:20px;font-weight:800;color:var(--navy);">Modelo de Bonificación por Entrega</div>
+        <div style="font-size:13px;color:var(--gray);line-height:1.6;">Mide la capacidad del equipo para entregar los 18 proyectos del roadmap. Combina un componente colectivo del área con la responsabilidad individual por pilar o proyecto asignado.</div>
+        <div class="bonus-weight-row">
+          <div class="bonus-weight-box w-area"><div class="bonus-weight-num" style="color:var(--navy);">60%</div><div class="bonus-weight-lbl">Área Digital</div><div class="bonus-weight-desc">Proyectos totales entregados<br>Curva exponencial</div></div>
+          <div class="bonus-weight-box w-delivery"><div class="bonus-weight-num" style="color:var(--blue);">30%</div><div class="bonus-weight-lbl">Pilar / Proyecto</div><div class="bonus-weight-desc">L1: entrega del pilar<br>L2: proyectos a cargo</div></div>
+          <div class="bonus-weight-box w-quality"><div class="bonus-weight-num" style="color:var(--green);">10%</div><div class="bonus-weight-lbl">Calidad</div><div class="bonus-weight-desc">Validación funcional<br>Evaluado por CTO</div></div>
+        </div>
+      </div>
+      <div class="bonus-hero-right">
+        <div class="bonus-hero-label">Score Total Simulado</div>
+        <div class="bonus-hero-pct" id="bonus-hero-total">0%</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;">promedio del equipo</div>
+      </div>
+    </div>
+
+    <!-- Explicación del modelo -->
+    <div class="bonus-explainer">
+      <div class="bonus-explain-title">Cómo funciona el modelo</div>
+
+      <div class="bonus-explain-grid">
+        <div class="bonus-explain-card ec-area">
+          <h4><span class="ec-pct" style="color:var(--navy);">60%</span> Área Digital TI</h4>
+          <p>Componente colectivo que depende de cuántos de los 18 proyectos del roadmap se entregan a tiempo. Aplica por igual a todos los integrantes del equipo, incentivando la colaboración y el compromiso compartido.</p>
+          <ul>
+            <li>El crecimiento no es lineal: entregar pocos proyectos genera un retorno bajo</li>
+            <li>A partir de 14 proyectos entregados, la curva se acelera significativamente</li>
+            <li>Entregar los 18 proyectos otorga el 60% completo</li>
+          </ul>
+          <div class="ec-formula">f(x) = 0.2704 · x<sup>1.869</sup> &nbsp; donde x = proyectos entregados</div>
+        </div>
+
+        <div class="bonus-explain-card ec-scope">
+          <h4><span class="ec-pct" style="color:var(--blue);">30%</span> Pilar / Proyectos a Cargo</h4>
+          <p>Componente de responsabilidad directa. Varía según la línea jerárquica y el rol de cada persona, midiendo lo que está bajo su control directo.</p>
+          <ul>
+            <li><strong style="color:var(--navy);">Línea 1 (líderes):</strong> se mide la entrega proporcional del pilar que lidera. Ejemplo: si el pilar tiene 5 proyectos y se entregan 4, el score es 4/5 × 30% = 24%</li>
+            <li><strong style="color:var(--navy);">Línea 2 (ejecutores):</strong> se mide la entrega proporcional de los proyectos asignados a cada persona como responsable directo</li>
+            <li><strong style="color:var(--navy);">Perfiles transversales:</strong> se miden por el cumplimiento de los proyectos que impactan según su rol específico (ver detalle abajo)</li>
+          </ul>
+        </div>
+
+        <div class="bonus-explain-card ec-quality">
+          <h4><span class="ec-pct" style="color:var(--green);">10%</span> Calidad del Entregable</h4>
+          <p>Evaluación cualitativa del funcionamiento y calidad de los productos entregados por cada integrante. Este componente asegura que la entrega a tiempo no comprometa la calidad.</p>
+          <ul>
+            <li>Evaluado por el CTO (Raimundo Frohlich) como responsable técnico del área</li>
+            <li>Se califica de 0 a 100 puntos. El score se traduce proporcionalmente al 10% del bono</li>
+            <li>Criterios: funcionalidad correcta, estabilidad, cumplimiento de estándares técnicos, experiencia de usuario</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Detalle de alcance por línea -->
+      <div class="bonus-scope-detail">
+        <div class="bonus-scope-detail-title">Detalle del componente de Alcance (30%) por línea jerárquica</div>
+
+        <div class="bonus-scope-grid">
+          <div class="bonus-scope-block">
+            <div class="bonus-scope-block-head" style="background:#f0f5ff;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--navy);flex-shrink:0;"></span>
+              <span style="color:var(--navy);">Línea 1 — Líderes de Pilar</span>
+            </div>
+            <div class="bonus-scope-block-body">
+              Cada líder responde por la entrega total de su pilar. La escala es proporcional lineal: el porcentaje de proyectos entregados dentro del pilar se multiplica por 30%.
+              <table>
+                <thead><tr><th>Líder</th><th>Pilar</th><th>Proyectos</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Pablo Rueda</strong></td><td style="color:var(--blue);">Gobernanza</td><td>4 proyectos</td></tr>
+                  <tr><td><strong>Lenin Torres</strong></td><td style="color:var(--green);">Optimización</td><td>4 proyectos</td></tr>
+                  <tr><td><strong>Jonathan Narváez</strong></td><td style="color:var(--orange);">Actuaria+</td><td>5 proyectos</td></tr>
+                  <tr><td><strong>Raimundo Frohlich</strong></td><td style="color:var(--purple);">Nuevos Productos</td><td>5 proyectos</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="bonus-scope-block">
+            <div class="bonus-scope-block-head" style="background:#f0fbfb;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>
+              <span style="color:var(--teal);">Línea 2 — Responsables de Proyecto</span>
+            </div>
+            <div class="bonus-scope-block-body">
+              Cada integrante de la segunda línea tiene productos específicos a su cargo. Su 30% depende de cuántos de esos productos entrega a tiempo.
+              <table>
+                <thead><tr><th>Responsable</th><th>Proyectos a cargo</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Cristopher Palacios</strong></td><td>Control Tributario, ActuaFast</td></tr>
+                  <tr><td><strong>Cristián Mejía</strong></td><td>Aut. Comercial, Simulador, Pagos Integrados</td></tr>
+                  <tr><td><strong>Arthur Chavez</strong></td><td>NavIA, Plataforma Benchmark</td></tr>
+                  <tr><td><strong>Carlos Puco</strong></td><td>Data Hub Supercias, Base Analítica Benchmark</td></tr>
+                  <tr><td><strong>Pablo Encalada</strong></td><td>Suite Asistentes Operativos, Jubilación Ideal</td></tr>
+                  <tr><td><strong>Fernanda Villa</strong></td><td>Agente Virtual CX</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transversal profiles -->
+        <div style="margin-top:20px;">
+          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;">Perfiles Transversales — Medición Especial</div>
+          <p style="font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:14px;">Algunos roles no son responsables directos de un proyecto específico, sino que su trabajo impacta transversalmente en múltiples productos. Para estos perfiles, el componente del 30% se mide sobre el conjunto de proyectos que deben influir según su especialidad.</p>
+
+          <div class="bonus-callout callout-pb">
+            <div class="bonus-callout-icon" style="background:#b56030;">PB</div>
+            <div class="bonus-callout-content">
+              <strong>Pamela Beltrán — Product Operations</strong>
+              <p>Pamela es responsable de la gestión operativa y calidad de entrega de los dos proyectos de automatización de procesos más críticos del área. Su 30% se mide por la entrega a tiempo y la calidad de producto de estos proyectos, donde ella coordina la ejecución, documenta procesos y asegura la adherencia al cronograma.</p>
+              <span class="callout-metric" style="background:#fde0d0;color:var(--orange);">Automatización E2E del Estudio Actuarial</span>
+              <span class="callout-metric" style="background:#fde0d0;color:var(--orange);">Suite de Asistentes Operativos</span>
+              <p style="margin-top:8px;font-size:11px;font-style:italic;color:var(--gray2);">Cálculo: proyectos entregados de su alcance / 2 × 30%. Si ambos se entregan a tiempo → 30% completo.</p>
+            </div>
+          </div>
+
+          <div class="bonus-callout callout-rp">
+            <div class="bonus-callout-icon" style="background:#7c4d9e;">RP</div>
+            <div class="bonus-callout-content">
+              <strong>Renato Puente — Especialista UI/UX</strong>
+              <p>Renato es responsable de la revisión y aseguramiento de calidad de la experiencia de usuario (UI/UX) de todos los productos de los pilares Actuaria+ y Nuevos Productos. Su 30% se basa en la entrega de estos 10 proyectos, ya que su trabajo de diseño y validación visual es requisito para que cada producto pueda lanzarse al mercado.</p>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Simulador</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Control Tributario</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">ActuaFast</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Pagos</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">NavIA</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Jubilación Ideal</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Benchmark</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Competencia</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Legal</span>
+              <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Nómina</span>
+              <p style="margin-top:8px;font-size:11px;font-style:italic;color:var(--gray2);">Cálculo: proyectos entregados de su alcance / 10 × 30%. Si los 10 se entregan → 30% completo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejemplo de cálculo -->
+      <div class="bonus-example-wrap">
+        <div class="bonus-example-title">Ejemplo de cálculo <span>Cristián Mejía · L2 · 3 proyectos</span></div>
+        <p style="font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.6;">Supongamos que el equipo entregó 16 de 18 proyectos, Cristián entregó 2 de sus 3 proyectos, y el CTO le asigna un 85/100 en calidad:</p>
+        <div class="bonus-example-row"><span class="bonus-example-label">60% — Área Digital (16 de 18 entregados)</span><span class="bonus-example-calc">f(16) = 0.2704 × 16<sup>1.869</sup></span><span class="bonus-example-val" style="color:var(--navy);">48.1%</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">30% — Proyectos a cargo (2 de 3 entregados)</span><span class="bonus-example-calc">2/3 × 30%</span><span class="bonus-example-val" style="color:var(--blue);">20.0%</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">10% — Calidad del entregable (85/100)</span><span class="bonus-example-calc">85/100 × 10%</span><span class="bonus-example-val" style="color:var(--green);">8.5%</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">Bono total de Cristián</span><span class="bonus-example-calc"></span><span class="bonus-example-val" style="font-size:16px;">76.6%</span></div>
+      </div>
+
+      <!-- Regla umbral 50% -->
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:40px;height:40px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#fff;font-weight:800;">!</div>
+        <div style="flex:1;">
+          <strong style="font-size:13px;color:#991b1b;display:block;margin-bottom:4px;">Regla de umbral: Objetivos Personales &ge; 50%</strong>
+          <p style="font-size:12px;color:#7f1d1d;line-height:1.6;margin:0;">Si un integrante no cumple al menos el <strong>50% de sus objetivos personales</strong> (evaluados fuera de este bono), su bonificación del área se reduce a <strong>0%</strong>, independientemente del resultado calculado. Esta regla funciona como una compuerta: se activa en el simulador con el toggle "Obj. Personal" en la tabla. Si está desmarcado, la persona no recibe bono.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hierarchy (dynamic) -->
+    <div class="bonus-hierarchy-grid" id="bonus-hierarchy"></div>
+
+    <!-- Curve -->
+    <div class="bonus-curve-wrap">
+      <div class="bonus-curve-header">
+        <div>
+          <div class="bonus-curve-title">Componente Área (60%)</div>
+          <div class="bonus-curve-formula">f(x) = 0.2704 · x<sup>1.869</sup> &rarr; f(<span id="bonus-x-val">0</span>) = <span id="bonus-fx-val" style="font-weight:700;color:var(--green);">0.00%</span></div>
+        </div>
+        <div class="bonus-curve-score">
+          <div class="bonus-curve-score-val" id="bonus-area-score">0.0%</div>
+          <div class="bonus-curve-score-lbl">de 60% máximo</div>
+        </div>
+      </div>
+      <canvas id="bonus-curve-canvas" style="width:100%;height:160px;border-radius:10px;background:var(--bg);display:block;"></canvas>
+    </div>
+
+    <!-- Delivery tracker -->
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+      <div class="section-label" style="color:var(--navy);margin-bottom:0;">Tracker de Entrega de Proyectos</div>
+      <span class="bonus-delivered-badge" id="bonus-delivered-count">0 / 18</span>
+      <button class="bonus-select-all-btn" id="bonus-select-all" onclick="toggleAllDelivered()">✓ Seleccionar todos</button>
+    </div>
+    <div class="bonus-delivery-grid" id="bonus-delivery-grid"></div>
+
+    <!-- Table -->
+    <div class="section-label" style="color:var(--navy)">Simulador Individual</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">El 60% (Área) y 30% (Alcance) se calculan automáticamente. Ingresa el score de Calidad (0–100) evaluado por el CTO para cada integrante.</p>
+    <div class="bonus-table-wrap">
+      <table class="bonus-table">
+        <thead><tr><th>#</th><th>Integrante</th><th>Nivel</th><th>60% Área</th><th>30% Alcance</th><th style="min-width:80px;">10% Calidad</th><th>Obj. Personal</th><th>Total</th><th style="min-width:90px;"></th></tr></thead>
+        <tbody id="bonus-table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<!-- PRINT-ONLY ASSIGNMENTS VIEW -->
+<div id="print-assignments">
+  <div id="pv-content"></div>
+</div>
+
+<footer class="page-footer">
+  <span>Área Digital · TI — ActuaLab + Desarrollo</span>
+  <span>Planificación Estratégica · Confidencial · Abril 2026</span>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════
+   DATA
+══════════════════════════════════════════════════ */
+const MEMBERS = [
+  { id:'pr',   name:'Pablo Rueda',         initials:'PR',  group:'actualab', role:'Head Data Governance',  color:'#151F47' },
+  { id:'lt',   name:'Lenin Torres',         initials:'LT',  group:'actualab', role:'Head de IA',            color:'#1a7a4a' },
+  { id:'pe',   name:'Pablo Encalada',       initials:'PE',  group:'actualab', role:'Analista de IA',        color:'#5c2f90' },
+  { id:'cp',   name:'Cristopher Palacios',  initials:'CP',  group:'dev',      role:'Desarrollador',         color:'#0d7a7a' },
+  { id:'cm',   name:'Cristián Mejía',       initials:'CM',  group:'dev',      role:'Desarrollador',         color:'#0d7a7a' },
+  { id:'jn',   name:'Jonathan Narváez',     initials:'JN',  group:'product',  role:'Innovation Manager',    color:'#2d6a9f' },
+  { id:'ac',   name:'Arthur Chavez',        initials:'AC',  group:'dev',      role:'Desarrollador',         color:'#0d7a7a' },
+  { id:'rf',   name:'Raimundo Frohlich',    initials:'RF',  group:'dev',      role:'CTO · Área Digital TI', color:'#A0720A' },
+  { id:'rpu',  name:'Renato Puente',        initials:'RP',  group:'product',  role:'Especialista UI/UX',    color:'#7c4d9e' },
+  { id:'cpuc', name:'Carlos Puco',          initials:'CPc', group:'dev',      role:'Desarrollador',         color:'#0d7a7a' },
+  { id:'pb',   name:'Pamela Beltran',       initials:'PB',  group:'product',  role:'Product Operations',    color:'#b56030' },
+  { id:'fv',   name:'Fernanda Villa',       initials:'FV',  group:'product',  role:'Especialista CX',       color:'#1778a8' },
+  { id:'cpo',  name:'Cristina Porras',      initials:'CPo', group:'product',  role:'Customer Support',      color:'#c44c7a' },
+];
+
+const PROJECTS = [
+  // ── GOBERNANZA ──
+  { id:'mig',   name:'Migración Datos Históricos',                         pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
+  { id:'govsf', name:'Gobierno e Integración Datos Clientes (Salesforce)', pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:5,  def:['pr'] },
+  { id:'dhub',  name:'Data Hub Supercias (SCVS)',                          pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
+  { id:'bab',   name:'Base Analítica Benchmark Salarial',                  pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:6,  def:['pr'] },
+  // ── OPTIMIZACIÓN ──
+  { id:'e2e',   name:'Automatización E2E del Estudio Actuarial',           pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','pe','jn','pb'] },
+  { id:'vcx',   name:'Agente Virtual CX',                                  pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,   def:['lt','jn','fv','pb'] },
+  { id:'suite', name:'Suite de Asistentes Operativos',                     pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:9,  def:['lt','pe','cp','ac','cpuc','jn','pb'] },
+  { id:'com',   name:'Automatización Comercial y Facturación',             pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:10, def:['lt','pe','cm','pb'] },
+  // ── ACTUARIA+ ──
+  { id:'sim',   name:'Simulador de Beneficios Post-Empleo',                pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:8,  def:['pr','cm','rpu','jn','fv'] },
+  { id:'ctrl',  name:'Control Tributario de Provisiones',                  pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:10, def:['pr','cp','cm','rpu','jn','fv'] },
+  { id:'afast', name:'ActuaFast',                                          pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['cm','ac','cpuc','jn','pb'] },
+  { id:'pag',   name:'Actuaria+ con Pagos Integrados',                     pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:7,  def:['cp','cm','rf','jn'] },
+  { id:'navia', name:'NavIA – Asistente Inteligente Actuarial',            pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:5,  def:['rf','jn'] },
+  // ── NUEVOS PRODUCTOS ──
+  { id:'jub',   name:'Jubilación Ideal',                                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:6,  def:['pe','rpu','jn','fv'] },
+  { id:'bench', name:'Plataforma de Benchmark Salarial',                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:8,  def:['pr','ac','jn'] },
+  { id:'comp',  name:'Producto de Análisis de Competencia',                pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:7,  def:['pr','cpuc','jn'] },
+  { id:'legal', name:'Asistente de Asesoría Legal',                        pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:8,  def:['lt','rf','jn'] },
+  { id:'nom',   name:'Sistema de Gestión de Nómina',                       pillar:'new', pillarName:'Nuevos Productos', priority:'P3', deliveryMonth:10, def:['lt','rf'] },
+];
+
+const PILLAR_ORDER  = {gov:0, ops:1, act:2, new:3};
+const PILLAR_COLORS = {gov:'#3061AA', ops:'#1a7a4a', act:'#C9521A', new:'#5c2f90'};
+const PILLAR_NAMES  = {gov:'Gobernanza', ops:'Optimización', act:'Actuaria+', new:'Nuevos Productos'};
+
+const MONTHS = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const MONTH_SHORT = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+
+// Initialize delivery month for all projects
+PROJECTS.forEach(p => { if(p.deliveryMonth === undefined) p.deliveryMonth = null; });
+
+/* ══════════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════════ */
+function getMember(id){ return MEMBERS.find(m => m.id === id); }
+
+function getCheckedMembers(projectId){
+  return Array.from(document.querySelectorAll(`input[name="proj-${projectId}"]:checked`))
+    .map(cb => getMember(cb.value)).filter(Boolean);
+}
+
+function getMemberProjects(memberId){
+  return PROJECTS.filter(p => {
+    const cb = document.querySelector(`input[name="proj-${p.id}"][value="${memberId}"]`);
+    return cb && cb.checked;
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   GLOBAL SYNC — actualiza TODAS las vistas tras cambio de asignación
+══════════════════════════════════════════════════ */
+function syncAllViews(changedProjectId){
+  // 1. Chips del proyecto modificado (header de tarjeta en pilar)
+  if(changedProjectId) renderChips(changedProjectId);
+  else PROJECTS.forEach(p => renderChips(p.id));
+  // 2. Tabla resumen
+  renderSummary();
+  // 3. Distribución (filtro + grid + chart)
+  renderFilterRow();
+  renderDistGrid();
+  renderChart();
+  // 4. Calendario
+  renderCalendar();
+  // 5. Print view
+  renderPrintView();
+  // 6. Bonus panel (si está visible, re-render delivery grid con mini-pickers)
+  const bonusSection = document.getElementById('bonificaciones');
+  if(bonusSection && bonusSection.classList.contains('panel-active')){
+    renderBonusDelivery();
+    renderBonusHierarchy();
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER CHIPS
+══════════════════════════════════════════════════ */
+function renderChips(projectId){
+  const el = document.getElementById(`chips-${projectId}`);
+  if(!el) return;
+  const members = getCheckedMembers(projectId);
+  el.innerHTML = members.length
+    ? members.map(m => `<span class="resp-chip" style="background:${m.color}">${m.name}</span>`).join('')
+    : '<span style="font-size:11px;color:#94a3b8;font-style:italic;">Sin asignar</span>';
+}
+
+/* ══════════════════════════════════════════════════
+   RENDER SUMMARY (sorted by pillar)
+══════════════════════════════════════════════════ */
+function renderSummary(){
+  const tbody = document.getElementById('summary-body');
+  if(!tbody) return;
+  const sorted = [...PROJECTS].sort((a,b) => PILLAR_ORDER[a.pillar] - PILLAR_ORDER[b.pillar]);
+  let lastPillar = null; let n = 0;
+  tbody.innerHTML = sorted.map(p => {
+    n++;
+    const members = getCheckedMembers(p.id);
+    const chips = members.length
+      ? members.map(m => `<span class="resp-chip" style="background:${m.color};margin:2px 2px 2px 0;">${m.name}</span>`).join('')
+      : `<span class="no-members">Sin asignar</span>`;
+    let divider = '';
+    if(p.pillar !== lastPillar){
+      lastPillar = p.pillar;
+      divider = `<tr class="pillar-divider"><td colspan="5" style="color:${PILLAR_COLORS[p.pillar]};border-bottom:1px solid ${PILLAR_COLORS[p.pillar]}22;">${PILLAR_NAMES[p.pillar].toUpperCase()}</td></tr>`;
+    }
+    const monthDisp = p.deliveryMonth ? `<span style="font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;background:#e8f2ff;color:var(--blue);">${MONTHS[p.deliveryMonth]}</span>` : `<span style="font-size:11px;color:#94a3b8;font-style:italic;">—</span>`;
+    return divider + `<tr>
+      <td>${n}</td>
+      <td style="font-weight:600;">${p.name}</td>
+      <td><span class="pillar-tag ${p.pillar}">${p.pillarName}</span></td>
+      <td><span class="priority-badge ${p.priority.toLowerCase()}" style="width:28px;height:28px;font-size:10px;">${p.priority}</span></td>
+      <td>${monthDisp}</td>
+      <td style="line-height:2;">${chips}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   DISTRIBUTION: filter state
+══════════════════════════════════════════════════ */
+let activeFilter = 'all';
+
+function renderFilterRow(){
+  const row = document.getElementById('filter-row');
+  if(!row) return;
+  const allActive = activeFilter === 'all';
+  let html = `<span class="filter-label">Filtrar por ·</span>
+    <button class="filter-btn f-all${allActive?' active':''}" onclick="setFilter('all')">
+      Todos (${MEMBERS.length})
+    </button>`;
+  html += MEMBERS.map(m => {
+    const isActive = activeFilter === m.id;
+    const fClass = m.group === 'actualab' ? 'f-actualab'
+      : m.id === 'rpu' ? 'f-grape'
+      : m.id === 'rf'  ? 'f-cto'
+      : m.id === 'pb'  ? 'f-prod'
+      : m.id === 'fv'  ? 'f-cx'
+      : m.id === 'jn'  ? 'f-cx'
+      : m.id === 'cpo' ? 'f-support'
+      : 'f-dev';
+    const count = getMemberProjects(m.id).length;
+    return `<button class="filter-btn ${fClass}${isActive?' active':''}" onclick="setFilter('${m.id}')">
+      <span class="filter-avatar-sm" style="background:${m.color}">${m.initials}</span>
+      ${m.name.split(' ')[0]} <span style="opacity:.6;font-weight:400;">(${count})</span>
+    </button>`;
+  }).join('');
+  row.innerHTML = html;
+}
+
+/* ── All-persons grid ── */
+function renderDistGrid(){
+  const grid     = document.getElementById('dist-grid');
+  const expanded = document.getElementById('dist-expanded');
+  if(!grid) return;
+
+  if(activeFilter === 'all'){
+    expanded.classList.remove('visible');
+    grid.style.display = 'grid';
+    const maxCount = Math.max(...MEMBERS.map(m => getMemberProjects(m.id).length), 1);
+    grid.innerHTML = MEMBERS.map(m => {
+      const projects = getMemberProjects(m.id);
+      const count = projects.length;
+      const barPct = count > 0 ? Math.max(count / maxCount * 100, 8) : 0;
+      const byPillar = {};
+      projects.forEach(p => { byPillar[p.pillar] = (byPillar[p.pillar]||[]); byPillar[p.pillar].push(p); });
+      const pillarRows = Object.entries(byPillar)
+        .sort(([a],[b]) => PILLAR_ORDER[a] - PILLAR_ORDER[b])
+        .map(([pillar, ps]) => `
+          <div class="dist-pillar-row">
+            <span class="dist-pillar-dot" style="background:${PILLAR_COLORS[pillar]}"></span>
+            <span class="dist-pillar-name">${PILLAR_NAMES[pillar]}</span>
+            <span class="dist-pillar-count" style="background:${PILLAR_COLORS[pillar]}">${ps.length}</span>
+          </div>`).join('');
+      const barColor = m.color;
+      return `<div class="dist-card" onclick="setFilter('${m.id}')">
+        <div class="dist-card-head">
+          <div class="team-avatar" style="background:${m.color};width:36px;height:36px;font-size:12px;flex-shrink:0;">${m.initials}</div>
+          <div><div class="dist-name">${m.name}</div><div class="dist-role">${m.role}</div></div>
+          <div class="dist-count-wrap"><div class="dist-count">${count}</div><div class="dist-count-lbl">proy.</div></div>
+        </div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:${barPct}%;background:${barColor}"></div></div>
+        <div class="dist-pillar-list">
+          ${pillarRows || '<span class="dist-hint">Sin proyectos asignados</span>'}
+        </div>
+        <div class="dist-click-hint">Clic para ver detalle →</div>
+      </div>`;
+    }).join('');
+  } else {
+    /* Single-person expanded view */
+    grid.style.display = 'none';
+    expanded.classList.add('visible');
+    const m = getMember(activeFilter);
+    if(!m){ expanded.innerHTML=''; return; }
+    const projects = getMemberProjects(m.id);
+    const byPillar = {};
+    projects.forEach(p => { (byPillar[p.pillar] = byPillar[p.pillar]||[]).push(p); });
+    const pillarSections = Object.entries(byPillar)
+      .sort(([a],[b]) => PILLAR_ORDER[a]-PILLAR_ORDER[b])
+      .map(([pillar, ps]) => `
+        <div>
+          <div class="dist-section-header">
+            <span class="dist-section-dot" style="background:${PILLAR_COLORS[pillar]}"></span>
+            <span class="dist-section-lbl" style="color:${PILLAR_COLORS[pillar]}">${PILLAR_NAMES[pillar]}</span>
+            <span style="font-size:11px;color:#94a3b8;margin-left:6px;">${ps.length} proyecto${ps.length>1?'s':''}</span>
+          </div>
+          ${ps.map(p => `<div class="dist-project-item">
+            <span class="dist-prio dp${p.priority[1]}">${p.priority}</span>
+            <span>${p.name}</span>
+          </div>`).join('')}
+        </div>`).join('');
+    // Frequent collaborators
+    const collabCount = {};
+    projects.forEach(p => {
+      getCheckedMembers(p.id).forEach(cm => {
+        if(cm.id !== m.id) collabCount[cm.name] = (collabCount[cm.name]||0)+1;
+      });
+    });
+    const collabs = Object.entries(collabCount).sort((a,b)=>b[1]-a[1]).map(([name,cnt])=>`${name} (${cnt})`).join(' · ');
+    expanded.innerHTML = `
+      <button class="dist-back" onclick="setFilter('all')">← Ver todos los integrantes</button>
+      <div class="dist-exp-head">
+        <div class="team-avatar" style="background:${m.color};width:52px;height:52px;font-size:16px;flex-shrink:0;">${m.initials}</div>
+        <div>
+          <div class="dist-exp-title">${m.name}</div>
+          <div class="dist-exp-role">${m.role}${m.id!=='rf' ? ' · ' + (m.group==='actualab'?'ActuaLab':'Desarrollador TI') : ''}</div>
+        </div>
+        <div class="dist-exp-stats">
+          <div class="dist-stat-box"><strong class="dist-stat-num">${projects.length}</strong><span class="dist-stat-lbl">Proyectos</span></div>
+          <div class="dist-stat-box"><strong class="dist-stat-num">${Object.keys(byPillar).length}</strong><span class="dist-stat-lbl">Pilares</span></div>
+        </div>
+      </div>
+      <div class="dist-projects-grid">
+        ${projects.length > 0 ? pillarSections : '<div style="font-size:13px;color:#94a3b8;text-align:center;padding:30px;font-style:italic;">Sin proyectos asignados.</div>'}
+      </div>
+      ${collabs ? `<div class="dist-collab"><strong>Colabora frecuentemente con:</strong> ${collabs}</div>` : ''}`;
+  }
+}
+
+function setFilter(id){
+  activeFilter = id;
+  renderFilterRow();
+  renderDistGrid();
+}
+
+/* ══════════════════════════════════════════════════
+   BUILD MEMBER PICKER (two-column, grouped)
+══════════════════════════════════════════════════ */
+function buildPicker(project){
+  const container = document.getElementById(`picker-${project.id}`);
+  if(!container) return;
+
+  const actualab = MEMBERS.filter(m => m.group === 'actualab');
+  const devs     = MEMBERS.filter(m => m.group === 'dev');
+  const product  = MEMBERS.filter(m => m.group === 'product');
+  const initCount = project.def.length;
+
+  function makeItems(members){
+    return members.map(m => {
+      const checked = project.def.includes(m.id);
+      return `<label class="picker-item${checked?' sel-'+m.group:''}" data-group="${m.group}">
+        <input type="checkbox" name="proj-${project.id}" value="${m.id}"${checked?' checked':''}>
+        <span class="pick-box">${checked?'✓':''}</span>
+        <span class="pick-name">${m.name}</span>
+        <span class="pick-role">${m.role}</span>
+      </label>`;
+    }).join('');
+  }
+
+  const monthOptions = MONTHS.slice(1).map((name,i) =>
+    `<option value="${i+1}"${project.deliveryMonth===i+1?' selected':''}>${name} 2026</option>`
+  ).join('');
+
+  container.innerHTML = `
+    <div class="picker-header">
+      <span class="picker-title">Integrantes del proyecto</span>
+      <span class="picker-count" id="cnt-${project.id}">${initCount} seleccionado${initCount!==1?'s':''}</span>
+    </div>
+    <div class="picker-body">
+      <div class="picker-group">
+        <div class="picker-group-label">
+          <span class="picker-group-dot" style="background:#151F47"></span>ActuaLab
+        </div>
+        <div class="picker-items">${makeItems(actualab)}</div>
+      </div>
+      <div class="picker-group">
+        <div class="picker-group-label">
+          <span class="picker-group-dot" style="background:#0d7a7a"></span>Desarrolladores TI
+        </div>
+        <div class="picker-items">${makeItems(devs)}</div>
+      </div>
+      <div class="picker-group">
+        <div class="picker-group-label">
+          <span class="picker-group-dot" style="background:#b56030"></span>Producto · CX
+        </div>
+        <div class="picker-items">${makeItems(product)}</div>
+      </div>
+    </div>
+    <div class="month-row">
+      <span class="month-label">📅 Mes de entrega estimado:</span>
+      <select class="month-select" id="monthsel-${project.id}" onchange="setDeliveryMonth('${project.id}', this.value)">
+        <option value="">— Sin definir —</option>
+        ${monthOptions}
+      </select>
+      ${project.deliveryMonth ? `<span class="month-badge-sm">${MONTHS[project.deliveryMonth]} 2026</span>` : ''}
+    </div>`;
+
+  container.querySelectorAll('.picker-item').forEach(label => {
+    label.addEventListener('click', function(){
+      const cb  = this.querySelector('input');
+      const box = this.querySelector('.pick-box');
+      const grp = this.dataset.group;
+      setTimeout(() => {
+        if(cb.checked){
+          this.classList.add('sel-'+grp);
+          box.textContent = '✓';
+        } else {
+          this.classList.remove('sel-actualab','sel-dev');
+          box.textContent = '';
+        }
+        const total = container.querySelectorAll('input:checked').length;
+        const cntEl = document.getElementById(`cnt-${project.id}`);
+        if(cntEl) cntEl.textContent = `${total} seleccionado${total!==1?'s':''}`;
+        syncAllViews(project.id);
+      },0);
+    });
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   TAB / PANEL NAVIGATION
+══════════════════════════════════════════════════ */
+function showTab(tabId){
+  // Hide all panels
+  document.querySelectorAll('[data-panel]').forEach(el => el.classList.remove('panel-active'));
+  // Show requested panels (multiple sections can share a data-panel value)
+  document.querySelectorAll(`[data-panel="${tabId}"]`).forEach(el => el.classList.add('panel-active'));
+  // Update active tab highlight in nav
+  document.querySelectorAll('.toc a[data-tab]').forEach(a => {
+    a.classList.toggle('tab-active', a.dataset.tab === tabId);
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+  // Re-render dynamic sections when opened
+  if(tabId === 'dist')      { renderFilterRow(); renderDistGrid(); renderChart(); }
+  if(tabId === 'resumen')   { renderSummary(); }
+  if(tabId === 'calendario'){ renderCalendar(); }
+  if(tabId === 'bonos')     { renderBonusPanel(); }
+}
+
+/* ══════════════════════════════════════════════════
+   DELIVERY MONTH
+══════════════════════════════════════════════════ */
+function setDeliveryMonth(projectId, value){
+  const proj = PROJECTS.find(p => p.id === projectId);
+  if(!proj) return;
+  proj.deliveryMonth = value ? parseInt(value) : null;
+  // Update badge inside the month row
+  const sel = document.getElementById(`monthsel-${projectId}`);
+  if(sel){
+    const row = sel.closest('.month-row');
+    if(row){
+      let badge = row.querySelector('.month-badge-sm');
+      if(proj.deliveryMonth){
+        if(!badge){ badge = document.createElement('span'); badge.className='month-badge-sm'; row.appendChild(badge); }
+        badge.textContent = MONTHS[proj.deliveryMonth] + ' 2026';
+      } else {
+        if(badge) badge.remove();
+      }
+    }
+  }
+  renderSummary();
+  renderCalendar();
+}
+
+/* ══════════════════════════════════════════════════
+   CALENDAR
+══════════════════════════════════════════════════ */
+function renderCalendar(){
+  const grid = document.getElementById('cal-grid');
+  if(!grid) return;
+
+  const QUARTERS = [
+    {label:'Q1 — Primer Trimestre', months:[1,2,3]},
+    {label:'Q2 — Segundo Trimestre', months:[4,5,6]},
+    {label:'Q3 — Tercer Trimestre', months:[7,8,9]},
+    {label:'Q4 — Cuarto Trimestre', months:[10,11,12]},
+  ];
+
+  let html = '';
+  for(const q of QUARTERS){
+    html += `<div style="grid-column:1/-1;"><span class="cal-quarter-label">${q.label}</span></div>`;
+    for(const m of q.months){
+      const projects = PROJECTS.filter(p => p.deliveryMonth === m);
+      const count = projects.length;
+      const projItems = projects.length > 0
+        ? projects.sort((a,b) => a.priority.localeCompare(b.priority)).map(p => {
+            const pColor = PILLAR_COLORS[p.pillar];
+            const prioBg = p.priority==='P1'?'var(--p1c)':p.priority==='P2'?'var(--p2c)':'var(--p3c)';
+            return `<div class="cal-proj" style="border-left-color:${pColor};background:${pColor}0d;">
+              <span class="cal-proj-prio" style="background:${prioBg}">${p.priority}</span>
+              <span class="cal-proj-name">${p.name}</span>
+            </div>`;
+          }).join('')
+        : `<span class="cal-empty-msg">Sin proyectos asignados</span>`;
+      html += `<div class="cal-month">
+        <div class="cal-month-head">
+          <span class="cal-month-name">${MONTHS[m]}</span>
+          <span class="cal-count-badge${count>0?' active':''}">${count}</span>
+        </div>
+        <div class="cal-body">${projItems}</div>
+      </div>`;
+    }
+  }
+  grid.innerHTML = html;
+}
+
+/* ══════════════════════════════════════════════════
+   BAR CHART
+══════════════════════════════════════════════════ */
+function renderChart(){
+  const container = document.getElementById('chart-bars');
+  if(!container) return;
+  const data = MEMBERS.map(m => ({
+    m,
+    count: getMemberProjects(m.id).length
+  }));
+  const maxCount = Math.max(...data.map(d => d.count), 1);
+  const CHART_H = 160; // px available for bars
+
+  container.innerHTML = data.map(d => {
+    const barH = d.count > 0 ? Math.max(Math.round(d.count / maxCount * CHART_H), 12) : 4;
+    const color = d.m.color;
+    return `<div class="chart-col">
+      <div class="chart-bar-outer">
+        <div class="chart-bar" style="height:${barH}px;background:${color};">
+          <span class="chart-bar-val">${d.count}</span>
+        </div>
+      </div>
+      <div class="chart-initials">${d.m.initials}</div>
+      <div class="chart-name">${d.m.name.split(' ')[0]}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   PROJECT INDEX
+══════════════════════════════════════════════════ */
+function buildIndex(){
+  // Assign IDs to each project pipeline card
+  PROJECTS.forEach(p => {
+    const picker = document.getElementById(`picker-${p.id}`);
+    if(picker){
+      const card = picker.closest('.project-pipeline');
+      if(card) card.id = `proj-${p.id}`;
+    }
+  });
+
+  const grid = document.getElementById('index-grid');
+  if(!grid) return;
+  const byPillar = {};
+  PROJECTS.forEach(p => { (byPillar[p.pillar] = byPillar[p.pillar]||[]).push(p); });
+
+  grid.innerHTML = Object.entries(byPillar)
+    .sort(([a],[b]) => PILLAR_ORDER[a] - PILLAR_ORDER[b])
+    .map(([pillar, ps]) => `
+      <div class="index-pillar">
+        <div class="index-pillar-head" style="background:${PILLAR_COLORS[pillar]}15;border-bottom:2px solid ${PILLAR_COLORS[pillar]}33;">
+          <span style="width:9px;height:9px;border-radius:50%;background:${PILLAR_COLORS[pillar]};flex-shrink:0;display:inline-block;"></span>
+          <span class="index-pillar-title" style="color:${PILLAR_COLORS[pillar]}">${PILLAR_NAMES[pillar]}</span>
+          <span style="font-size:10px;color:${PILLAR_COLORS[pillar]};opacity:.55;margin-left:auto;font-weight:600;">${ps.length} proyectos</span>
+        </div>
+        <div class="index-items">
+          ${ps.map(p => `
+            <a class="index-item" href="#" onclick="showTab('${p.pillar}');setTimeout(()=>{const el=document.getElementById('proj-${p.id}');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},120);return false;">
+              <span class="index-prio i${p.priority.toLowerCase()}">${p.priority}</span>
+              <span class="index-name">${p.name}</span>
+              <span class="index-arrow">→</span>
+            </a>`).join('')}
+        </div>
+      </div>`).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  PROJECTS.forEach(p => { buildPicker(p); renderChips(p.id); });
+  buildIndex();
+  renderSummary();
+  renderFilterRow();
+  renderDistGrid();
+  renderChart();
+  renderCalendar();
+  renderPrintView();
+  // Show initial panel
+  showTab('inicio');
+
+  /* ── GLOBAL TOOLTIP (body-anchored, never clipped by overflow) ── */
+  const tt = document.createElement('div');
+  tt.id = 'global-tooltip';
+  document.body.appendChild(tt);
+
+  function showTip(el, text){
+    tt.textContent = text;
+    tt.style.opacity = '0';
+    tt.style.display = 'block';
+    const r   = el.getBoundingClientRect();
+    const tw  = tt.offsetWidth;
+    const th  = tt.offsetHeight;
+    let left  = r.left + r.width / 2 - tw / 2;
+    let top   = r.top - th - 10;
+    if(left < 8) left = 8;
+    if(left + tw > window.innerWidth - 8) left = window.innerWidth - 8 - tw;
+    if(top < 8) top = r.bottom + 10; // flip below if too close to top
+    tt.style.left = left + 'px';
+    tt.style.top  = top  + 'px';
+    tt.style.opacity = '1';
+  }
+  function hideTip(){ tt.style.opacity = '0'; }
+
+  function addTip(el, text){
+    el.classList.add('has-tooltip');
+    el.addEventListener('mouseenter', () => showTip(el, text));
+    el.addEventListener('mouseleave', hideTip);
+  }
+
+  /* ── Phase tooltips ── */
+  const PHASE_TIPS = {
+    'ph-internal':   'Fase Interna — Ejecutada por ActuaLab / equipo TI',
+    'ph-external':   'Fase Externa — ActuaLab mapea y hace seguimiento',
+    'ph-client':     'Fase con Cliente — Requiere participación activa del cliente',
+    'ph-prereq':     'Prerrequisito Externo — Debe completarse antes de iniciar',
+    'ph-deploy':     'Despliegue en Producción',
+    'ph-deploy-act': 'Despliegue en Producción · Actuaria+',
+    'ph-deploy-pur': 'Despliegue · Lanzamiento de Nuevo Producto',
+  };
+  document.querySelectorAll('.phase').forEach(el => {
+    for(const [cls, tip] of Object.entries(PHASE_TIPS)){
+      if(el.classList.contains(cls)){ addTip(el, tip); break; }
+    }
+  });
+
+  /* ── Priority badge tooltips ── */
+  const PRIO_TIPS = {
+    'p1': 'Prioridad Alta · Arranque inmediato — sin dependencias bloqueantes',
+    'p2': 'Prioridad Media · Inicia tras completar proyectos P1 de los que depende',
+    'p3': 'Prioridad Baja · Segunda ola estratégica — sin urgencia inmediata',
+  };
+  document.querySelectorAll('.priority-badge').forEach(el => {
+    for(const [cls, tip] of Object.entries(PRIO_TIPS)){
+      if(el.classList.contains(cls)){ addTip(el, tip); break; }
+    }
+  });
+});
+
+/* ══════════════════════════════════════════════════
+   PRINT VIEW
+══════════════════════════════════════════════════ */
+function renderPrintView(){
+  const el = document.getElementById('pv-content');
+  if(!el) return;
+  const sorted = [...PROJECTS].sort((a,b) => PILLAR_ORDER[a.pillar] - PILLAR_ORDER[b.pillar]);
+  let lastPillar = null;
+  const date = new Date().toLocaleDateString('es-EC',{day:'2-digit',month:'long',year:'numeric'});
+  const totalAssigned = PROJECTS.filter(p => getCheckedMembers(p.id).length > 0).length;
+
+  const rows = sorted.map(p => {
+    const members = getCheckedMembers(p.id);
+    const chips = members.length
+      ? members.map(m => `<span class="pv-chip" style="background:${m.color}">${m.name}</span>`).join('')
+      : '<span class="pv-none">Sin asignar</span>';
+    const prioBg = p.priority==='P1' ? 'var(--p1c)' : p.priority==='P2' ? 'var(--p2c)' : 'var(--p3c)';
+    let divider = '';
+    if(p.pillar !== lastPillar){
+      lastPillar = p.pillar;
+      divider = `<tr class="pv-pillar-row">
+        <td colspan="4" style="color:${PILLAR_COLORS[p.pillar]};border-bottom:2px solid ${PILLAR_COLORS[p.pillar]}55;">
+          ${PILLAR_NAMES[p.pillar]}
+        </td></tr>`;
+    }
+    const monthPv = p.deliveryMonth ? MONTHS[p.deliveryMonth] : '—';
+    return divider + `<tr class="pv-row">
+      <td style="width:36px;"><span class="pv-prio" style="background:${prioBg}">${p.priority}</span></td>
+      <td class="pv-name">${p.name}</td>
+      <td class="pv-pillar-cell" style="color:${PILLAR_COLORS[p.pillar]}">${p.pillarName}</td>
+      <td style="font-size:11px;font-weight:600;color:#3061AA;padding-right:16px!important;white-space:nowrap;">${monthPv}</td>
+      <td>${chips}</td>
+    </tr>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="pv-header">
+      <div class="pv-header-title">Asignación de Proyectos · Área Digital TI</div>
+      <div class="pv-header-meta">Generado el ${date} &nbsp;·&nbsp; ${totalAssigned} de ${PROJECTS.length} proyectos con integrantes asignados</div>
+    </div>
+    <table class="pv-table">
+      <colgroup>
+        <col style="width:40px">
+        <col>
+        <col style="width:110px">
+        <col style="width:80px">
+        <col style="width:180px">
+      </colgroup>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="pv-signature">
+      <span>Área Digital · TI — ActuaLab + Desarrolladores</span>
+      <span>Planificación Estratégica · Confidencial · Abril 2026</span>
+    </div>`;
+}
+
+/* ══════════════════════════════════════════════════
+   PDF EXPORT
+══════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════
+   BONUS SYSTEM — 60% Área + 30% Alcance + 10% Calidad
+══════════════════════════════════════════════════ */
+const BONUS_IDS = ['pr','lt','jn','rf','cp','cm','ac','cpuc','pe','pb','rpu','fv'];
+
+const LEVEL1 = {
+  pr: {pillar:'gov'}, lt: {pillar:'ops'},
+  jn: {pillar:'act'}, rf: {pillar:'new'},
+};
+
+const PROJECT_OWNERS = {
+  mig:'pr', govsf:'pr', dhub:'cpuc', bab:'cpuc',
+  e2e:'lt', vcx:'fv', suite:'pe', com:'cm',
+  sim:'cm', ctrl:'cp', afast:'cp', pag:'cm',
+  navia:'ac', jub:'pe', bench:'ac',
+  comp:'rf', legal:'rf', nom:'rf'
+};
+
+const LEVEL2_SCOPE = {};
+BONUS_IDS.forEach(id => {
+  if(!LEVEL1[id]){
+    LEVEL2_SCOPE[id] = Object.entries(PROJECT_OWNERS)
+      .filter(([_,oid]) => oid === id).map(([pid]) => pid);
+  }
+});
+const TRANSVERSAL = {
+  pb:  {label:'Product Ops · Entrega + Calidad', scope:['e2e','suite']},
+  rpu: {label:'UI/UX · Actuaria+ y Nuevos',      scope:['sim','ctrl','afast','pag','navia','jub','bench','comp','legal','nom']},
+};
+Object.entries(TRANSVERSAL).forEach(([id,cfg]) => { LEVEL2_SCOPE[id] = cfg.scope; });
+
+// State
+const bonusDel = {}; PROJECTS.forEach(p => { bonusDel[p.id] = false; });
+const bonusQ = {}; BONUS_IDS.forEach(id => { bonusQ[id] = 0; });
+const bonusGate = {}; BONUS_IDS.forEach(id => { bonusGate[id] = true; }); // true = meets 50% personal objectives
+const bonusExpandedProj = new Set();
+
+// Formula: recalibrated for 60% max → k = 60/18^1.869
+function bonusF(x){ return x <= 0 ? 0 : Math.min(0.2704 * Math.pow(x, 1.869), 60); }
+function bonusDelTotal(){ return Object.values(bonusDel).filter(Boolean).length; }
+function bonusDelPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar && bonusDel[p.id]).length; }
+function bonusTotPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar).length; }
+
+function calcBonus(id){
+  const gated = !bonusGate[id]; // if gate is false → person is gated out
+  const area = bonusF(bonusDelTotal());
+  let scope = 0;
+  if(LEVEL1[id]){
+    const pil = LEVEL1[id].pillar;
+    const tot = bonusTotPillar(pil);
+    scope = tot > 0 ? (bonusDelPillar(pil)/tot)*30 : 0;
+  } else {
+    const sc = LEVEL2_SCOPE[id]||[];
+    const del = sc.filter(pid => bonusDel[pid]).length;
+    scope = sc.length > 0 ? (del/sc.length)*30 : 0;
+  }
+  const quality = (bonusQ[id]/100)*10;
+  const raw = area+scope+quality;
+  return {area, scope, quality, raw, gated, total: gated ? 0 : raw};
+}
+
+function toggleBonusDel(pid){
+  bonusDel[pid] = !bonusDel[pid];
+  renderBonusPanel();
+}
+function setBonusQ(id,v){
+  bonusQ[id] = Math.min(100,Math.max(0,parseInt(v)||0));
+  renderBonusTable();
+  renderBonusHero();
+}
+
+function toggleAllDelivered(){
+  const allOn = Object.values(bonusDel).every(Boolean);
+  PROJECTS.forEach(p => { bonusDel[p.id] = !allOn; });
+  renderBonusPanel();
+  updateSelectAllBtn();
+}
+
+function updateSelectAllBtn(){
+  const btn = document.getElementById('bonus-select-all');
+  if(!btn) return;
+  const allOn = Object.values(bonusDel).every(Boolean);
+  btn.className = 'bonus-select-all-btn' + (allOn ? ' all-on' : '');
+  btn.innerHTML = allOn ? '✕ Desmarcar todos' : '✓ Seleccionar todos';
+}
+
+function toggleBonusGate(id){
+  bonusGate[id] = !bonusGate[id];
+  renderBonusTable();
+  renderBonusHero();
+}
+
+function toggleBonusPicker(projId){
+  if(bonusExpandedProj.has(projId)){
+    bonusExpandedProj.delete(projId);
+  } else {
+    bonusExpandedProj.add(projId);
+  }
+  // Toggle visibility without full re-render
+  const el = document.getElementById('bonus-picker-' + projId);
+  if(el) el.classList.toggle('open');
+  const arrow = document.getElementById('bonus-arrow-' + projId);
+  if(arrow) arrow.textContent = bonusExpandedProj.has(projId) ? '▲ equipo' : '▼ equipo';
+}
+
+function syncBonusAssignment(projId, memberId){
+  // Toggle the checkbox in the main pillar picker
+  const cb = document.querySelector(`input[name="proj-${projId}"][value="${memberId}"]`);
+  if(cb){
+    cb.checked = !cb.checked;
+    // Update picker label visual in pillar tab
+    const label = cb.closest('.picker-item');
+    if(label){
+      const box = label.querySelector('.pick-box');
+      const grp = label.dataset.group;
+      if(cb.checked){ label.classList.add('sel-'+grp); if(box) box.textContent='✓'; }
+      else { label.classList.remove('sel-actualab','sel-dev','sel-product'); if(box) box.textContent=''; }
+      const pickerCont = document.getElementById('picker-'+projId);
+      if(pickerCont){
+        const total = pickerCont.querySelectorAll('input:checked').length;
+        const cntEl = document.getElementById(`cnt-${projId}`);
+        if(cntEl) cntEl.textContent = `${total} seleccionado${total!==1?'s':''}`;
+      }
+    }
+  }
+  // Re-render bonus delivery (updates mini-chips and assigned summary)
+  renderBonusDelivery();
+  // Sync all other views
+  syncAllViews(projId);
+}
+
+function renderBonusPanel(){
+  renderBonusHierarchy();
+  renderBonusDelivery();
+  renderBonusFormula();
+  renderBonusCurve();
+  renderBonusTable();
+  renderBonusHero();
+}
+
+function renderBonusHero(){
+  const el = document.getElementById('bonus-hero-total');
+  if(!el) return;
+  const avg = BONUS_IDS.reduce((s,id) => s + calcBonus(id).total, 0) / BONUS_IDS.length;
+  el.textContent = avg.toFixed(0) + '%';
+}
+
+function renderBonusHierarchy(){
+  const el = document.getElementById('bonus-hierarchy');
+  if(!el) return;
+  const l1Html = Object.entries(LEVEL1).map(([id,cfg]) => {
+    const m = getMember(id); if(!m) return '';
+    const del = bonusDelPillar(cfg.pillar), tot = bonusTotPillar(cfg.pillar);
+    return `<div class="bonus-hier-item">
+      <span class="bonus-hier-avatar" style="background:${m.color}">${m.initials}</span>
+      <div style="flex:1;"><strong>${m.name}</strong><div style="font-size:10px;color:var(--gray);">${m.role}</div></div>
+      <span class="bonus-scope-tag" style="background:${PILLAR_COLORS[cfg.pillar]};">${PILLAR_NAMES[cfg.pillar]}</span>
+      <span style="font-size:12px;font-weight:700;color:${PILLAR_COLORS[cfg.pillar]};min-width:30px;text-align:right;">${del}/${tot}</span>
+    </div>`;
+  }).join('');
+
+  const l2Ids = BONUS_IDS.filter(id => !LEVEL1[id]);
+  const l2Html = l2Ids.map(id => {
+    const m = getMember(id); if(!m) return '';
+    const isTr = !!TRANSVERSAL[id];
+    const scope = LEVEL2_SCOPE[id]||[];
+    const del = scope.filter(pid => bonusDel[pid]).length;
+    return `<div class="bonus-hier-item">
+      <span class="bonus-hier-avatar" style="background:${m.color}">${m.initials}</span>
+      <div style="flex:1;"><strong>${m.name}</strong><div style="font-size:10px;color:var(--gray);">${m.role}</div></div>
+      ${isTr ? `<span class="bonus-transversal">${TRANSVERSAL[id].label}</span>` : ''}
+      <span style="font-size:12px;font-weight:700;color:var(--gray);min-width:30px;text-align:right;">${del}/${scope.length}</span>
+    </div>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="bonus-hier-card">
+      <div class="bonus-hier-title"><span style="width:8px;height:8px;border-radius:50%;background:var(--navy);flex-shrink:0;"></span>Línea 1 — Líderes de Pilar</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:12px;">30% = entrega proporcional lineal de su pilar · 10% = calidad evaluada por CTO</div>
+      <div class="bonus-hier-list">${l1Html}</div>
+    </div>
+    <div class="bonus-hier-card">
+      <div class="bonus-hier-title"><span style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Línea 2 — Responsables de Proyecto</div>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:12px;">30% = entrega proporcional de proyectos a cargo · 10% = calidad evaluada por CTO</div>
+      <div class="bonus-hier-list">${l2Html}</div>
+    </div>`;
+}
+
+function renderBonusDelivery(){
+  const grid = document.getElementById('bonus-delivery-grid');
+  if(!grid) return;
+  const pillars = ['gov','ops','act','new'];
+  grid.innerHTML = pillars.map(pillar => {
+    const projs = PROJECTS.filter(p => p.pillar===pillar);
+    const delivered = projs.filter(p => bonusDel[p.id]).length;
+    const pct = projs.length > 0 ? Math.round(delivered/projs.length*100) : 0;
+    return `<div class="bonus-pillar-group">
+      <div class="bonus-pillar-head" style="background:${PILLAR_COLORS[pillar]}0a;">
+        <span style="width:10px;height:10px;border-radius:50%;background:${PILLAR_COLORS[pillar]};flex-shrink:0;"></span>
+        <span class="bonus-pillar-head-title" style="color:${PILLAR_COLORS[pillar]};">${PILLAR_NAMES[pillar]}</span>
+        <div class="bonus-pillar-head-score" style="color:${PILLAR_COLORS[pillar]};">
+          ${delivered}/${projs.length}
+          <div class="bonus-pillar-head-bar"><div class="bonus-pillar-head-bar-fill" style="width:${pct}%;background:${PILLAR_COLORS[pillar]};"></div></div>
+        </div>
+      </div>
+      <div class="bonus-pillar-body">
+        ${projs.map(p => {
+          const owner = getMember(PROJECT_OWNERS[p.id]);
+          const chk = bonusDel[p.id];
+          const isExpanded = bonusExpandedProj.has(p.id);
+          // Build mini-picker chips for each member
+          const assigned = getCheckedMembers(p.id);
+          const assignedIds = new Set(assigned.map(m => m.id));
+          const miniChips = MEMBERS.filter(m => m.id !== 'cpo').map(m => {
+            const isOn = assignedIds.has(m.id);
+            return `<span id="bchip-${p.id}-${m.id}" class="bonus-mini-chip${isOn?' assigned':''}" style="background:${m.color};" title="${m.name}" onclick="event.stopPropagation();syncBonusAssignment('${p.id}','${m.id}')">${m.initials}</span>`;
+          }).join('');
+          // Show current assigned chips summary
+          const assignedSummary = assigned.length > 0
+            ? assigned.slice(0,4).map(m => `<span style="width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff;background:${m.color};margin-left:-4px;">${m.initials}</span>`).join('') + (assigned.length > 4 ? `<span style="font-size:9px;color:var(--gray);margin-left:4px;">+${assigned.length-4}</span>` : '')
+            : '';
+          return `<div class="bonus-proj-row-wrap">
+            <div class="bonus-proj-row${chk?' delivered':''}">
+              <input type="checkbox" ${chk?'checked':''} onchange="toggleBonusDel('${p.id}')">
+              <span class="index-prio i${p.priority.toLowerCase()}" style="font-size:9px;padding:1px 6px;">${p.priority}</span>
+              <span class="bonus-proj-name">${p.name}</span>
+              <span style="display:inline-flex;align-items:center;gap:0;margin-left:4px;">${assignedSummary}</span>
+              ${owner ? `<span class="bonus-proj-owner">${owner.initials}</span>` : ''}
+              <span class="bonus-proj-expand" id="bonus-arrow-${p.id}" onclick="event.stopPropagation();toggleBonusPicker('${p.id}')">${isExpanded?'▲ equipo':'▼ equipo'}</span>
+            </div>
+            <div class="bonus-mini-picker${isExpanded?' open':''}" id="bonus-picker-${p.id}">${miniChips}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+  const cnt = document.getElementById('bonus-delivered-count');
+  if(cnt) cnt.textContent = `${bonusDelTotal()} / 18`;
+  updateSelectAllBtn();
+}
+
+function renderBonusFormula(){
+  const x = bonusDelTotal(), fx = bonusF(x);
+  const xEl = document.getElementById('bonus-x-val');
+  const fxEl = document.getElementById('bonus-fx-val');
+  const scEl = document.getElementById('bonus-area-score');
+  if(xEl) xEl.textContent = x;
+  if(fxEl) fxEl.textContent = fx.toFixed(2)+'%';
+  if(scEl) scEl.textContent = fx.toFixed(1)+'%';
+}
+
+function renderBonusCurve(){
+  const canvas = document.getElementById('bonus-curve-canvas');
+  if(!canvas) return;
+
+  // Hi-DPI support
+  const rect = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const W = rect.width, H = rect.height;
+  const pad = {left:48, right:24, top:20, bottom:28};
+  const pW = W-pad.left-pad.right, pH = H-pad.top-pad.bottom;
+  const MAX_Y = 60;
+
+  ctx.clearRect(0,0,W,H);
+
+  // Fill area under curve
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top + pH);
+  for(let x=0;x<=18;x+=0.2){
+    const fx = bonusF(x);
+    ctx.lineTo(pad.left+(x/18)*pW, pad.top+pH-(fx/MAX_Y)*pH);
+  }
+  ctx.lineTo(pad.left+pW, pad.top+pH);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(201,82,26,0.06)';
+  ctx.fill();
+
+  // Grid
+  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=0.5;
+  for(let i=0;i<=6;i++){
+    const y=pad.top+(pH/6)*i;
+    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(W-pad.right,y); ctx.stroke();
+  }
+
+  // Y labels
+  ctx.fillStyle='#94a3b8'; ctx.font='11px Inter,sans-serif'; ctx.textAlign='right';
+  for(let i=0;i<=6;i++){
+    const val = MAX_Y - i*10;
+    ctx.fillText(val+'%', pad.left-8, pad.top+(pH/6)*i+4);
+  }
+
+  // X labels
+  ctx.textAlign='center'; ctx.font='11px Inter,sans-serif';
+  for(let x=0;x<=18;x+=2){
+    ctx.fillText(x, pad.left+(x/18)*pW, H-8);
+  }
+
+  // 14-project threshold zone
+  const x14 = pad.left+(14/18)*pW;
+  ctx.fillStyle='rgba(201,82,26,0.04)';
+  ctx.fillRect(x14, pad.top, pW-(14/18)*pW, pH);
+  ctx.setLineDash([5,5]); ctx.strokeStyle='rgba(201,82,26,0.3)'; ctx.lineWidth=1;
+  ctx.beginPath(); ctx.moveTo(x14,pad.top); ctx.lineTo(x14,pad.top+pH); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='rgba(201,82,26,0.5)'; ctx.font='10px Inter,sans-serif';
+  ctx.fillText('zona de aceleración (14+)', x14+(pW-(14/18)*pW)/2, pad.top+14);
+
+  // Curve line
+  ctx.beginPath(); ctx.strokeStyle='#C9521A'; ctx.lineWidth=3;
+  for(let x=0;x<=18;x+=0.1){
+    const fx=bonusF(x);
+    const px=pad.left+(x/18)*pW, py=pad.top+pH-(fx/MAX_Y)*pH;
+    x===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
+  }
+  ctx.stroke();
+
+  // Current position dot
+  const d = bonusDelTotal(), fx = bonusF(d);
+  const dx = pad.left+(d/18)*pW, dy = pad.top+pH-(fx/MAX_Y)*pH;
+
+  // Glow
+  const glow = ctx.createRadialGradient(dx,dy,0,dx,dy,16);
+  glow.addColorStop(0,'rgba(201,82,26,0.3)');
+  glow.addColorStop(1,'rgba(201,82,26,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(dx-16,dy-16,32,32);
+
+  // Dot
+  ctx.fillStyle='#C9521A'; ctx.beginPath(); ctx.arc(dx,dy,7,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle='#fff';    ctx.beginPath(); ctx.arc(dx,dy,3.5,0,Math.PI*2); ctx.fill();
+
+  // Label
+  if(d>0){
+    ctx.fillStyle='#151F47'; ctx.font='bold 13px Inter,sans-serif'; ctx.textAlign='center';
+    const lbl = fx.toFixed(1)+'%';
+    const lblW = ctx.measureText(lbl).width;
+    ctx.fillStyle='rgba(255,255,255,0.85)';
+    ctx.fillRect(dx-lblW/2-6, dy-28, lblW+12, 20);
+    ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
+    ctx.strokeRect(dx-lblW/2-6, dy-28, lblW+12, 20);
+    ctx.fillStyle='#151F47';
+    ctx.fillText(lbl, dx, dy-14);
+  }
+}
+
+function renderBonusTable(){
+  const tbody = document.getElementById('bonus-table-body');
+  if(!tbody) return;
+  let n=0;
+  tbody.innerHTML = BONUS_IDS.map(id => {
+    n++;
+    const m = getMember(id); if(!m) return '';
+    const isL1 = !!LEVEL1[id];
+    const isTr = !!TRANSVERSAL[id];
+    const sc = calcBonus(id);
+
+    let lvl = '';
+    if(isL1){
+      lvl = `<span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;background:${PILLAR_COLORS[LEVEL1[id].pillar]}12;color:${PILLAR_COLORS[LEVEL1[id].pillar]};border:1px solid ${PILLAR_COLORS[LEVEL1[id].pillar]}30;">L1 · ${PILLAR_NAMES[LEVEL1[id].pillar]}</span>`;
+    } else if(isTr){
+      lvl = `<span class="bonus-transversal">${TRANSVERSAL[id].label}</span>`;
+    } else {
+      lvl = `<span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;background:var(--bg);color:var(--gray);border:1px solid var(--border);">L2 · ${(LEVEL2_SCOPE[id]||[]).length} proy.</span>`;
+    }
+
+    let scopeDet = '';
+    if(isL1){
+      const pil=LEVEL1[id].pillar;
+      scopeDet = `${bonusDelPillar(pil)}/${bonusTotPillar(pil)}`;
+    } else {
+      const scp=LEVEL2_SCOPE[id]||[];
+      scopeDet = `${scp.filter(pid=>bonusDel[pid]).length}/${scp.length}`;
+    }
+
+    const barCol = sc.gated ? '#ef4444' : sc.total>=75?'#1a7a4a':sc.total>=45?'#C9521A':'#94a3b8';
+    const barPct = Math.min(sc.total,100);
+    const gateChecked = bonusGate[id];
+    return `<tr class="${isL1?'level1-row':''}${sc.gated?' gated-row':''}">
+      <td style="font-size:11px;color:var(--gray);font-weight:600;text-align:center;">${n}</td>
+      <td><div style="display:flex;align-items:center;gap:10px;">
+        <span style="width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;background:${m.color};flex-shrink:0;">${m.initials}</span>
+        <div><div style="font-weight:700;font-size:13px;">${m.name}</div><div style="font-size:10px;color:var(--gray);">${m.role}</div></div>
+      </div></td>
+      <td>${lvl}</td>
+      <td><div style="font-weight:700;font-size:14px;color:var(--navy);">${sc.area.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">f(${bonusDelTotal()})</div></td>
+      <td><div style="font-weight:700;font-size:14px;color:var(--blue);">${sc.scope.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">${scopeDet}</div></td>
+      <td><input class="score-input" type="number" min="0" max="100" value="${bonusQ[id]}" onchange="setBonusQ('${id}',this.value)" onfocus="this.select()"><div style="font-size:9px;color:var(--gray2);margin-top:2px;">= ${sc.quality.toFixed(1)}%</div></td>
+      <td style="text-align:center;"><label class="bonus-gate-toggle" title="${gateChecked ? 'Cumple ≥50% obj. personales' : 'No cumple — bono = 0%'}"><input type="checkbox" ${gateChecked?'checked':''} onchange="toggleBonusGate('${id}')"></label>${sc.gated ? '<div class="bonus-gate-badge" style="margin-top:4px;">0% GATE</div>' : '<div style="font-size:9px;color:var(--green);margin-top:2px;">≥ 50% ✓</div>'}</td>
+      <td class="bonus-total-cell" style="color:${barCol};">${sc.gated ? '0.0%' : sc.total.toFixed(1)+'%'}${sc.gated ? `<div style="font-size:9px;color:var(--gray2);text-decoration:none;margin-top:1px;">(${sc.raw.toFixed(1)}%)</div>` : ''}</td>
+      <td><div class="bonus-bar-mini"><div class="bonus-bar-mini-fill" style="width:${barPct}%;background:${barCol};"></div></div></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   PDF EXPORT
+══════════════════════════════════════════════════ */
+function exportPDF(){
+  const btn = document.querySelector('.export-btn');
+  btn.textContent = 'Preparando...';
+  btn.disabled = true;
+  renderPrintView();
+  setTimeout(() => {
+    window.print();
+    btn.textContent = '⬇ Exportar PDF';
+    btn.disabled = false;
+  }, 300);
+}
+</script>
+</body>
+</html>
