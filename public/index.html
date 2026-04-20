@@ -40,9 +40,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .toc a.gov{color:var(--blue);}.toc a.ops{color:var(--green);}
 .toc a.act{color:var(--orange);}.toc a.new{color:var(--purple);}.toc a.dist{color:var(--grape);}
 .toc-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.export-btn{background:var(--orange);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .2s;margin-left:12px;flex-shrink:0;}
-.export-btn:hover{background:#a83d0a;}
-.export-btn:disabled{background:var(--gray2);cursor:default;}
+.save-btn{background:var(--green);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;margin-left:12px;flex-shrink:0;display:inline-flex;align-items:center;gap:6px;}
+.save-btn:hover{background:#15633b;}
+.save-btn.saved{background:var(--navy);animation:savePulse .6s ease;}
+.save-btn.has-changes{background:var(--orange);animation:saveBlink 1.5s ease infinite;}
+@keyframes savePulse{0%{transform:scale(1);}50%{transform:scale(1.06);}100%{transform:scale(1);}}
+@keyframes saveBlink{0%,100%{opacity:1;}50%{opacity:.75;}}
 
 /* ── CONTENT ── */
 .content{padding:48px 64px 80px;max-width:1600px;margin:0 auto;}
@@ -347,23 +350,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
   .month-row{flex-wrap:wrap;}
   .cal-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
 }
-/* ── PRINT ASSIGNMENTS SECTION (hidden on screen) ── */
-#print-assignments{display:none;}
-
-/* ── PRINT VIEW STYLES ── */
-.pv-header{margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid #dde3ef;}
-.pv-header-title{font-size:18px;font-weight:800;color:#151F47;margin-bottom:3px;}
-.pv-header-meta{font-size:11px;color:#64748b;letter-spacing:.5px;}
-.pv-table{width:100%;border-collapse:collapse;}
-.pv-pillar-row td{padding:14px 0 5px;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
-.pv-row{border-bottom:1px solid #eef0f5;}
-.pv-row td{padding:9px 10px 9px 0;vertical-align:middle;}
-.pv-prio{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:10px;font-weight:700;color:#fff;}
-.pv-name{font-size:13px;font-weight:600;color:#151F47;padding-right:16px!important;}
-.pv-pillar-cell{font-size:10px;font-weight:700;padding-right:16px!important;white-space:nowrap;}
-.pv-chip{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;color:#fff;margin:2px 3px 2px 0;}
-.pv-none{font-size:11px;color:#94a3b8;font-style:italic;}
-.pv-signature{margin-top:40px;padding-top:14px;border-top:1px solid #dde3ef;display:flex;justify-content:space-between;font-size:10px;color:#94a3b8;}
+/* print view styles removed — replaced by save/load system */
 
 /* ── BONUS TAB ── */
 .toc a.bono{color:var(--orange);}
@@ -502,25 +489,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 
 @media(max-width:900px){.bonus-hero{grid-template-columns:1fr;}.bonus-delivery-grid{grid-template-columns:1fr;}.bonus-hierarchy-grid{grid-template-columns:1fr;}.bonus-weight-row{flex-wrap:wrap;}.bonus-explain-grid{grid-template-columns:1fr;}.bonus-scope-grid{grid-template-columns:1fr;}}
 
-@media print{
-  /* Hide all interactive UI */
-  .toc,.page-header::before,.page-header::after,
-  .export-btn,.home-btn,.header-accent,.header-label,
-  .content>section{display:none!important;}
-
-  /* Show only the print view */
-  #print-assignments{display:block!important;}
-
-  body{background:#fff!important;}
-  .content{padding:24px 32px!important;max-width:100%!important;}
-  .page-header{padding:18px 32px!important;}
-  .header-title{font-size:22px!important;}
-  .header-sub{font-size:11px!important;}
-  .header-meta{position:static;text-align:left;display:block;}
-
-  /* Force colors through */
-  * { -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; }
-}
+/* print styles removed — replaced by save/load system */
 </style>
 </head>
 <body>
@@ -549,7 +518,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
     <a href="#" data-tab="bonos" class="bono" onclick="showTab('bonos');return false;"><span class="toc-dot" style="background:#C9521A"></span>Bonificaciones</a>
   </div>
   <div style="display:flex;align-items:center;gap:0;flex-shrink:0;">
-    <button class="export-btn" onclick="exportPDF()">⬇ Exportar PDF</button>
+    <button class="save-btn" id="save-btn" onclick="saveChanges()">💾 Guardar cambios</button>
   </div>
 </nav>
 
@@ -1067,10 +1036,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 
 </main>
 
-<!-- PRINT-ONLY ASSIGNMENTS VIEW -->
-<div id="print-assignments">
-  <div id="pv-content"></div>
-</div>
+<!-- Save/Load system replaces print view -->
 
 <footer class="page-footer">
   <span>Área Digital · TI — ActuaLab + Desarrollo</span>
@@ -1164,8 +1130,8 @@ function syncAllViews(changedProjectId){
   renderChart();
   // 4. Calendario
   renderCalendar();
-  // 5. Print view
-  renderPrintView();
+  // 5. Marcar cambios sin guardar
+  markUnsaved();
   // 6. Bonus panel (si está visible, re-render delivery grid con mini-pickers)
   const bonusSection = document.getElementById('bonificaciones');
   if(bonusSection && bonusSection.classList.contains('panel-active')){
@@ -1471,6 +1437,7 @@ function setDeliveryMonth(projectId, value){
   }
   renderSummary();
   renderCalendar();
+  markUnsaved();
 }
 
 /* ══════════════════════════════════════════════════
@@ -1584,14 +1551,16 @@ function buildIndex(){
 document.addEventListener('DOMContentLoaded', function(){
   PROJECTS.forEach(p => { buildPicker(p); renderChips(p.id); });
   buildIndex();
+  // Load saved state (assignments, months, bonus) before rendering
+  const hadSaved = loadChanges();
   renderSummary();
   renderFilterRow();
   renderDistGrid();
   renderChart();
   renderCalendar();
-  renderPrintView();
   // Show initial panel
   showTab('inicio');
+  if(hadSaved){ console.log('ActuaLab: estado restaurado desde almacenamiento local.'); }
 
   /* ── GLOBAL TOOLTIP (body-anchored, never clipped by overflow) ── */
   const tt = document.createElement('div');
@@ -1652,64 +1621,110 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 /* ══════════════════════════════════════════════════
-   PRINT VIEW
+   SAVE / LOAD SYSTEM (localStorage)
 ══════════════════════════════════════════════════ */
-function renderPrintView(){
-  const el = document.getElementById('pv-content');
-  if(!el) return;
-  const sorted = [...PROJECTS].sort((a,b) => PILLAR_ORDER[a.pillar] - PILLAR_ORDER[b.pillar]);
-  let lastPillar = null;
-  const date = new Date().toLocaleDateString('es-EC',{day:'2-digit',month:'long',year:'numeric'});
-  const totalAssigned = PROJECTS.filter(p => getCheckedMembers(p.id).length > 0).length;
+const STORAGE_KEY = 'actualab_planificacion_v1';
+let _hasUnsaved = false;
 
-  const rows = sorted.map(p => {
-    const members = getCheckedMembers(p.id);
-    const chips = members.length
-      ? members.map(m => `<span class="pv-chip" style="background:${m.color}">${m.name}</span>`).join('')
-      : '<span class="pv-none">Sin asignar</span>';
-    const prioBg = p.priority==='P1' ? 'var(--p1c)' : p.priority==='P2' ? 'var(--p2c)' : 'var(--p3c)';
-    let divider = '';
-    if(p.pillar !== lastPillar){
-      lastPillar = p.pillar;
-      divider = `<tr class="pv-pillar-row">
-        <td colspan="4" style="color:${PILLAR_COLORS[p.pillar]};border-bottom:2px solid ${PILLAR_COLORS[p.pillar]}55;">
-          ${PILLAR_NAMES[p.pillar]}
-        </td></tr>`;
-    }
-    const monthPv = p.deliveryMonth ? MONTHS[p.deliveryMonth] : '—';
-    return divider + `<tr class="pv-row">
-      <td style="width:36px;"><span class="pv-prio" style="background:${prioBg}">${p.priority}</span></td>
-      <td class="pv-name">${p.name}</td>
-      <td class="pv-pillar-cell" style="color:${PILLAR_COLORS[p.pillar]}">${p.pillarName}</td>
-      <td style="font-size:11px;font-weight:600;color:#3061AA;padding-right:16px!important;white-space:nowrap;">${monthPv}</td>
-      <td>${chips}</td>
-    </tr>`;
-  }).join('');
-
-  el.innerHTML = `
-    <div class="pv-header">
-      <div class="pv-header-title">Asignación de Proyectos · Área Digital TI</div>
-      <div class="pv-header-meta">Generado el ${date} &nbsp;·&nbsp; ${totalAssigned} de ${PROJECTS.length} proyectos con integrantes asignados</div>
-    </div>
-    <table class="pv-table">
-      <colgroup>
-        <col style="width:40px">
-        <col>
-        <col style="width:110px">
-        <col style="width:80px">
-        <col style="width:180px">
-      </colgroup>
-      <tbody>${rows}</tbody>
-    </table>
-    <div class="pv-signature">
-      <span>Área Digital · TI — ActuaLab + Desarrolladores</span>
-      <span>Planificación Estratégica · Confidencial · Abril 2026</span>
-    </div>`;
+function markUnsaved(){
+  _hasUnsaved = true;
+  const btn = document.getElementById('save-btn');
+  if(btn){ btn.className = 'save-btn has-changes'; btn.innerHTML = '● Guardar cambios'; }
 }
 
-/* ══════════════════════════════════════════════════
-   PDF EXPORT
-══════════════════════════════════════════════════ */
+function saveChanges(){
+  const data = {
+    savedAt: new Date().toISOString(),
+    assignments: {},
+    deliveryMonths: {},
+    bonusDel: {...bonusDel},
+    bonusQ: {...bonusQ},
+    bonusGate: {...bonusGate}
+  };
+  // Capture member assignments per project
+  PROJECTS.forEach(p => {
+    data.assignments[p.id] = getCheckedMembers(p.id).map(m => m.id);
+    data.deliveryMonths[p.id] = p.deliveryMonth;
+  });
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    _hasUnsaved = false;
+    const btn = document.getElementById('save-btn');
+    if(btn){ btn.className = 'save-btn saved'; btn.innerHTML = '✓ Guardado'; }
+    setTimeout(() => {
+      if(!_hasUnsaved && btn){ btn.className = 'save-btn'; btn.innerHTML = '💾 Guardar cambios'; }
+    }, 2000);
+  } catch(e){
+    alert('Error al guardar: ' + e.message);
+  }
+}
+
+function loadChanges(){
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return false;
+    const data = JSON.parse(raw);
+
+    // Restore assignments
+    if(data.assignments){
+      PROJECTS.forEach(p => {
+        const saved = data.assignments[p.id] || [];
+        // Uncheck all, then check saved ones
+        document.querySelectorAll(`input[name="proj-${p.id}"]`).forEach(cb => {
+          const shouldCheck = saved.includes(cb.value);
+          cb.checked = shouldCheck;
+          // Update picker label visuals
+          const label = cb.closest('.picker-item');
+          if(label){
+            const box = label.querySelector('.pick-box');
+            const grp = label.dataset.group;
+            if(shouldCheck){
+              label.classList.add('sel-'+grp);
+              if(box) box.textContent = '✓';
+            } else {
+              label.classList.remove('sel-actualab','sel-dev','sel-product');
+              if(box) box.textContent = '';
+            }
+          }
+        });
+        // Update count
+        const pickerCont = document.getElementById('picker-'+p.id);
+        if(pickerCont){
+          const total = pickerCont.querySelectorAll('input:checked').length;
+          const cntEl = document.getElementById(`cnt-${p.id}`);
+          if(cntEl) cntEl.textContent = `${total} seleccionado${total!==1?'s':''}`;
+        }
+        renderChips(p.id);
+      });
+    }
+
+    // Restore delivery months
+    if(data.deliveryMonths){
+      PROJECTS.forEach(p => {
+        const month = data.deliveryMonths[p.id];
+        if(month !== undefined && month !== null){
+          p.deliveryMonth = month;
+          const sel = document.getElementById('monthsel-'+p.id);
+          if(sel) sel.value = month;
+        }
+      });
+    }
+
+    // Restore bonus state
+    if(data.bonusDel) Object.assign(bonusDel, data.bonusDel);
+    if(data.bonusQ) Object.assign(bonusQ, data.bonusQ);
+    if(data.bonusGate) Object.assign(bonusGate, data.bonusGate);
+
+    // Refresh all views
+    renderSummary();
+    renderCalendar();
+    return true;
+  } catch(e){
+    console.warn('Error loading saved state:', e);
+    return false;
+  }
+}
+
 /* ══════════════════════════════════════════════════
    BONUS SYSTEM — 60% Área + 30% Alcance + 10% Calidad
 ══════════════════════════════════════════════════ */
@@ -1774,11 +1789,13 @@ function calcBonus(id){
 function toggleBonusDel(pid){
   bonusDel[pid] = !bonusDel[pid];
   renderBonusPanel();
+  markUnsaved();
 }
 function setBonusQ(id,v){
   bonusQ[id] = Math.min(100,Math.max(0,parseInt(v)||0));
   renderBonusTable();
   renderBonusHero();
+  markUnsaved();
 }
 
 function toggleAllDelivered(){
@@ -1786,6 +1803,7 @@ function toggleAllDelivered(){
   PROJECTS.forEach(p => { bonusDel[p.id] = !allOn; });
   renderBonusPanel();
   updateSelectAllBtn();
+  markUnsaved();
 }
 
 function updateSelectAllBtn(){
@@ -1800,6 +1818,7 @@ function toggleBonusGate(id){
   bonusGate[id] = !bonusGate[id];
   renderBonusTable();
   renderBonusHero();
+  markUnsaved();
 }
 
 function toggleBonusPicker(projId){
@@ -2109,20 +2128,7 @@ function renderBonusTable(){
   }).join('');
 }
 
-/* ══════════════════════════════════════════════════
-   PDF EXPORT
-══════════════════════════════════════════════════ */
-function exportPDF(){
-  const btn = document.querySelector('.export-btn');
-  btn.textContent = 'Preparando...';
-  btn.disabled = true;
-  renderPrintView();
-  setTimeout(() => {
-    window.print();
-    btn.textContent = '⬇ Exportar PDF';
-    btn.disabled = false;
-  }, 300);
-}
+/* PDF export removed — replaced by save/load system */
 </script>
 </body>
 </html>
