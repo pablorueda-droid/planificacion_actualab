@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 // Basic authentication
 app.use(basicAuth({
   users: {
-    'pablo': 'actuaria2026'
+    'equipo_TI': '@ctuar!a3223'
   },
   challenge: true,
   realm: 'ActuaLab',
