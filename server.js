@@ -11,8 +11,8 @@ app.use(basicAuth({
     'pablo': 'actuaria2026'
   },
   challenge: true,
-  realm: 'ActuaLab — Área Digital TI',
-  unauthorizedResponse: () => 'Acceso no autorizado. Ingresa tus credenciales.'
+  realm: 'ActuaLab',
+  unauthorizedResponse: () => 'Acceso no autorizado.'
 }));
 
 // Serve the HTML file
