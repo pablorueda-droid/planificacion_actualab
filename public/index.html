@@ -487,7 +487,54 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .bonus-table tbody tr.gated-row .bonus-total-cell{text-decoration:line-through;color:#ef4444 !important;}
 .bonus-gate-badge{font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;background:#fef2f2;color:#ef4444;border:1px solid #fecaca;letter-spacing:.3px;}
 
-@media(max-width:900px){.bonus-hero{grid-template-columns:1fr;}.bonus-delivery-grid{grid-template-columns:1fr;}.bonus-hierarchy-grid{grid-template-columns:1fr;}.bonus-weight-row{flex-wrap:wrap;}.bonus-explain-grid{grid-template-columns:1fr;}.bonus-scope-grid{grid-template-columns:1fr;}}
+@media(max-width:900px){.bonus-hero{grid-template-columns:1fr;}.bonus-delivery-grid{grid-template-columns:1fr;}.bonus-hierarchy-grid{grid-template-columns:1fr;}.bonus-weight-row{flex-wrap:wrap;}.bonus-explain-grid{grid-template-columns:1fr;}.bonus-scope-grid{grid-template-columns:1fr;}.b2-kpi-grid{grid-template-columns:1fr 1fr !important;}.b2-support-grid{grid-template-columns:1fr !important;}}
+
+/* ── BONO 2 — Experiencia Producto ── */
+.toc a.bono2{color:var(--purple);}
+.toc a.tab-active.bono2{color:var(--purple);border-bottom-color:var(--purple);background:#f5f0ff;}
+
+.b2-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
+.b2-kpi-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;position:relative;}
+.b2-kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.b2-kpi-card[data-pillar="gov"]::before{background:var(--blue);}
+.b2-kpi-card[data-pillar="ops"]::before{background:var(--green);}
+.b2-kpi-card[data-pillar="act"]::before{background:var(--orange);}
+.b2-kpi-card[data-pillar="new"]::before{background:var(--purple);}
+.b2-kpi-card-head{padding:16px 18px 10px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);}
+.b2-kpi-card-head .b2-kpi-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.b2-kpi-card-head .b2-kpi-title{font-size:12px;font-weight:700;letter-spacing:.5px;}
+.b2-kpi-card-head .b2-kpi-score{margin-left:auto;font-size:20px;font-weight:800;}
+.b2-kpi-card-body{padding:14px 18px;display:flex;flex-direction:column;gap:10px;}
+.b2-kpi-input{display:flex;align-items:center;gap:10px;}
+.b2-kpi-input label{font-size:11px;font-weight:600;color:var(--gray);flex:1;min-width:0;}
+.b2-kpi-input input[type="range"]{flex:0 0 80px;height:6px;accent-color:var(--purple);cursor:pointer;}
+.b2-kpi-input .b2-kpi-val{font-size:12px;font-weight:700;min-width:32px;text-align:right;}
+.b2-support-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px;}
+.b2-support-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;}
+.b2-support-card-head{padding:12px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);}
+.b2-support-card-body{padding:10px 14px;display:flex;flex-direction:column;gap:4px;}
+.b2-support-row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;font-size:12px;transition:background .12s;}
+.b2-support-row:hover{background:var(--bg);}
+.b2-support-row .b2-sp-name{flex:1;font-weight:500;}
+.b2-support-row .b2-sp-owner{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);color:var(--gray);white-space:nowrap;}
+.b2-support-row input[type="number"]{width:54px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;text-align:center;transition:border-color .15s;background:#fff;}
+.b2-support-row input[type="number"]:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(92,47,144,.12);}
+.b2-explain-card.ec-b2area::before{background:var(--navy);}
+.b2-explain-card.ec-b2pillar::before{background:var(--purple);}
+.b2-explain-card.ec-b2support::before{background:var(--green);}
+.ec-b2area li::before{background:var(--navy);}
+.ec-b2pillar li::before{background:var(--purple);}
+.ec-b2support li::before{background:var(--green);}
+.b2-kpi-detail{margin-top:24px;margin-bottom:32px;}
+.b2-kpi-detail-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.b2-kpi-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.b2-kpi-detail-card{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;}
+.b2-kpi-detail-card-head{padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;border-bottom:1px solid var(--border);}
+.b2-kpi-detail-card-body{padding:14px 18px;font-size:12px;color:var(--gray);line-height:1.65;}
+.b2-kpi-detail-card-body h5{font-size:12px;font-weight:700;color:var(--navy);margin:8px 0 4px;}
+.b2-kpi-detail-card-body h5:first-child{margin-top:0;}
+.b2-kpi-detail-card-body .kpi-measure{font-size:11px;padding:4px 0 2px 12px;position:relative;color:var(--gray);}
+.b2-kpi-detail-card-body .kpi-measure::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gray2);position:absolute;left:0;top:9px;}
 
 /* print styles removed — replaced by save/load system */
 </style>
@@ -515,7 +562,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
     <a href="#" data-tab="resumen"  onclick="showTab('resumen');return false;">📊 Resumen</a>
     <a href="#" data-tab="calendario" class="cal" onclick="showTab('calendario');return false;">📅 Calendario</a>
     <a href="#" data-tab="dist" class="dist" onclick="showTab('dist');return false;"><span class="toc-dot" style="background:#7c4d9e"></span>Distribución</a>
-    <a href="#" data-tab="bonos" class="bono" onclick="showTab('bonos');return false;"><span class="toc-dot" style="background:#C9521A"></span>Bonificaciones</a>
+    <a href="#" data-tab="bonos" class="bono" onclick="showTab('bonos');return false;"><span class="toc-dot" style="background:#C9521A"></span>Bono 1 · Entregas</a>
+    <a href="#" data-tab="bono2" class="bono2" onclick="showTab('bono2');return false;"><span class="toc-dot" style="background:#5c2f90"></span>Bono 2 · Experiencia</a>
   </div>
   <div style="display:flex;align-items:center;gap:0;flex-shrink:0;">
     <button class="save-btn" id="save-btn" onclick="saveChanges()">💾 Guardar cambios</button>
@@ -991,8 +1039,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;">
         <div style="width:40px;height:40px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#fff;font-weight:800;">!</div>
         <div style="flex:1;">
-          <strong style="font-size:13px;color:#991b1b;display:block;margin-bottom:4px;">Regla de umbral: Objetivos Personales &ge; 50%</strong>
-          <p style="font-size:12px;color:#7f1d1d;line-height:1.6;margin:0;">Si un integrante no cumple al menos el <strong>50% de sus objetivos personales</strong> (evaluados fuera de este bono), su bonificación del área se reduce a <strong>0%</strong>, independientemente del resultado calculado. Esta regla funciona como una compuerta: se activa en el simulador con el toggle "Obj. Personal" en la tabla. Si está desmarcado, la persona no recibe bono.</p>
+          <strong style="font-size:13px;color:#991b1b;display:block;margin-bottom:4px;">Regla de umbral: Alcance &ge; 50%</strong>
+          <p style="font-size:12px;color:#7f1d1d;line-height:1.6;margin:0;">Si un integrante entrega menos del <strong>50% de los proyectos bajo su responsabilidad</strong> (segundo componente — alcance), su bonificación se reduce automáticamente a <strong>0%</strong>, independientemente del resultado calculado en los otros componentes. Para L1 se evalúa el porcentaje de proyectos entregados en su pilar; para L2 el porcentaje de proyectos propios entregados. Esta regla es automática y se refleja en la tabla del simulador.</p>
         </div>
       </div>
     </div>
@@ -1028,8 +1076,201 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
     <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">El 60% (Área) y 30% (Alcance) se calculan automáticamente. Ingresa el score de Calidad (0–100) evaluado por el CTO para cada integrante.</p>
     <div class="bonus-table-wrap">
       <table class="bonus-table">
-        <thead><tr><th>#</th><th>Integrante</th><th>Nivel</th><th>60% Área</th><th>30% Alcance</th><th style="min-width:80px;">10% Calidad</th><th>Obj. Personal</th><th>Total</th><th style="min-width:90px;"></th></tr></thead>
+        <thead><tr><th>#</th><th>Integrante</th><th>Nivel</th><th>60% Área</th><th>30% Alcance</th><th style="min-width:80px;">10% Calidad</th><th>Total</th><th style="min-width:90px;"></th></tr></thead>
         <tbody id="bonus-table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BONO 2 — EXPERIENCIA PRODUCTO -->
+  <section id="experiencia-producto" data-panel="bono2" style="margin-bottom:52px;">
+    <div class="section-label" style="color:var(--purple)">Bonificación 2 · Experiencia de Producto · Abril–Octubre 2026</div>
+
+    <!-- Hero -->
+    <div class="bonus-hero" id="b2-hero">
+      <div class="bonus-hero-left">
+        <div style="font-size:20px;font-weight:800;color:var(--navy);">Modelo de Bonificación por Experiencia de Producto</div>
+        <div style="font-size:13px;color:var(--gray);line-height:1.6;">Mide el impacto cualitativo de los productos entregados en el negocio. Combina KPIs de pilar a nivel de área, la contribución individual por pilar, y el soporte brindado a cada producto.</div>
+        <div class="bonus-weight-row">
+          <div class="bonus-weight-box w-area" style=""><div class="bonus-weight-num" style="color:var(--navy);">50%</div><div class="bonus-weight-lbl">Impacto Área</div><div class="bonus-weight-desc">KPIs promedio de los 4 pilares<br>Curva exponencial g(s)</div></div>
+          <div class="bonus-weight-box w-delivery" style=""><div class="bonus-weight-num" style="color:var(--purple);">35%</div><div class="bonus-weight-lbl">Impacto Pilar</div><div class="bonus-weight-desc">L1: score de su pilar<br>L2: promedio ponderado</div></div>
+          <div class="bonus-weight-box w-quality" style=""><div class="bonus-weight-num" style="color:var(--green);">15%</div><div class="bonus-weight-lbl">Soporte Producto</div><div class="bonus-weight-desc">Score de soporte por proyecto<br>Promedio de proyectos a cargo</div></div>
+        </div>
+      </div>
+      <div class="bonus-hero-right" style="background:var(--purple);">
+        <div class="bonus-hero-label">Score Total Simulado</div>
+        <div class="bonus-hero-pct" id="b2-hero-total">0%</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;">promedio del equipo</div>
+      </div>
+    </div>
+
+    <!-- Explainer -->
+    <div class="bonus-explainer" id="b2-explainer">
+      <div class="bonus-explain-title">Cómo funciona el modelo</div>
+      <div class="bonus-explain-grid">
+        <div class="bonus-explain-card b2-explain-card ec-b2area">
+          <h4><span class="ec-pct" style="color:var(--navy);">50%</span> Impacto del Área</h4>
+          <p>Componente colectivo basado en los KPIs de experiencia de producto de los 4 pilares. Cada pilar tiene 3 indicadores clave (0–100). El score del área es el promedio de los 4 pilares.</p>
+          <ul>
+            <li>Cada pilar contribuye por igual al promedio del área</li>
+            <li>La curva no es lineal: scores bajos generan retornos proporcionalmente menores</li>
+            <li>Un score de área de 100 otorga el 50% completo del bono</li>
+            <li>Se aplica por igual a todos los integrantes, incentivando el impacto colectivo</li>
+          </ul>
+          <div class="ec-formula">g(s) = (s/100)<sup>1.3</sup> × 50 &nbsp; donde s = score del área (0–100)</div>
+        </div>
+        <div class="bonus-explain-card b2-explain-card ec-b2pillar">
+          <h4><span class="ec-pct" style="color:var(--purple);">35%</span> Impacto del Pilar</h4>
+          <p>Componente individual que depende de los KPIs del pilar o pilares donde cada persona trabaja. Vincula la bonificación con el resultado cualitativo del ámbito directo de responsabilidad.</p>
+          <ul>
+            <li><strong style="color:var(--navy);">Línea 1 (líderes):</strong> se usa directamente el score del pilar que lidera (promedio de sus 3 KPIs)</li>
+            <li><strong style="color:var(--navy);">Línea 2 (ejecutores):</strong> promedio ponderado del score de cada pilar, con peso proporcional al número de proyectos que tiene en ese pilar</li>
+            <li>Escala lineal: score_pilar / 100 × 35%</li>
+          </ul>
+        </div>
+        <div class="bonus-explain-card b2-explain-card ec-b2support">
+          <h4><span class="ec-pct" style="color:var(--green);">15%</span> Soporte al Producto</h4>
+          <p>Evalúa la calidad del soporte, acompañamiento y seguimiento que cada persona brinda a los productos bajo su responsabilidad. Medido proyecto a proyecto (0–100).</p>
+          <ul>
+            <li><strong style="color:var(--navy);">Línea 1:</strong> promedio de soporte de todos los proyectos de su pilar</li>
+            <li><strong style="color:var(--navy);">Línea 2:</strong> promedio de soporte de los proyectos que tiene asignados como responsable directo</li>
+            <li>Criterios: respuesta a incidentes, documentación, capacitación al cliente, disponibilidad</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KPI Detail per pillar -->
+      <div class="b2-kpi-detail">
+        <div class="b2-kpi-detail-title">Detalle de KPIs de Experiencia por Pilar</div>
+        <div class="b2-kpi-detail-grid">
+          <div class="b2-kpi-detail-card">
+            <div class="b2-kpi-detail-card-head" style="background:#f0f5ff;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--blue);flex-shrink:0;"></span>
+              <span style="color:var(--blue);">Gobernanza de Datos</span>
+            </div>
+            <div class="b2-kpi-detail-card-body">
+              <h5>1. Disponibilidad</h5>
+              <p>Mide el porcentaje de tiempo que los datos gobernados están accesibles y operativos para los consumidores internos y productos downstream.</p>
+              <div class="kpi-measure">Fuente: monitoreo de uptime de pipelines y bases de datos. Se mide semanalmente como % de horas disponibles vs. horas totales del periodo.</div>
+              <div class="kpi-measure">Meta 100 = 99.5% uptime mensual o superior.</div>
+              <h5>2. Calidad de Datos</h5>
+              <p>Evalúa la precisión, completitud y consistencia de los datos migrados e integrados. Incluye tasa de registros sin errores, campos completos y ausencia de duplicados.</p>
+              <div class="kpi-measure">Fuente: auditorías de calidad automatizadas (validaciones de schema, reglas de negocio). Frecuencia: mensual.</div>
+              <div class="kpi-measure">Meta 100 = menos de 0.1% de registros con anomalías detectadas.</div>
+              <h5>3. Habilitación Downstream</h5>
+              <p>Mide cuántos proyectos y equipos dependen efectivamente de los datos gobernados. Refleja el valor de la gobernanza como habilitador del resto del roadmap.</p>
+              <div class="kpi-measure">Fuente: conteo de proyectos desbloqueados que consumen datos de Gobernanza, ponderado por avance. Frecuencia: trimestral.</div>
+              <div class="kpi-measure">Meta 100 = todos los proyectos dependientes activos y consumiendo datos sin bloqueos.</div>
+            </div>
+          </div>
+          <div class="b2-kpi-detail-card">
+            <div class="b2-kpi-detail-card-head" style="background:#d5edd9;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>
+              <span style="color:var(--green);">Optimización de Procesos</span>
+            </div>
+            <div class="b2-kpi-detail-card-body">
+              <h5>1. Eficiencia Operativa</h5>
+              <p>Mide la reducción de tiempo y esfuerzo en los procesos automatizados respecto al baseline manual. Aplica a la generación de estudios actuariales, asistentes operativos y facturación.</p>
+              <div class="kpi-measure">Fuente: comparativa de tiempos (antes vs. después) medidos en horas/tarea. Frecuencia: mensual por proceso.</div>
+              <div class="kpi-measure">Meta 100 = reducción del 80% o más en tiempo de ejecución vs. proceso manual.</div>
+              <h5>2. Precisión</h5>
+              <p>Evalúa la exactitud de los outputs generados por las automatizaciones (cálculos actuariales, documentos, facturas). Se compara contra el resultado validado manualmente.</p>
+              <div class="kpi-measure">Fuente: muestreo de outputs automatizados vs. validación manual por el equipo actuarial. Frecuencia: mensual.</div>
+              <div class="kpi-measure">Meta 100 = 0 errores materiales en el periodo evaluado.</div>
+              <h5>3. Adopción</h5>
+              <p>Mide el porcentaje de usuarios internos que utilizan activamente las herramientas de automatización en lugar de los procesos manuales anteriores.</p>
+              <div class="kpi-measure">Fuente: logs de uso de herramientas + encuesta interna de adopción. Frecuencia: mensual.</div>
+              <div class="kpi-measure">Meta 100 = 100% del equipo objetivo usando la herramienta como flujo principal.</div>
+            </div>
+          </div>
+          <div class="b2-kpi-detail-card">
+            <div class="b2-kpi-detail-card-head" style="background:#fde0d0;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--orange);flex-shrink:0;"></span>
+              <span style="color:var(--orange);">Actuaria+</span>
+            </div>
+            <div class="b2-kpi-detail-card-body">
+              <h5>1. Penetración en Clientes</h5>
+              <p>Porcentaje de clientes activos de Actuaria que utilizan al menos un módulo de Actuaria+ (Simulador, Control Tributario, ActuaFast, Pagos, NavIA).</p>
+              <div class="kpi-measure">Fuente: CRM (Salesforce) cruzado con base de usuarios activos de la plataforma. Frecuencia: mensual.</div>
+              <div class="kpi-measure">Meta 100 = 70% o más de la base de clientes activos usando Actuaria+.</div>
+              <h5>2. Engagement</h5>
+              <p>Frecuencia y profundidad de uso de la plataforma: sesiones por usuario, módulos visitados, acciones completadas por sesión.</p>
+              <div class="kpi-measure">Fuente: analytics de producto (eventos de uso, sesiones, duración). Frecuencia: semanal.</div>
+              <div class="kpi-measure">Meta 100 = promedio de 3+ sesiones/semana por usuario activo con 2+ módulos usados.</div>
+              <h5>3. Satisfacción</h5>
+              <p>Nivel de satisfacción del cliente con la experiencia de uso de Actuaria+. Incluye NPS (Net Promoter Score) y encuestas de satisfacción post-interacción.</p>
+              <div class="kpi-measure">Fuente: encuestas in-app (CSAT) + NPS trimestral. Frecuencia: continua (CSAT), trimestral (NPS).</div>
+              <div class="kpi-measure">Meta 100 = NPS >= 70 y CSAT promedio >= 4.5/5.</div>
+            </div>
+          </div>
+          <div class="b2-kpi-detail-card">
+            <div class="b2-kpi-detail-card-head" style="background:#ead8f5;">
+              <span style="width:10px;height:10px;border-radius:50%;background:var(--purple);flex-shrink:0;"></span>
+              <span style="color:var(--purple);">Nuevos Productos Digitales</span>
+            </div>
+            <div class="b2-kpi-detail-card-body">
+              <h5>1. Adquisición</h5>
+              <p>Mide la capacidad de los nuevos productos para atraer usuarios o clientes. Incluye registros, trials, demos solicitadas y primeros usos.</p>
+              <div class="kpi-measure">Fuente: funnel de adquisición del producto (landing → registro → activación). Frecuencia: semanal.</div>
+              <div class="kpi-measure">Meta 100 = cumplimiento del 100% del target de adquisición definido en el business case de cada producto.</div>
+              <h5>2. Retención</h5>
+              <p>Porcentaje de usuarios que continúan usando el producto después del primer mes. Mide la capacidad de generar valor recurrente y evitar el churn temprano.</p>
+              <div class="kpi-measure">Fuente: cohortes de retención (D7, D30, D60) por producto. Frecuencia: mensual.</div>
+              <div class="kpi-measure">Meta 100 = retención D30 >= 60% para B2C, >= 80% para B2B.</div>
+              <h5>3. Validación Comercial</h5>
+              <p>Evalúa si el producto genera ingresos o tiene un camino claro hacia la monetización. Incluye conversiones a pago, pipeline comercial generado y deals cerrados.</p>
+              <div class="kpi-measure">Fuente: CRM + billing system. Se mide como % del revenue target del product plan. Frecuencia: mensual.</div>
+              <div class="kpi-measure">Meta 100 = cumplimiento del 100% del revenue target o pipeline equivalente.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example -->
+      <div class="bonus-example-wrap">
+        <div class="bonus-example-title">Ejemplo de cálculo <span>Cristopher Palacios · L2</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">Score del Área (promedio 4 pilares)</span><span class="bonus-example-calc">s = 72</span><span class="bonus-example-val" style="color:var(--navy);">72</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">50% Impacto Área: g(72)</span><span class="bonus-example-calc">(72/100)^1.3 × 50 = 32.0%</span><span class="bonus-example-val" style="color:var(--navy);">32.0%</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">35% Impacto Pilar (ponderado por proyectos)</span><span class="bonus-example-calc">avg ponderado = 68 → 68/100 × 35</span><span class="bonus-example-val" style="color:var(--purple);">23.8%</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">15% Soporte (promedio proyectos a cargo)</span><span class="bonus-example-calc">avg soporte = 80 → 80/100 × 15</span><span class="bonus-example-val" style="color:var(--green);">12.0%</span></div>
+        <div class="bonus-example-row"><span class="bonus-example-label">Total Bono 2</span><span class="bonus-example-calc">32.0 + 23.8 + 12.0</span><span class="bonus-example-val" style="color:var(--navy);font-size:15px;">67.8%</span></div>
+      </div>
+    </div>
+
+    <!-- KPI Inputs -->
+    <div class="section-label" style="color:var(--purple)">KPIs de Experiencia por Pilar</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">Ingresa el score (0–100) de cada indicador de experiencia. El promedio de los 3 KPIs define el score del pilar. El promedio de los 4 pilares define el score del área.</p>
+    <div class="b2-kpi-grid" id="b2-kpi-grid"></div>
+
+    <!-- Curve -->
+    <div class="bonus-curve-wrap">
+      <div class="bonus-curve-header">
+        <div>
+          <div class="bonus-curve-title" style="color:var(--purple);">Curva del Componente de Área (50%)</div>
+          <div class="bonus-curve-formula" style="border:1px solid #d8c8f0;">g(s) = (s/100)<sup>1.3</sup> × 50</div>
+        </div>
+        <div class="bonus-curve-score">
+          <div class="bonus-curve-score-val" id="b2-area-score" style="color:var(--purple);">0.0%</div>
+          <div class="bonus-curve-score-lbl">componente de área</div>
+        </div>
+      </div>
+      <canvas id="b2-curve-canvas" style="width:100%;height:260px;display:block;"></canvas>
+    </div>
+
+    <!-- Support Tracker -->
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap;">
+      <div class="section-label" style="color:var(--purple);margin-bottom:0;">Soporte al Producto por Proyecto</div>
+    </div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">Ingresa el score de soporte (0–100) para cada proyecto. Este valor alimenta el componente del 15% (Soporte al Producto) de cada integrante.</p>
+    <div class="b2-support-grid" id="b2-support-grid"></div>
+
+    <!-- Table -->
+    <div class="section-label" style="color:var(--purple)">Simulador Individual</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">Los 3 componentes se calculan automáticamente en base a los KPIs de pilar y los scores de soporte ingresados arriba.</p>
+    <div class="bonus-table-wrap">
+      <table class="bonus-table">
+        <thead><tr><th>#</th><th>Integrante</th><th>Nivel</th><th>50% Área</th><th>35% Pilar</th><th>15% Soporte</th><th>Total</th><th style="min-width:90px;"></th></tr></thead>
+        <tbody id="b2-table-body"></tbody>
       </table>
     </div>
   </section>
@@ -1412,6 +1653,7 @@ function showTab(tabId){
   if(tabId === 'resumen')   { renderSummary(); }
   if(tabId === 'calendario'){ renderCalendar(); }
   if(tabId === 'bonos')     { renderBonusPanel(); }
+  if(tabId === 'bono2')     { renderBono2Panel(); }
 }
 
 /* ══════════════════════════════════════════════════
@@ -1639,7 +1881,8 @@ function saveChanges(){
     deliveryMonths: {},
     bonusDel: {...bonusDel},
     bonusQ: {...bonusQ},
-    bonusGate: {...bonusGate}
+    b2KPI: JSON.parse(JSON.stringify(b2KPI)),
+    b2Support: {...b2Support}
   };
   // Capture member assignments per project
   PROJECTS.forEach(p => {
@@ -1713,7 +1956,9 @@ function loadChanges(){
     // Restore bonus state
     if(data.bonusDel) Object.assign(bonusDel, data.bonusDel);
     if(data.bonusQ) Object.assign(bonusQ, data.bonusQ);
-    if(data.bonusGate) Object.assign(bonusGate, data.bonusGate);
+    // Restore Bono 2 state
+    if(data.b2KPI){ Object.keys(b2KPI).forEach(k => { if(data.b2KPI[k]) b2KPI[k] = data.b2KPI[k]; }); }
+    if(data.b2Support) Object.assign(b2Support, data.b2Support);
 
     // Refresh all views
     renderSummary();
@@ -1759,7 +2004,6 @@ Object.entries(TRANSVERSAL).forEach(([id,cfg]) => { LEVEL2_SCOPE[id] = cfg.scope
 // State
 const bonusDel = {}; PROJECTS.forEach(p => { bonusDel[p.id] = false; });
 const bonusQ = {}; BONUS_IDS.forEach(id => { bonusQ[id] = 0; });
-const bonusGate = {}; BONUS_IDS.forEach(id => { bonusGate[id] = true; }); // true = meets 50% personal objectives
 const bonusExpandedProj = new Set();
 
 // Formula: recalibrated for 60% max → k = 60/18^1.869
@@ -1769,21 +2013,23 @@ function bonusDelPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar &
 function bonusTotPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar).length; }
 
 function calcBonus(id){
-  const gated = !bonusGate[id]; // if gate is false → person is gated out
   const area = bonusF(bonusDelTotal());
-  let scope = 0;
+  let scope = 0, scopeRatio = 0;
   if(LEVEL1[id]){
     const pil = LEVEL1[id].pillar;
     const tot = bonusTotPillar(pil);
-    scope = tot > 0 ? (bonusDelPillar(pil)/tot)*30 : 0;
+    scopeRatio = tot > 0 ? bonusDelPillar(pil)/tot : 0;
+    scope = scopeRatio * 30;
   } else {
     const sc = LEVEL2_SCOPE[id]||[];
     const del = sc.filter(pid => bonusDel[pid]).length;
-    scope = sc.length > 0 ? (del/sc.length)*30 : 0;
+    scopeRatio = sc.length > 0 ? del/sc.length : 0;
+    scope = scopeRatio * 30;
   }
   const quality = (bonusQ[id]/100)*10;
   const raw = area+scope+quality;
-  return {area, scope, quality, raw, gated, total: gated ? 0 : raw};
+  const gated = scopeRatio < 0.5; // Auto-gate: <50% de alcance → bono = 0
+  return {area, scope, scopeRatio, quality, raw, gated, total: gated ? 0 : raw};
 }
 
 function toggleBonusDel(pid){
@@ -1814,12 +2060,7 @@ function updateSelectAllBtn(){
   btn.innerHTML = allOn ? '✕ Desmarcar todos' : '✓ Seleccionar todos';
 }
 
-function toggleBonusGate(id){
-  bonusGate[id] = !bonusGate[id];
-  renderBonusTable();
-  renderBonusHero();
-  markUnsaved();
-}
+/* Gate is now automatic: scopeRatio < 0.5 → bonus = 0 */
 
 function toggleBonusPicker(projId){
   if(bonusExpandedProj.has(projId)){
@@ -2110,7 +2351,7 @@ function renderBonusTable(){
 
     const barCol = sc.gated ? '#ef4444' : sc.total>=75?'#1a7a4a':sc.total>=45?'#C9521A':'#94a3b8';
     const barPct = Math.min(sc.total,100);
-    const gateChecked = bonusGate[id];
+    const scopePct = Math.round(sc.scopeRatio*100);
     return `<tr class="${isL1?'level1-row':''}${sc.gated?' gated-row':''}">
       <td style="font-size:11px;color:var(--gray);font-weight:600;text-align:center;">${n}</td>
       <td><div style="display:flex;align-items:center;gap:10px;">
@@ -2119,9 +2360,8 @@ function renderBonusTable(){
       </div></td>
       <td>${lvl}</td>
       <td><div style="font-weight:700;font-size:14px;color:var(--navy);">${sc.area.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">f(${bonusDelTotal()})</div></td>
-      <td><div style="font-weight:700;font-size:14px;color:var(--blue);">${sc.scope.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">${scopeDet}</div></td>
+      <td><div style="font-weight:700;font-size:14px;color:${sc.gated?'#ef4444':'var(--blue)'};">${sc.scope.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">${scopeDet} (${scopePct}%)</div>${sc.gated ? '<div class="bonus-gate-badge" style="margin-top:4px;">&lt;50% → Sin bono</div>' : ''}</td>
       <td><input class="score-input" type="number" min="0" max="100" value="${bonusQ[id]}" onchange="setBonusQ('${id}',this.value)" onfocus="this.select()"><div style="font-size:9px;color:var(--gray2);margin-top:2px;">= ${sc.quality.toFixed(1)}%</div></td>
-      <td style="text-align:center;"><label class="bonus-gate-toggle" title="${gateChecked ? 'Cumple ≥50% obj. personales' : 'No cumple — bono = 0%'}"><input type="checkbox" ${gateChecked?'checked':''} onchange="toggleBonusGate('${id}')"></label>${sc.gated ? '<div class="bonus-gate-badge" style="margin-top:4px;">0% GATE</div>' : '<div style="font-size:9px;color:var(--green);margin-top:2px;">≥ 50% ✓</div>'}</td>
       <td class="bonus-total-cell" style="color:${barCol};">${sc.gated ? '0.0%' : sc.total.toFixed(1)+'%'}${sc.gated ? `<div style="font-size:9px;color:var(--gray2);text-decoration:none;margin-top:1px;">(${sc.raw.toFixed(1)}%)</div>` : ''}</td>
       <td><div class="bonus-bar-mini"><div class="bonus-bar-mini-fill" style="width:${barPct}%;background:${barCol};"></div></div></td>
     </tr>`;
@@ -2129,6 +2369,295 @@ function renderBonusTable(){
 }
 
 /* PDF export removed — replaced by save/load system */
+
+/* ══════════════════════════════════════════════════
+   BONO 2 — Experiencia de Producto
+   50% Impacto Área + 35% Impacto Pilar + 15% Soporte
+══════════════════════════════════════════════════ */
+const b2KPI = {
+  gov: [0,0,0], ops: [0,0,0], act: [0,0,0], new: [0,0,0]
+};
+const B2_KPI_NAMES = {
+  gov: ['Disponibilidad','Calidad de Datos','Habilitación'],
+  ops: ['Eficiencia Operativa','Precisión','Adopción'],
+  act: ['Penetración','Engagement','Satisfacción'],
+  new: ['Adquisición','Retención','Validación Comercial']
+};
+const b2Support = {};
+PROJECTS.forEach(p => { b2Support[p.id] = 0; });
+
+function b2PillarScore(pillar){ const k = b2KPI[pillar]; return (k[0]+k[1]+k[2])/3; }
+function b2AreaScore(){ return (b2PillarScore('gov')+b2PillarScore('ops')+b2PillarScore('act')+b2PillarScore('new'))/4; }
+function b2AreaComponent(s){ return s <= 0 ? 0 : Math.min(Math.pow(s/100, 1.3) * 50, 50); }
+
+function b2CalcBonus(id){
+  const areaS = b2AreaScore();
+  const area = b2AreaComponent(areaS);
+
+  let pillarComp = 0;
+  if(LEVEL1[id]){
+    pillarComp = (b2PillarScore(LEVEL1[id].pillar) / 100) * 35;
+  } else {
+    const scope = LEVEL2_SCOPE[id] || [];
+    if(scope.length > 0){
+      const pillarWeights = {};
+      scope.forEach(pid => {
+        const proj = PROJECTS.find(p => p.id === pid);
+        if(proj) pillarWeights[proj.pillar] = (pillarWeights[proj.pillar]||0) + 1;
+      });
+      let weighted = 0, totalW = 0;
+      Object.entries(pillarWeights).forEach(([pil, w]) => {
+        weighted += b2PillarScore(pil) * w;
+        totalW += w;
+      });
+      pillarComp = totalW > 0 ? (weighted / totalW / 100) * 35 : 0;
+    }
+  }
+
+  // Support component
+  let support = 0;
+  if(LEVEL1[id]){
+    const pilProjs = PROJECTS.filter(p => p.pillar === LEVEL1[id].pillar);
+    const avg = pilProjs.reduce((s,p) => s + (b2Support[p.id]||0), 0) / (pilProjs.length||1);
+    support = (avg / 100) * 15;
+  } else {
+    const scope = LEVEL2_SCOPE[id] || [];
+    if(scope.length > 0){
+      const avg = scope.reduce((s,pid) => s + (b2Support[pid]||0), 0) / scope.length;
+      support = (avg / 100) * 15;
+    }
+  }
+
+  const total = area + pillarComp + support;
+  return { area, areaScore: areaS, pillar: pillarComp, support, total };
+}
+
+function setB2KPI(pillar, idx, val){
+  b2KPI[pillar][idx] = Math.min(100, Math.max(0, parseInt(val)||0));
+  renderBono2Panel();
+  markUnsaved();
+}
+
+function setB2Support(pid, val){
+  b2Support[pid] = Math.min(100, Math.max(0, parseInt(val)||0));
+  renderBono2Table();
+  renderBono2Hero();
+  markUnsaved();
+}
+
+function renderBono2Panel(){
+  renderBono2KPIs();
+  renderBono2Curve();
+  renderBono2Support();
+  renderBono2Table();
+  renderBono2Hero();
+}
+
+function renderBono2Hero(){
+  const el = document.getElementById('b2-hero-total');
+  if(!el) return;
+  const avg = BONUS_IDS.reduce((s,id) => s + b2CalcBonus(id).total, 0) / BONUS_IDS.length;
+  el.textContent = avg.toFixed(0) + '%';
+}
+
+function renderBono2KPIs(){
+  const grid = document.getElementById('b2-kpi-grid');
+  if(!grid) return;
+  const pillars = ['gov','ops','act','new'];
+  grid.innerHTML = pillars.map(pillar => {
+    const score = b2PillarScore(pillar);
+    const names = B2_KPI_NAMES[pillar];
+    const color = PILLAR_COLORS[pillar];
+    return `<div class="b2-kpi-card" data-pillar="${pillar}">
+      <div class="b2-kpi-card-head">
+        <span class="b2-kpi-dot" style="background:${color};"></span>
+        <span class="b2-kpi-title" style="color:${color};">${PILLAR_NAMES[pillar]}</span>
+        <span class="b2-kpi-score" style="color:${color};">${score.toFixed(0)}</span>
+      </div>
+      <div class="b2-kpi-card-body">
+        ${names.map((name, i) => `<div class="b2-kpi-input">
+          <label>${name}</label>
+          <input type="range" min="0" max="100" value="${b2KPI[pillar][i]}" oninput="setB2KPI('${pillar}',${i},this.value);this.nextElementSibling.textContent=this.value">
+          <span class="b2-kpi-val" style="color:${color};">${b2KPI[pillar][i]}</span>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderBono2Curve(){
+  const canvas = document.getElementById('b2-curve-canvas');
+  if(!canvas) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  const W = rect.width, H = rect.height;
+  const pad = {left:48, right:24, top:20, bottom:28};
+  const pW = W-pad.left-pad.right, pH = H-pad.top-pad.bottom;
+  const MAX_Y = 50;
+
+  ctx.clearRect(0,0,W,H);
+
+  // Fill area under curve
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top + pH);
+  for(let s=0;s<=100;s+=1){
+    const gs = b2AreaComponent(s);
+    ctx.lineTo(pad.left+(s/100)*pW, pad.top+pH-(gs/MAX_Y)*pH);
+  }
+  ctx.lineTo(pad.left+pW, pad.top+pH);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(92,47,144,0.06)';
+  ctx.fill();
+
+  // Grid
+  ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=0.5;
+  for(let i=0;i<=5;i++){
+    const y=pad.top+(pH/5)*i;
+    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(W-pad.right,y); ctx.stroke();
+  }
+
+  // Y labels
+  ctx.fillStyle='#94a3b8'; ctx.font='11px Inter,sans-serif'; ctx.textAlign='right';
+  for(let i=0;i<=5;i++){
+    const val = MAX_Y - i*10;
+    ctx.fillText(val+'%', pad.left-8, pad.top+(pH/5)*i+4);
+  }
+
+  // X labels
+  ctx.textAlign='center'; ctx.font='11px Inter,sans-serif';
+  for(let x=0;x<=100;x+=10){
+    ctx.fillText(x, pad.left+(x/100)*pW, H-8);
+  }
+
+  // Curve line
+  ctx.beginPath(); ctx.strokeStyle='#5c2f90'; ctx.lineWidth=3;
+  for(let s=0;s<=100;s+=0.5){
+    const gs = b2AreaComponent(s);
+    const px=pad.left+(s/100)*pW, py=pad.top+pH-(gs/MAX_Y)*pH;
+    s===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
+  }
+  ctx.stroke();
+
+  // Current position dot
+  const areaS = b2AreaScore();
+  const gs = b2AreaComponent(areaS);
+  const dx = pad.left+(areaS/100)*pW, dy = pad.top+pH-(gs/MAX_Y)*pH;
+
+  // Glow
+  const glow = ctx.createRadialGradient(dx,dy,0,dx,dy,16);
+  glow.addColorStop(0,'rgba(92,47,144,0.3)');
+  glow.addColorStop(1,'rgba(92,47,144,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(dx-16,dy-16,32,32);
+
+  // Dot
+  ctx.fillStyle='#5c2f90'; ctx.beginPath(); ctx.arc(dx,dy,7,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle='#fff';    ctx.beginPath(); ctx.arc(dx,dy,3.5,0,Math.PI*2); ctx.fill();
+
+  // Label
+  if(areaS>0){
+    ctx.fillStyle='#151F47'; ctx.font='bold 13px Inter,sans-serif'; ctx.textAlign='center';
+    const lbl = gs.toFixed(1)+'%';
+    const lblW = ctx.measureText(lbl).width;
+    ctx.fillStyle='rgba(255,255,255,0.85)';
+    ctx.fillRect(dx-lblW/2-6, dy-28, lblW+12, 20);
+    ctx.strokeStyle='#e2e8f0'; ctx.lineWidth=1;
+    ctx.strokeRect(dx-lblW/2-6, dy-28, lblW+12, 20);
+    ctx.fillStyle='#151F47';
+    ctx.fillText(lbl, dx, dy-14);
+  }
+
+  // Update score display
+  const scEl = document.getElementById('b2-area-score');
+  if(scEl) scEl.textContent = gs.toFixed(1)+'%';
+}
+
+function renderBono2Support(){
+  const grid = document.getElementById('b2-support-grid');
+  if(!grid) return;
+  const pillars = ['gov','ops','act','new'];
+  grid.innerHTML = pillars.map(pillar => {
+    const projs = PROJECTS.filter(p => p.pillar===pillar);
+    const avg = projs.reduce((s,p) => s + (b2Support[p.id]||0), 0) / (projs.length||1);
+    const color = PILLAR_COLORS[pillar];
+    return `<div class="b2-support-card">
+      <div class="b2-support-card-head" style="background:${color}0a;">
+        <span style="width:10px;height:10px;border-radius:50%;background:${color};flex-shrink:0;"></span>
+        <span style="font-size:12px;font-weight:700;color:${color};">${PILLAR_NAMES[pillar]}</span>
+        <span style="margin-left:auto;font-size:14px;font-weight:800;color:${color};">${avg.toFixed(0)}</span>
+      </div>
+      <div class="b2-support-card-body">
+        ${projs.map(p => {
+          const owner = getMember(PROJECT_OWNERS[p.id]);
+          return `<div class="b2-support-row">
+            <span class="index-prio i${p.priority.toLowerCase()}" style="font-size:9px;padding:1px 6px;">${p.priority}</span>
+            <span class="b2-sp-name">${p.name}</span>
+            ${owner ? `<span class="b2-sp-owner">${owner.initials}</span>` : ''}
+            <input type="number" min="0" max="100" value="${b2Support[p.id]||0}" onchange="setB2Support('${p.id}',this.value)" onfocus="this.select()">
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderBono2Table(){
+  const tbody = document.getElementById('b2-table-body');
+  if(!tbody) return;
+  let n=0;
+  tbody.innerHTML = BONUS_IDS.map(id => {
+    n++;
+    const m = getMember(id); if(!m) return '';
+    const isL1 = !!LEVEL1[id];
+    const isTr = !!TRANSVERSAL[id];
+    const sc = b2CalcBonus(id);
+
+    let lvl = '';
+    if(isL1){
+      lvl = `<span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;background:${PILLAR_COLORS[LEVEL1[id].pillar]}12;color:${PILLAR_COLORS[LEVEL1[id].pillar]};border:1px solid ${PILLAR_COLORS[LEVEL1[id].pillar]}30;">L1 · ${PILLAR_NAMES[LEVEL1[id].pillar]}</span>`;
+    } else if(isTr){
+      lvl = `<span class="bonus-transversal">${TRANSVERSAL[id].label}</span>`;
+    } else {
+      lvl = `<span style="font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;background:var(--bg);color:var(--gray);border:1px solid var(--border);">L2 · ${(LEVEL2_SCOPE[id]||[]).length} proy.</span>`;
+    }
+
+    let pillarDet = '';
+    if(isL1){
+      pillarDet = `${PILLAR_NAMES[LEVEL1[id].pillar]}: ${b2PillarScore(LEVEL1[id].pillar).toFixed(0)}`;
+    } else {
+      const scope = LEVEL2_SCOPE[id]||[];
+      const pillarWeights = {};
+      scope.forEach(pid => {
+        const proj = PROJECTS.find(p => p.id === pid);
+        if(proj) pillarWeights[proj.pillar] = (pillarWeights[proj.pillar]||0) + 1;
+      });
+      pillarDet = Object.entries(pillarWeights).map(([pil,w]) => `${PILLAR_NAMES[pil].substring(0,3)}:${b2PillarScore(pil).toFixed(0)}`).join(' · ');
+    }
+
+    const barCol = sc.total>=75?'#1a7a4a':sc.total>=45?'var(--purple)':'#94a3b8';
+    const barPct = Math.min(sc.total,100);
+    return `<tr class="${isL1?'level1-row':''}">
+      <td style="font-size:11px;color:var(--gray);font-weight:600;text-align:center;">${n}</td>
+      <td><div style="display:flex;align-items:center;gap:10px;">
+        <span style="width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;background:${m.color};flex-shrink:0;">${m.initials}</span>
+        <div><div style="font-weight:700;font-size:13px;">${m.name}</div><div style="font-size:10px;color:var(--gray);">${m.role}</div></div>
+      </div></td>
+      <td>${lvl}</td>
+      <td><div style="font-weight:700;font-size:14px;color:var(--navy);">${sc.area.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">g(${sc.areaScore.toFixed(0)})</div></td>
+      <td><div style="font-weight:700;font-size:14px;color:var(--purple);">${sc.pillar.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">${pillarDet}</div></td>
+      <td><div style="font-weight:700;font-size:14px;color:var(--green);">${sc.support.toFixed(1)}%</div></td>
+      <td class="bonus-total-cell" style="color:${barCol};">${sc.total.toFixed(1)}%</td>
+      <td><div class="bonus-bar-mini"><div class="bonus-bar-mini-fill" style="width:${barPct}%;background:${barCol};"></div></div></td>
+    </tr>`;
+  }).join('');
+}
+
 </script>
 </body>
 </html>
