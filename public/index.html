@@ -54,8 +54,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 
 /* ── TEAM CARDS ── */
 .team-section-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin:18px 0 10px;padding-left:4px;}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px;}
-.team-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:15px 17px;display:flex;align-items:flex-start;gap:12px;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:11px;}
+.team-card{background:#fff;border-radius:12px;border:1px solid var(--border);padding:15px 17px;display:flex;align-items:flex-start;gap:12px;transition:box-shadow .2s,transform .15s;}
+.team-card:hover{box-shadow:0 4px 14px rgba(21,31,71,.10);transform:translateY(-1px);}
 .team-card.dev{border-style:dashed;background:#f8fbfb;}
 .team-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;}
 .team-name{font-size:14px;font-weight:700;margin-bottom:2px;}
@@ -66,8 +67,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 /* ── PILLAR ── */
 .pillar{margin-bottom:52px;scroll-margin-top:54px;}
 .pillar-header{display:flex;align-items:center;gap:14px;padding:15px 22px 15px 18px;border-radius:10px;margin-bottom:16px;border-left:5px solid;}
-.pillar-header .pillar-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
-.pillar-header h2{font-size:18px;font-weight:700;}
+.pillar-header .pillar-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+.pillar-header h2{font-size:18px;font-weight:700;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .pillar-header p{font-size:12px;margin-top:2px;}
 .pillar-gov{background:#dce8f7;border-color:var(--blue);}.pillar-gov .pillar-num{background:var(--blue);}.pillar-gov h2{color:var(--blue);}.pillar-gov p{color:var(--blue2);}
 .pillar-ops{background:#d5edd9;border-color:var(--green);}.pillar-ops .pillar-num{background:var(--green);}.pillar-ops h2{color:var(--green);}.pillar-ops p{color:var(--green2);}
@@ -296,7 +297,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .filter-btn.f-prod.active{background:#b56030;border-color:#b56030;color:#fff;}
 .filter-btn.f-cx.active{background:#1778a8;border-color:#1778a8;color:#fff;}
 .filter-btn.f-support.active{background:#c44c7a;border-color:#c44c7a;color:#fff;}
-.team-card.product{border-style:dashed;background:#fdf6f0;}
+.team-card.product{border-style:solid;border-left-width:3px;background:#fdf6f0;}
 
 /* ── MONTH SELECTOR ── */
 .month-row{display:flex;align-items:center;gap:12px;padding:10px 20px 14px;background:#fafbfc;border-top:1px solid var(--border);}
@@ -307,26 +308,26 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 
 /* ── CALENDAR SECTION ── */
 #calendario{scroll-margin-top:54px;margin-bottom:52px;}
-.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:12px;}
+.cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
 .cal-month{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;}
 .cal-month:hover{box-shadow:0 4px 14px rgba(21,31,71,.09);}
-.cal-month-head{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
-.cal-month-name{font-size:13px;font-weight:700;color:var(--navy);}
+.cal-month-head{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.cal-month-name{font-size:15px;font-weight:700;color:var(--navy);}
 .cal-count-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--bg);color:var(--gray2);}
 .cal-count-badge.active{background:var(--navy);color:#fff;}
-.cal-body{padding:8px 12px 12px;min-height:44px;display:flex;flex-direction:column;gap:5px;}
-.cal-proj{display:flex;align-items:flex-start;gap:6px;padding:5px 8px;border-radius:7px;font-size:11px;font-weight:500;line-height:1.3;border-left:3px solid;}
-.cal-proj-prio{font-size:9px;font-weight:700;padding:1px 6px;border-radius:8px;color:#fff;flex-shrink:0;margin-top:1px;}
+.cal-body{padding:10px 14px 14px;min-height:44px;display:flex;flex-direction:column;gap:6px;}
+.cal-proj{display:flex;align-items:flex-start;gap:7px;padding:7px 10px;border-radius:7px;font-size:12px;font-weight:500;line-height:1.35;border-left:3px solid;}
+.cal-proj-prio{font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;color:#fff;flex-shrink:0;margin-top:1px;}
 .cal-proj-name{flex:1;color:var(--navy);}
 .cal-empty-msg{font-size:11px;color:var(--gray2);font-style:italic;padding:4px 2px;}
 .cal-quarter-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray2);padding:2px 0 4px;}
 
 /* ── PROJECT INDEX ── */
-#indice{scroll-margin-top:54px;margin-bottom:52px;}
+#indice{scroll-margin-top:54px;margin-bottom:60px;padding-bottom:8px;}
 .index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;}
 .index-pillar{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;}
-.index-pillar-head{padding:10px 16px;display:flex;align-items:center;gap:9px;}
-.index-pillar-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.index-pillar-head{padding:10px 16px;display:flex;align-items:center;gap:9px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+.index-pillar-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .index-items{padding:6px 10px 10px;display:flex;flex-direction:column;gap:2px;}
 .index-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:7px;text-decoration:none;color:var(--navy);font-size:13px;font-weight:500;transition:background .12s;}
 .index-item:hover{background:var(--bg);}
@@ -348,7 +349,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
   .team-grid{grid-template-columns:1fr 1fr;}
   .picker-body{grid-template-columns:1fr;}
   .month-row{flex-wrap:wrap;}
-  .cal-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+  .cal-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));}
 }
 /* print view styles removed — replaced by save/load system */
 
@@ -362,13 +363,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .bonus-hero-right{background:var(--navy);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;}
 .bonus-hero-pct{font-size:56px;font-weight:800;color:#fff;line-height:1;}
 .bonus-hero-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.55);}
-.bonus-weight-row{display:flex;gap:10px;align-items:stretch;}
-.bonus-weight-box{flex:1;padding:14px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg);text-align:center;position:relative;}
+.bonus-weight-row{display:flex;gap:14px;align-items:stretch;}
+.bonus-weight-box{flex:1;min-width:140px;padding:18px 20px;border-radius:10px;border:1px solid var(--border);background:var(--bg);text-align:center;position:relative;box-shadow:0 2px 8px rgba(21,31,71,.07);}
 .bonus-weight-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0;}
 .bonus-weight-box.w-area::before{background:var(--navy);}
 .bonus-weight-box.w-delivery::before{background:var(--blue);}
 .bonus-weight-box.w-quality::before{background:var(--green);}
-.bonus-weight-num{font-size:28px;font-weight:800;line-height:1;}
+.bonus-weight-num{font-size:32px;font-weight:800;line-height:1;}
 .bonus-weight-lbl{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-top:4px;}
 .bonus-weight-desc{font-size:10px;color:var(--gray2);margin-top:6px;line-height:1.4;}
 .bonus-delivery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px;}
@@ -473,6 +474,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .bonus-mini-chip.assigned{opacity:1;border-color:#fff;box-shadow:0 0 0 2px rgba(0,0,0,.15);}
 .bonus-proj-expand{font-size:10px;color:var(--gray2);cursor:pointer;margin-left:auto;padding:2px 8px;border-radius:6px;transition:all .15s;flex-shrink:0;}
 .bonus-proj-expand:hover{background:var(--bg);color:var(--navy);}
+
+/* ── PROJECT KPI SLIDERS ── */
+.bonus-kpi-panel{display:none;padding:10px 10px 12px 46px;background:#f8fafc;border-top:1px solid var(--border);flex-direction:column;gap:8px;}
+.bonus-kpi-panel.open{display:flex;}
+.bonus-kpi-row{display:flex;align-items:center;gap:10px;}
+.bonus-kpi-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);min-width:52px;}
+.bonus-kpi-slider{flex:1;-webkit-appearance:none;appearance:none;height:5px;border-radius:3px;outline:none;cursor:pointer;accent-color:var(--blue);}
+.bonus-kpi-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.bonus-kpi-val{font-size:11px;font-weight:700;min-width:28px;text-align:right;color:var(--navy);}
+.bonus-kpi-score-badge{font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe;white-space:nowrap;flex-shrink:0;margin-left:2px;}
 
 /* ── SELECT ALL BUTTON ── */
 .bonus-select-all-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:5px 14px;border-radius:8px;border:1.5px solid var(--green);background:#f0fdf4;color:var(--green);cursor:pointer;transition:all .15s;white-space:nowrap;}
@@ -611,13 +622,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
   <section class="pillar" id="pillar-gov" data-panel="gov">
     <div class="pillar-header pillar-gov"><div class="pillar-num">①</div><div><h2>Gobernanza de Datos</h2><p>Infraestructura analítica fundacional · Responsable: Pablo Rueda</p></div></div>
     <p style="font-size:13px;color:var(--gray);margin-bottom:14px;padding-left:4px;">Los proyectos de Gobernanza son la <strong>base estructural</strong> del área. Se ejecutan en paralelo y desbloquean directamente múltiples proyectos de los pilares siguientes.</p>
-    <div class="foundation-grid">
+    <div class="foundation-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
       <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Migración Datos Históricos</h4><p class="fc-sub">Estudios Actuariales y Actas</p><div class="unlocks">🔓 Desbloquea:<br>Control Tributario de Provisiones<br>NavIA – Asistente Inteligente</div></div>
       <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Gobierno e Integración Datos Clientes</h4><p class="fc-sub">Salesforce · CRM</p><div class="unlocks">🔓 Desbloquea:<br>Automatización E2E del Estudio Actuarial<br>Automatización Comercial y Facturación</div></div>
-      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Data Hub Supercias (SCVS)</h4><p class="fc-sub">Datos públicos · analítica sectorial</p><div class="unlocks">🔓 Desbloquea:<br>Base Analítica Benchmark Salarial<br>Plataforma Benchmark · Análisis Competencia</div></div>
-      <div class="foundation-card" style="border-color:var(--blue2);"><div class="fc-label" style="color:var(--blue2);">P2 · Pablo Rueda</div><h4>Base Analítica Benchmark Salarial</h4><p class="fc-sub">Datasets enriquecidos de mercado</p><div class="unlocks" style="color:var(--blue2);">🔓 Desbloquea:<br>Plataforma de Benchmark Salarial</div></div>
+      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Data Hub Supercias (SCVS)</h4><p class="fc-sub">Datos públicos · analítica sectorial</p><div class="unlocks">🔓 Desbloquea:<br>Plataforma Benchmark · Análisis Competencia</div></div>
+      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Migración Actas de Jubilación Patronal</h4><p class="fc-sub">Datos históricos de actas patronales</p><div class="unlocks">🔓 Desbloquea:<br>Módulo de Actas de Jubilación Patronal</div></div>
+      <div class="foundation-card" style="border-color:var(--blue2);"><div class="fc-label" style="color:var(--blue2);">P2 · Pablo Rueda</div><h4>Migración Datos Facturación Open Bravo</h4><p class="fc-sub">Datos de facturación legacy</p><div class="unlocks" style="color:var(--blue2);">🔓 Desbloquea:<br>Automatización Comercial y Facturación</div></div>
     </div>
-    <p class="foundation-note">* Data Hub Supercias → Base Analítica Benchmark Salarial (dependencia interna del pilar)</p>
+    <p class="foundation-note">* Los proyectos de migración son la base estructural que desbloquea los pilares siguientes.</p>
     <div style="margin-top:20px;">
       <p class="team-section-title">Asignación de integrantes · proyectos Gobernanza</p>
       <div class="project-pipeline">
@@ -636,9 +648,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
         <div id="picker-dhub"></div>
       </div>
       <div class="project-pipeline">
-        <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Base Analítica Benchmark Salarial</div><div class="resp-chips" id="chips-bab"></div></div>
-        <div class="project-desc">Creación y mantenimiento de datasets enriquecidos de estructuras salariales del mercado ecuatoriano, combinando datos SCVS, encuestas de compensación y fuentes externas. Alimenta directamente la Plataforma de Benchmark Salarial.</div>
-        <div id="picker-bab"></div>
+        <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Migración Histórica de Actas de Jubilación Patronal</div><div class="resp-chips" id="chips-mjub"></div></div>
+        <div class="project-desc">Migración y consolidación de todos los datos históricos de actas de jubilación patronal desde sistemas legacy hacia la plataforma centralizada. Garantiza trazabilidad, acceso estructurado y limpio a los registros de actas para alimentar el Módulo de Actas en Actuaria+.</div>
+        <div id="picker-mjub"></div>
+      </div>
+      <div class="project-pipeline">
+        <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Migración de Datos de Facturación Open Bravo</div><div class="resp-chips" id="chips-mfact"></div></div>
+        <div class="project-desc">Extracción, transformación y carga de los datos históricos de facturación desde el sistema Open Bravo hacia la nueva infraestructura de datos. Permite consolidar la información financiera y habilitar la automatización comercial y contable del área.</div>
+        <div id="picker-mfact"></div>
       </div>
     </div>
   </section>
@@ -701,6 +718,18 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       </div>
       <div id="picker-com"></div>
     </div>
+    <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">ActuaFast</div><div class="resp-chips" id="chips-afast"></div></div>
+      <div class="project-desc">Expansión y optimización de la plataforma ActuaFast para <strong>incorporar un mayor número de casos procesables directamente en la herramienta</strong>, reduciendo la dependencia de macros en el flujo de trabajo. El proyecto contempla además la <strong>gestión completa del estudio actuarial desde ActuaFast</strong>, incluyendo todo el seguimiento operativo y administrativo, eliminando la necesidad de acceder a Salesforce para la ejecución del proceso.</div>
+      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy"><span class="phase-num">Fase 4</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-afast"></div>
+    </div>
   </section>
 
   <!-- ③ ACTUARIA+ -->
@@ -730,6 +759,18 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       <div id="picker-ctrl"></div>
     </div>
     <div class="project-pipeline">
+      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Módulo de Actas de Jubilación Patronal</div><div class="resp-chips" id="chips-actas"></div></div>
+      <div class="project-desc">Módulo dentro de Actuaria+ para la <strong>gestión integral de actas de jubilación patronal</strong>. Permite la creación, seguimiento, cálculo actuarial y generación documental de actas, incorporando los datos históricos migrados desde el pilar de Gobernanza. Incluye flujo de aprobaciones y reportería especializada para el cliente.</div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Actas de Jubilación Patronal</span></div>
+      <div class="pipeline-track">
+        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo backend + frontend</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
+        <div class="phase ph-deploy-act"><span class="phase-num">Fase 4</span><span class="phase-name">Despliegue en producción</span></div>
+      </div>
+      <div id="picker-actas"></div>
+    </div>
+    <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">Actuaria+ con Pagos Integrados</div><div class="resp-chips" id="chips-pag"></div></div>
       <div class="project-desc">Extensión de la plataforma Actuaria+ con un módulo de <strong>pagos y facturación directa integrado a CRM y ERP</strong> del cliente. Habilita cobros automáticos, conciliación contable y despacho de comprobantes electrónicos, cerrando el ciclo comercial dentro de la plataforma.</div>
       <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-ops">Automatización E2E (datos operativos)</span></div>
@@ -753,18 +794,6 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       </div>
       <div id="picker-navia"></div>
     </div>
-    <div class="project-pipeline">
-      <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">ActuaFast</div><div class="resp-chips" id="chips-afast"></div></div>
-      <div class="project-desc">Expansión y optimización de la plataforma ActuaFast para <strong>incorporar un mayor número de casos procesables directamente en la herramienta</strong>, reduciendo la dependencia de macros en el flujo de trabajo. El proyecto contempla además la <strong>gestión completa del estudio actuarial desde ActuaFast</strong>, incluyendo todo el seguimiento operativo y administrativo, eliminando la necesidad de acceder a Salesforce para la ejecución del proceso.</div>
-      <div class="dep-row"><span class="dep-none">Independiente — sin prereqs de otros proyectos</span></div>
-      <div class="pipeline-track">
-        <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
-        <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
-        <div class="phase ph-internal"><span class="phase-num">Fase 3</span><span class="phase-name">QA y pruebas</span></div><div class="phase-arrow">›</div>
-        <div class="phase ph-deploy-act"><span class="phase-num">Fase 4</span><span class="phase-name">Despliegue en producción</span></div>
-      </div>
-      <div id="picker-afast"></div>
-    </div>
   </section>
 
   <!-- ④ NUEVOS PRODUCTOS -->
@@ -785,7 +814,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
     <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Plataforma de Benchmark Salarial</div><div class="resp-chips" id="chips-bench"></div></div>
       <div class="project-desc">Plataforma SaaS que permite a empresas y consultoras de RRHH <strong>comparar estructuras salariales</strong> contra el mercado ecuatoriano con segmentación por industria, cargo y región. Monetiza directamente la Base Analítica del área.</div>
-      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Data Hub Supercias (SCVS)</span><span class="dep-tag dep-tag-gov">Base Analítica Benchmark Salarial</span></div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Data Hub Supercias (SCVS)</span></div>
       <div class="pipeline-track">
         <div class="phase ph-internal"><span class="phase-num">Fase 1</span><span class="phase-name">Diseño de producto y UX</span></div><div class="phase-arrow">›</div>
         <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Desarrollo</span></div><div class="phase-arrow">›</div>
@@ -891,7 +920,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
     <div class="bonus-hero">
       <div class="bonus-hero-left">
         <div style="font-size:20px;font-weight:800;color:var(--navy);">Modelo de Bonificación por Entrega</div>
-        <div style="font-size:13px;color:var(--gray);line-height:1.6;">Mide la capacidad del equipo para entregar los 18 proyectos del roadmap. Combina un componente colectivo del área con la responsabilidad individual por pilar o proyecto asignado.</div>
+        <div style="font-size:13px;color:var(--gray);line-height:1.6;">Mide la capacidad del equipo para entregar los 20 proyectos del roadmap. Combina un componente colectivo del área con la responsabilidad individual por pilar o proyecto asignado.</div>
         <div class="bonus-weight-row">
           <div class="bonus-weight-box w-area"><div class="bonus-weight-num" style="color:var(--navy);">60%</div><div class="bonus-weight-lbl">Área Digital</div><div class="bonus-weight-desc">Proyectos totales entregados<br>Curva exponencial</div></div>
           <div class="bonus-weight-box w-delivery"><div class="bonus-weight-num" style="color:var(--blue);">30%</div><div class="bonus-weight-lbl">Pilar / Proyecto</div><div class="bonus-weight-desc">L1: entrega del pilar<br>L2: proyectos a cargo</div></div>
@@ -912,13 +941,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       <div class="bonus-explain-grid">
         <div class="bonus-explain-card ec-area">
           <h4><span class="ec-pct" style="color:var(--navy);">60%</span> Área Digital TI</h4>
-          <p>Componente colectivo que depende de cuántos de los 18 proyectos del roadmap se entregan a tiempo. Aplica por igual a todos los integrantes del equipo, incentivando la colaboración y el compromiso compartido.</p>
+          <p>Componente colectivo que depende de cuántos de los 20 proyectos del roadmap se entregan a tiempo. Aplica por igual a todos los integrantes del equipo, incentivando la colaboración y el compromiso compartido.</p>
           <ul>
             <li>El crecimiento no es lineal: entregar pocos proyectos genera un retorno bajo</li>
             <li>A partir de 14 proyectos entregados, la curva se acelera significativamente</li>
-            <li>Entregar los 18 proyectos otorga el 60% completo</li>
+            <li>Entregar los 20 proyectos del roadmap otorga el 60% completo</li>
           </ul>
-          <div class="ec-formula">f(x) = 0.2704 · x<sup>1.869</sup> &nbsp; donde x = proyectos entregados</div>
+          <div class="ec-formula">f(x) = 0.2221 · x<sup>1.869</sup> &nbsp; donde x = proyectos entregados</div>
         </div>
 
         <div class="bonus-explain-card ec-scope">
@@ -979,7 +1008,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
                   <tr><td><strong>Cristopher Palacios</strong></td><td>Control Tributario, ActuaFast</td></tr>
                   <tr><td><strong>Cristián Mejía</strong></td><td>Aut. Comercial, Simulador, Pagos Integrados</td></tr>
                   <tr><td><strong>Arthur Chavez</strong></td><td>NavIA, Plataforma Benchmark</td></tr>
-                  <tr><td><strong>Carlos Puco</strong></td><td>Data Hub Supercias, Base Analítica Benchmark</td></tr>
+                  <tr><td><strong>Carlos Puco</strong></td><td>Data Hub Supercias, Migración Facturación Open Bravo</td></tr>
                   <tr><td><strong>Pablo Encalada</strong></td><td>Suite Asistentes Operativos, Jubilación Ideal</td></tr>
                   <tr><td><strong>Fernanda Villa</strong></td><td>Agente Virtual CX</td></tr>
                 </tbody>
@@ -1020,8 +1049,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       <!-- Ejemplo de cálculo -->
       <div class="bonus-example-wrap">
         <div class="bonus-example-title">Ejemplo de cálculo <span>Cristián Mejía · L2 · 3 proyectos</span></div>
-        <p style="font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.6;">Supongamos que el equipo entregó 16 de 18 proyectos, Cristián entregó 2 de sus 3 proyectos, y el CTO le asigna un 85/100 en calidad:</p>
-        <div class="bonus-example-row"><span class="bonus-example-label">60% — Área Digital (16 de 18 entregados)</span><span class="bonus-example-calc">f(16) = 0.2704 × 16<sup>1.869</sup></span><span class="bonus-example-val" style="color:var(--navy);">48.1%</span></div>
+        <p style="font-size:12px;color:var(--gray);margin-bottom:14px;line-height:1.6;">Supongamos que el equipo entregó 18 de 20 proyectos, Cristián entregó 2 de sus 3 proyectos, y el CTO le asigna un 85/100 en calidad:</p>
+        <div class="bonus-example-row"><span class="bonus-example-label">60% — Área Digital (18 de 20 entregados)</span><span class="bonus-example-calc">f(18) = 0.2221 × 18<sup>1.869</sup></span><span class="bonus-example-val" style="color:var(--navy);">49.3%</span></div>
         <div class="bonus-example-row"><span class="bonus-example-label">30% — Proyectos a cargo (2 de 3 entregados)</span><span class="bonus-example-calc">2/3 × 30%</span><span class="bonus-example-val" style="color:var(--blue);">20.0%</span></div>
         <div class="bonus-example-row"><span class="bonus-example-label">10% — Calidad del entregable (85/100)</span><span class="bonus-example-calc">85/100 × 10%</span><span class="bonus-example-val" style="color:var(--green);">8.5%</span></div>
         <div class="bonus-example-row"><span class="bonus-example-label">Bono total de Cristián</span><span class="bonus-example-calc"></span><span class="bonus-example-val" style="font-size:16px;">76.6%</span></div>
@@ -1045,7 +1074,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
       <div class="bonus-curve-header">
         <div>
           <div class="bonus-curve-title">Componente Área (60%)</div>
-          <div class="bonus-curve-formula">f(x) = 0.2704 · x<sup>1.869</sup> &rarr; f(<span id="bonus-x-val">0</span>) = <span id="bonus-fx-val" style="font-weight:700;color:var(--green);">0.00%</span></div>
+          <div class="bonus-curve-formula">f(x) = 0.2221 · x<sup>1.869</sup> &rarr; f(<span id="bonus-x-val">0</span>) = <span id="bonus-fx-val" style="font-weight:700;color:var(--green);">0.00%</span></div>
         </div>
         <div class="bonus-curve-score">
           <div class="bonus-curve-score-val" id="bonus-area-score">0.0%</div>
@@ -1058,7 +1087,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
     <!-- Delivery tracker -->
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
       <div class="section-label" style="color:var(--navy);margin-bottom:0;">Tracker de Entrega de Proyectos</div>
-      <span class="bonus-delivered-badge" id="bonus-delivered-count">0 / 18</span>
+      <span class="bonus-delivered-badge" id="bonus-delivered-count">0 / 20</span>
       <button class="bonus-select-all-btn" id="bonus-select-all" onclick="toggleAllDelivered()">✓ Seleccionar todos</button>
     </div>
     <div class="bonus-delivery-grid" id="bonus-delivery-grid"></div>
@@ -1290,16 +1319,18 @@ const PROJECTS = [
   { id:'mig',   name:'Migración Datos Históricos',                         pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
   { id:'govsf', name:'Gobierno e Integración Datos Clientes (Salesforce)', pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:5,  def:['pr'] },
   { id:'dhub',  name:'Data Hub Supercias (SCVS)',                          pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
-  { id:'bab',   name:'Base Analítica Benchmark Salarial',                  pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:6,  def:['pr'] },
+  { id:'mjub',  name:'Migración Histórica de Actas de Jubilación Patronal',pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:7,  def:['pr'] },
+  { id:'mfact', name:'Migración de Datos de Facturación Open Bravo',       pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:8,  def:['pr'] },
   // ── OPTIMIZACIÓN ──
   { id:'e2e',   name:'Automatización E2E del Estudio Actuarial',           pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','pe','jn','pb'] },
   { id:'vcx',   name:'Agente Virtual CX',                                  pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,   def:['lt','jn','fv','pb'] },
   { id:'suite', name:'Suite de Asistentes Operativos',                     pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:9,  def:['lt','pe','cp','ac','cpuc','jn','pb'] },
   { id:'com',   name:'Automatización Comercial y Facturación',             pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:10, def:['lt','pe','cm','pb'] },
+  { id:'afast', name:'ActuaFast',                                          pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['cm','ac','cpuc','jn','pb'] },
   // ── ACTUARIA+ ──
   { id:'sim',   name:'Simulador de Beneficios Post-Empleo',                pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:8,  def:['pr','cm','rpu','jn','fv'] },
   { id:'ctrl',  name:'Control Tributario de Provisiones',                  pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:10, def:['pr','cp','cm','rpu','jn','fv'] },
-  { id:'afast', name:'ActuaFast',                                          pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['cm','ac','cpuc','jn','pb'] },
+  { id:'actas', name:'Módulo de Actas de Jubilación Patronal',             pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['pb','cm','cp','jn'] },
   { id:'pag',   name:'Actuaria+ con Pagos Integrados',                     pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:7,  def:['cp','cm','rf','jn'] },
   { id:'navia', name:'NavIA – Asistente Inteligente Actuarial',            pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:5,  def:['rf','jn'] },
   // ── NUEVOS PRODUCTOS ──
@@ -1862,6 +1893,7 @@ function saveChanges(){
     deliveryMonths: {},
     bonusDel: {...bonusDel},
     bonusQ: {...bonusQ},
+    projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
     b2KPI: JSON.parse(JSON.stringify(b2KPI)),
     b2Support: {...b2Support}
   };
@@ -1937,6 +1969,12 @@ function loadChanges(){
     // Restore bonus state
     if(data.bonusDel) Object.assign(bonusDel, data.bonusDel);
     if(data.bonusQ) Object.assign(bonusQ, data.bonusQ);
+    // Restore project KPIs
+    if(data.projectKPIs){
+      Object.keys(projectKPIs).forEach(pid => {
+        if(data.projectKPIs[pid]) Object.assign(projectKPIs[pid], data.projectKPIs[pid]);
+      });
+    }
     // Restore Bono 2 state
     if(data.b2KPI){ Object.keys(b2KPI).forEach(k => { if(data.b2KPI[k]) b2KPI[k] = data.b2KPI[k]; }); }
     if(data.b2Support) Object.assign(b2Support, data.b2Support);
@@ -1969,9 +2007,9 @@ const LEVEL1 = {
 };
 
 const PROJECT_OWNERS = {
-  mig:'pr', govsf:'pr', dhub:'cpuc', bab:'cpuc',
-  e2e:'lt', vcx:'fv', suite:'pe', com:'cm',
-  sim:'cm', ctrl:'cp', afast:'cp', pag:'cm',
+  mig:'pr', govsf:'pr', dhub:'cpuc', mjub:'pr', mfact:'pr',
+  e2e:'lt', vcx:'fv', suite:'pe', com:'cm', afast:'cp',
+  sim:'cm', ctrl:'cp', actas:'pb', pag:'cm',
   navia:'ac', jub:'pe', bench:'ac',
   comp:'rf', legal:'rf', nom:'rf'
 };
@@ -1984,8 +2022,8 @@ BONUS_IDS.forEach(id => {
   }
 });
 const TRANSVERSAL = {
-  pb:  {label:'Product Ops · Entrega + Calidad', scope:['e2e','suite']},
-  rpu: {label:'UI/UX · Actuaria+ y Nuevos',      scope:['sim','ctrl','afast','pag','navia','jub','bench','comp','legal','nom']},
+  pb:  {label:'Product Ops · Optimización + ActuaFast', scope:['e2e','vcx','suite','com','afast']},
+  rpu: {label:'UI/UX · Actuaria+ y Nuevos',             scope:['sim','ctrl','actas','pag','navia','jub','bench','comp','legal','nom']},
 };
 Object.entries(TRANSVERSAL).forEach(([id,cfg]) => { LEVEL2_SCOPE[id] = cfg.scope; });
 
@@ -1993,9 +2031,10 @@ Object.entries(TRANSVERSAL).forEach(([id,cfg]) => { LEVEL2_SCOPE[id] = cfg.scope
 const bonusDel = {}; PROJECTS.forEach(p => { bonusDel[p.id] = false; });
 const bonusQ = {}; BONUS_IDS.forEach(id => { bonusQ[id] = 0; });
 const bonusExpandedProj = new Set();
+const projectKPIs = {}; PROJECTS.forEach(p => { projectKPIs[p.id] = {alcance:0, calidad:0, tiempo:0}; });
 
-// Formula: recalibrated for 60% max → k = 60/18^1.869
-function bonusF(x){ return x <= 0 ? 0 : Math.min(0.2704 * Math.pow(x, 1.869), 60); }
+// Formula: recalibrated for 60% max → k = 60/20^1.869
+function bonusF(x){ return x <= 0 ? 0 : Math.min(0.2221 * Math.pow(x, 1.869), 60); }
 function bonusDelTotal(){ return Object.values(bonusDel).filter(Boolean).length; }
 function bonusDelPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar && bonusDel[p.id]).length; }
 function bonusTotPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar).length; }
@@ -2059,8 +2098,27 @@ function toggleBonusPicker(projId){
   // Toggle visibility without full re-render
   const el = document.getElementById('bonus-picker-' + projId);
   if(el) el.classList.toggle('open');
+  const kpiEl = document.getElementById('bonus-kpi-' + projId);
+  if(kpiEl) kpiEl.classList.toggle('open');
   const arrow = document.getElementById('bonus-arrow-' + projId);
   if(arrow) arrow.textContent = bonusExpandedProj.has(projId) ? '▲ equipo' : '▼ equipo';
+}
+
+function setProjectKPI(projId, kpi, val){
+  if(!projectKPIs[projId]) projectKPIs[projId] = {alcance:0, calidad:0, tiempo:0};
+  projectKPIs[projId][kpi] = Math.min(100, Math.max(0, parseInt(val)||0));
+  // Update value display inline (no full re-render needed)
+  const valEl = document.getElementById(`kpi-val-${projId}-${kpi}`);
+  if(valEl) valEl.textContent = projectKPIs[projId][kpi];
+  // Update the KPI score badge in the row header
+  const kpis = projectKPIs[projId];
+  const avg = Math.round((kpis.alcance + kpis.calidad + kpis.tiempo) / 3);
+  const badge = document.getElementById(`kpi-badge-${projId}`);
+  if(badge){
+    badge.textContent = `KPI ${avg}`;
+    badge.style.display = avg > 0 ? '' : 'none';
+  }
+  markUnsaved();
 }
 
 function syncBonusAssignment(projId, memberId){
@@ -2179,6 +2237,25 @@ function renderBonusDelivery(){
           const assignedSummary = assigned.length > 0
             ? assigned.slice(0,4).map(m => `<span style="width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff;background:${m.color};margin-left:-4px;">${m.initials}</span>`).join('') + (assigned.length > 4 ? `<span style="font-size:9px;color:var(--gray);margin-left:4px;">+${assigned.length-4}</span>` : '')
             : '';
+          const kpis = projectKPIs[p.id] || {alcance:0, calidad:0, tiempo:0};
+          const kpiAvg = Math.round((kpis.alcance + kpis.calidad + kpis.tiempo) / 3);
+          const kpiPanel = `<div class="bonus-kpi-panel${isExpanded?' open':''}" id="bonus-kpi-${p.id}">
+            <div class="bonus-kpi-row">
+              <span class="bonus-kpi-label">Alcance</span>
+              <input type="range" class="bonus-kpi-slider" min="0" max="100" value="${kpis.alcance}" oninput="setProjectKPI('${p.id}','alcance',this.value)">
+              <span class="bonus-kpi-val" id="kpi-val-${p.id}-alcance">${kpis.alcance}</span>
+            </div>
+            <div class="bonus-kpi-row">
+              <span class="bonus-kpi-label">Calidad</span>
+              <input type="range" class="bonus-kpi-slider" min="0" max="100" value="${kpis.calidad}" oninput="setProjectKPI('${p.id}','calidad',this.value)">
+              <span class="bonus-kpi-val" id="kpi-val-${p.id}-calidad">${kpis.calidad}</span>
+            </div>
+            <div class="bonus-kpi-row">
+              <span class="bonus-kpi-label">Tiempo</span>
+              <input type="range" class="bonus-kpi-slider" min="0" max="100" value="${kpis.tiempo}" oninput="setProjectKPI('${p.id}','tiempo',this.value)">
+              <span class="bonus-kpi-val" id="kpi-val-${p.id}-tiempo">${kpis.tiempo}</span>
+            </div>
+          </div>`;
           return `<div class="bonus-proj-row-wrap">
             <div class="bonus-proj-row${chk?' delivered':''}">
               <input type="checkbox" ${chk?'checked':''} onchange="toggleBonusDel('${p.id}')">
@@ -2186,16 +2263,18 @@ function renderBonusDelivery(){
               <span class="bonus-proj-name">${p.name}</span>
               <span style="display:inline-flex;align-items:center;gap:0;margin-left:4px;">${assignedSummary}</span>
               ${owner ? `<span class="bonus-proj-owner">${owner.initials}</span>` : ''}
+              <span class="bonus-kpi-score-badge" id="kpi-badge-${p.id}" style="display:${kpiAvg>0?'':'none'};">KPI ${kpiAvg}</span>
               <span class="bonus-proj-expand" id="bonus-arrow-${p.id}" onclick="event.stopPropagation();toggleBonusPicker('${p.id}')">${isExpanded?'▲ equipo':'▼ equipo'}</span>
             </div>
             <div class="bonus-mini-picker${isExpanded?' open':''}" id="bonus-picker-${p.id}">${miniChips}</div>
+            ${kpiPanel}
           </div>`;
         }).join('')}
       </div>
     </div>`;
   }).join('');
   const cnt = document.getElementById('bonus-delivered-count');
-  if(cnt) cnt.textContent = `${bonusDelTotal()} / 18`;
+  if(cnt) cnt.textContent = `${bonusDelTotal()} / ${PROJECTS.length}`;
   updateSelectAllBtn();
 }
 
@@ -2231,9 +2310,9 @@ function renderBonusCurve(){
   // Fill area under curve
   ctx.beginPath();
   ctx.moveTo(pad.left, pad.top + pH);
-  for(let x=0;x<=18;x+=0.2){
+  for(let x=0;x<=20;x+=0.2){
     const fx = bonusF(x);
-    ctx.lineTo(pad.left+(x/18)*pW, pad.top+pH-(fx/MAX_Y)*pH);
+    ctx.lineTo(pad.left+(x/20)*pW, pad.top+pH-(fx/MAX_Y)*pH);
   }
   ctx.lineTo(pad.left+pW, pad.top+pH);
   ctx.closePath();
@@ -2256,32 +2335,32 @@ function renderBonusCurve(){
 
   // X labels
   ctx.textAlign='center'; ctx.font='11px Inter,sans-serif';
-  for(let x=0;x<=18;x+=2){
-    ctx.fillText(x, pad.left+(x/18)*pW, H-8);
+  for(let x=0;x<=20;x+=2){
+    ctx.fillText(x, pad.left+(x/20)*pW, H-8);
   }
 
-  // 14-project threshold zone
-  const x14 = pad.left+(14/18)*pW;
+  // 16-project threshold zone
+  const x16 = pad.left+(16/20)*pW;
   ctx.fillStyle='rgba(201,82,26,0.04)';
-  ctx.fillRect(x14, pad.top, pW-(14/18)*pW, pH);
+  ctx.fillRect(x16, pad.top, pW-(16/20)*pW, pH);
   ctx.setLineDash([5,5]); ctx.strokeStyle='rgba(201,82,26,0.3)'; ctx.lineWidth=1;
-  ctx.beginPath(); ctx.moveTo(x14,pad.top); ctx.lineTo(x14,pad.top+pH); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x16,pad.top); ctx.lineTo(x16,pad.top+pH); ctx.stroke();
   ctx.setLineDash([]);
   ctx.fillStyle='rgba(201,82,26,0.5)'; ctx.font='10px Inter,sans-serif';
   ctx.fillText('zona de aceleración (14+)', x14+(pW-(14/18)*pW)/2, pad.top+14);
 
   // Curve line
   ctx.beginPath(); ctx.strokeStyle='#C9521A'; ctx.lineWidth=3;
-  for(let x=0;x<=18;x+=0.1){
+  for(let x=0;x<=20;x+=0.1){
     const fx=bonusF(x);
-    const px=pad.left+(x/18)*pW, py=pad.top+pH-(fx/MAX_Y)*pH;
+    const px=pad.left+(x/20)*pW, py=pad.top+pH-(fx/MAX_Y)*pH;
     x===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
   }
   ctx.stroke();
 
   // Current position dot
   const d = bonusDelTotal(), fx = bonusF(d);
-  const dx = pad.left+(d/18)*pW, dy = pad.top+pH-(fx/MAX_Y)*pH;
+  const dx = pad.left+(d/20)*pW, dy = pad.top+pH-(fx/MAX_Y)*pH;
 
   // Glow
   const glow = ctx.createRadialGradient(dx,dy,0,dx,dy,16);
