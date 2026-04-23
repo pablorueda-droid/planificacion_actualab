@@ -70,6 +70,25 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .pillar-header .pillar-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .pillar-header h2{font-size:18px;font-weight:700;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .pillar-header p{font-size:12px;margin-top:2px;}
+.pillar-header{position:relative;}
+.pillar-owner-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-left:auto;padding:6px 14px 6px 10px;
+  background:#fff;border:1.5px solid;border-radius:24px;
+  font-size:11px;font-weight:600;color:var(--fg-strong);
+  white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.05);
+}
+.pillar-owner-badge .pob-label{
+  font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--gray);
+}
+.pillar-owner-badge .pob-dot{
+  width:22px;height:22px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;font-size:10px;font-weight:700;letter-spacing:-0.3px;
+  flex-shrink:0;
+}
+.pillar-owner-badge .pob-name{font-weight:700;color:var(--fg-strong);}
 .pillar-gov{background:#dce8f7;border-color:var(--blue);}.pillar-gov .pillar-num{background:var(--blue);}.pillar-gov h2{color:var(--blue);}.pillar-gov p{color:var(--blue2);}
 .pillar-ops{background:#d5edd9;border-color:var(--green);}.pillar-ops .pillar-num{background:var(--green);}.pillar-ops h2{color:var(--green);}.pillar-ops p{color:var(--green2);}
 .pillar-act{background:#fde0d0;border-color:var(--orange);}.pillar-act .pillar-num{background:var(--orange);}.pillar-act h2{color:var(--orange);}.pillar-act p{color:var(--orange2);}
@@ -93,6 +112,94 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--n
 .resp-chips{display:flex;flex-wrap:wrap;gap:5px;min-height:22px;}
 .resp-chip{font-size:11px;font-weight:600;padding:3px 11px;border-radius:20px;color:#fff;white-space:nowrap;}
 .resp-chip.actualab{background:var(--navy);}.resp-chip.dev{background:var(--teal);}
+
+/* ── ENCARGADO (Project Lead) & PILLAR OWNER — visual distinction ── */
+.resp-chip.is-lead{
+  box-shadow:0 0 0 2px #fff, 0 0 0 3.5px #d9a21b;
+}
+.resp-chip.is-pillar-owner{
+  box-shadow:0 0 0 2px #fff, 0 0 0 3.5px #1e3a8a;
+}
+.resp-chip.is-both{
+  box-shadow:0 0 0 2px #fff, 0 0 0 3.5px #1e3a8a, 0 0 0 5.5px #d9a21b;
+}
+.resp-chip .chip-icon{
+  font-size:9.5px;line-height:1;display:inline-block;
+  margin-right:2px;opacity:.95;letter-spacing:-1px;
+  text-shadow:0 0 2px rgba(0,0,0,.35);
+}
+.summary-legend{
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;
+  margin:10px 0 14px;padding:10px 14px;
+  background:var(--bg);border:1px solid var(--border);border-radius:10px;
+  font-size:11px;color:var(--fg-weak);
+}
+.summary-legend .sl-item{display:inline-flex;align-items:center;gap:6px;}
+.summary-legend .sl-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--navy);color:#fff;font-weight:700;
+  padding:3px 10px;border-radius:var(--radius-pill);font-size:10px;
+}
+.summary-legend .sl-chip.sl-lead{box-shadow:0 0 0 2px #fff, 0 0 0 3.5px #d9a21b;}
+.summary-legend .sl-chip.sl-owner{box-shadow:0 0 0 2px #fff, 0 0 0 3.5px #1e3a8a;}
+.summary-legend .sl-chip.sl-both{box-shadow:0 0 0 2px #fff, 0 0 0 3.5px #1e3a8a, 0 0 0 5.5px #d9a21b;margin-right:4px;}
+.lead-pill-inline{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:700;letter-spacing:.5px;
+  padding:4px 10px 4px 8px;border-radius:20px;
+  background:#fff8e1;color:#8a6400;border:1.5px solid #f5c86b;
+  white-space:nowrap;
+}
+.lead-pill-inline::before{
+  content:'★';font-size:10px;color:#d9a21b;line-height:1;
+}
+.lead-pill-inline .lp-label{opacity:.7;font-weight:600;}
+.lead-pill-inline .lp-name{color:#6b4a00;}
+.lead-pill-inline.warn{
+  background:#fdecec;color:#a51b1b;border-color:#f3a7a7;
+}
+.lead-pill-inline.warn::before{content:'⚠';color:#c23a3a;}
+.lead-pill-inline.warn .lp-name{color:#8a1515;}
+.lead-pill-inline.info{
+  background:#eef4ff;color:#1e3a8a;border-color:#bfd4ff;
+}
+.lead-pill-inline.info::before{content:'ⓘ';color:#2563eb;font-style:normal;}
+.lead-pill-inline.info .lp-name{color:#1e3a8a;}
+
+/* ── Encargado selector inside picker ── */
+.lead-picker-row{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:10px 14px;margin:6px 0 0;
+  background:#fff8e1;border:1.5px solid #f5c86b;border-radius:8px;
+}
+.lead-picker-row .lp-lbl{
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8a6400;
+}
+.lead-picker-row .lp-lbl::before{content:'★ ';color:#d9a21b;}
+.lead-picker-row select{
+  flex:1;min-width:180px;
+  padding:6px 10px;border:1.5px solid #e5cf93;border-radius:7px;background:#fff;
+  font-family:inherit;font-size:12px;font-weight:600;color:#5c4100;cursor:pointer;
+}
+.lead-picker-row select:focus{outline:none;border-color:#d9a21b;box-shadow:0 0 0 3px rgba(217,162,27,.18);}
+.lead-picker-row .lp-warn{
+  width:100%;font-size:11px;color:#a51b1b;font-weight:600;line-height:1.5;
+}
+.lead-picker-row .lp-info{
+  width:100%;font-size:11px;color:#1e3a8a;font-weight:600;line-height:1.5;
+  background:#eef4ff;border-left:3px solid #2563eb;padding:6px 10px;border-radius:4px;
+}
+.lead-picker-row .lp-hint{
+  width:100%;font-size:11px;color:#6b4a00;font-style:italic;line-height:1.5;opacity:.85;
+}
+
+/* Star indicator inside picker-item when it's the encargado */
+.picker-item.is-lead{box-shadow:inset 0 0 0 2px #d9a21b;}
+.picker-item .pick-lead-star{
+  font-size:12px;color:#d9a21b;margin-left:2px;line-height:1;
+  display:none;
+}
+.picker-item.is-lead .pick-lead-star{display:inline;}
 .project-desc{padding:12px 20px;font-size:13px;color:var(--gray);line-height:1.65;background:#fafbfc;border-bottom:1px solid var(--border);}
 .project-desc strong{color:var(--navy);}
 .dep-row{padding:8px 20px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;border-bottom:1px solid var(--border);}
@@ -908,6 +1015,36 @@ body.density-compact .pillar{margin-bottom:36px;}
 .save-btn-float:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(21,31,71,0.22),0 16px 32px rgba(21,31,71,0.18);}
 .save-btn.saved{background:var(--pillar-ops);}
 .save-btn.has-changes{background:var(--pillar-act);animation:saveBlink 1.5s ease infinite;}
+.save-group{
+  position:fixed;bottom:24px;right:24px;z-index:150;
+  display:flex;align-items:center;gap:8px;
+}
+.save-group .save-btn-float{position:static;}
+.save-mini-btn{
+  background:#fff;color:var(--fg-strong);
+  border:1.5px solid var(--stroke-weak);
+  padding:9px 14px;border-radius:var(--radius-pill);
+  font-size:12px;font-weight:600;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;
+  box-shadow:0 2px 6px rgba(21,31,71,0.08);
+  transition:all .15s;white-space:nowrap;
+}
+.save-mini-btn:hover{background:var(--bg);border-color:var(--indigo);color:var(--indigo);transform:translateY(-1px);}
+.save-mini-btn:active{transform:translateY(0);}
+.save-mini-btn svg{opacity:.75;}
+.save-mini-btn:hover svg{opacity:1;}
+.save-toast{
+  position:fixed;bottom:84px;right:24px;z-index:200;
+  background:var(--fg-strong);color:#fff;
+  padding:10px 18px;border-radius:var(--radius-sm);
+  font-size:12px;font-weight:600;
+  box-shadow:0 8px 24px rgba(0,0,0,0.24);
+  opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;
+  max-width:320px;line-height:1.5;
+}
+.save-toast.show{opacity:1;transform:translateY(0);}
+.save-toast.ok{background:#166534;}
+.save-toast.err{background:#991b1b;}
 @keyframes saveBlink{0%,100%{opacity:1;}50%{opacity:.78;}}
 
 /* ── CONTENT ── */
@@ -1204,6 +1341,46 @@ body.density-compact .pillar{margin-bottom:36px;}
 .cal-proj{padding:8px 12px;border-radius:var(--radius-sm);font-size:12px;border-left-width:3px;}
 .cal-proj-prio{font-size:9px;font-weight:700;padding:2px 7px;border-radius:var(--radius-pill);}
 .cal-quarter-label{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--fg-weak);}
+
+/* ── CALENDAR v2: quarter-based layout ── */
+.cal-year{display:flex;flex-direction:column;gap:20px;}
+.cal-quarter{
+  background:var(--bg-subtle, #f8faff);
+  border:1px solid var(--stroke-weak, var(--border));
+  border-radius:var(--radius-card, 12px);
+  padding:14px 18px 18px;
+}
+.cal-quarter-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px dashed var(--stroke-weak, var(--border));
+}
+.cal-quarter-head .cal-quarter-label{
+  display:flex;align-items:baseline;gap:10px;letter-spacing:0;
+  font-size:12px;color:var(--fg-weak);font-weight:500;text-transform:none;
+}
+.cal-q-tag{
+  font-size:15px;font-weight:800;color:var(--navy);letter-spacing:-0.3px;
+  background:#fff;border:1.5px solid var(--navy);
+  padding:2px 10px;border-radius:var(--radius-pill, 20px);
+}
+.cal-q-sub{font-size:12px;color:var(--fg-weak);font-weight:600;}
+.cal-q-total{
+  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--fg-weak);
+  background:#fff;border:1px solid var(--stroke-weak, var(--border));
+  padding:3px 10px;border-radius:var(--radius-pill, 20px);
+}
+.cal-months-row{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;
+}
+.cal-months-row .cal-month{background:#fff;}
+.cal-month-empty{opacity:.65;}
+.cal-month-empty .cal-body{min-height:auto;padding:10px 14px;}
+.cal-body{min-height:44px;}
+@media (max-width: 900px){
+  .cal-months-row{grid-template-columns:1fr;}
+}
 
 /* ── INDEX ── */
 .index-pillar{border-radius:var(--radius-card);overflow:hidden;}
@@ -1546,11 +1723,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
   </div>
 </nav>
 
-<!-- Floating save button -->
-<button class="save-btn save-btn-float" id="save-btn" onclick="saveChanges()" type="button">
-  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M3 2.5h8l2 2v9H3v-11zM5 2.5v4h5v-4M5 13.5v-4h6v4" stroke-linejoin="round"/></svg>
-  Guardar
-</button>
+<!-- Floating save + export/import group -->
+<div class="save-group" id="save-group">
+  <button class="save-btn save-btn-float" id="save-btn" onclick="saveChanges()" type="button">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M3 2.5h8l2 2v9H3v-11zM5 2.5v4h5v-4M5 13.5v-4h6v4" stroke-linejoin="round"/></svg>
+    Guardar
+  </button>
+  <button class="save-mini-btn" id="export-btn" onclick="exportData()" type="button" title="Exportar a archivo JSON (para compartir o respaldar)">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M8 10V2M4.5 6.5L8 10l3.5-3.5M2.5 12v1.5h11V12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Exportar
+  </button>
+  <button class="save-mini-btn" id="import-btn" onclick="document.getElementById('import-file').click()" type="button" title="Importar desde archivo JSON previamente exportado">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M8 2v8M4.5 6L8 2.5 11.5 6M2.5 12v1.5h11V12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Importar
+  </button>
+  <input type="file" id="import-file" accept=".json,application/json" style="display:none;" onchange="importData(event)">
+</div>
 
 <main class="content">
 
@@ -1591,10 +1779,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
   <!-- ① GOBERNANZA -->
   <section class="pillar" id="pillar-gov" data-panel="gov">
-    <div class="pillar-header pillar-gov"><div class="pillar-num">①</div><div><h2>Gobernanza de Datos</h2><p>Infraestructura analítica fundacional · Responsable: Pablo Rueda</p></div></div>
+    <div class="pillar-header pillar-gov"><div class="pillar-num">1</div><div style="flex:1;"><h2>Gobernanza de Datos</h2><p>Infraestructura analítica fundacional</p></div><div class="pillar-owner-badge" style="border-color:var(--pillar-gov);"><span class="pob-label">Dueño del pilar</span><span class="pob-dot" style="background:var(--pillar-gov);">PR</span><span class="pob-name">Pablo Rueda</span></div></div>
     <p style="font-size:13px;color:var(--gray);margin-bottom:14px;padding-left:4px;">Los proyectos de Gobernanza son la <strong>base estructural</strong> del área. Se ejecutan en paralelo y desbloquean directamente múltiples proyectos de los pilares siguientes.</p>
     <div class="foundation-grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr));">
-      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Migración Datos Históricos</h4><p class="fc-sub">Estudios Actuariales y Actas</p><div class="unlocks">🔓 Desbloquea:<br>Control Tributario de Provisiones<br>NavIA – Asistente Inteligente</div></div>
+      <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Migración Estudios Actuariales</h4><p class="fc-sub">Excel · años anteriores a 2017</p><div class="unlocks">🔓 Desbloquea:<br>Control Tributario de Provisiones<br>NavIA – Asistente Inteligente</div></div>
       <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Gobierno e Integración Datos Clientes</h4><p class="fc-sub">Salesforce · CRM</p><div class="unlocks">🔓 Desbloquea:<br>Automatización E2E del Estudio Actuarial<br>Automatización Comercial y Facturación</div></div>
       <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Data Hub Supercias (SCVS)</h4><p class="fc-sub">Datos públicos · analítica sectorial</p><div class="unlocks">🔓 Desbloquea:<br>Plataforma Benchmark · Análisis Competencia</div></div>
       <div class="foundation-card"><div class="fc-label">P1 · Pablo Rueda</div><h4>Migración Actas de Jubilación Patronal</h4><p class="fc-sub">Datos históricos de actas patronales</p><div class="unlocks">🔓 Desbloquea:<br>Módulo de Actas de Jubilación Patronal</div></div>
@@ -1604,8 +1792,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
     <div style="margin-top:20px;">
       <p class="team-section-title">Asignación de integrantes · proyectos Gobernanza</p>
       <div class="project-pipeline">
-        <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Migración Datos Históricos</div><div class="resp-chips" id="chips-mig"></div></div>
-        <div class="project-desc">Consolidación y migración de todos los estudios actuariales históricos y actas patronales desde sistemas legacy (ActuaFast) hacia la plataforma de datos centralizada. Garantiza acceso estructurado, trazable y limpio a datos históricos para los análisis posteriores.</div>
+        <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Migración Estudios Actuariales</div><div class="resp-chips" id="chips-mig"></div></div>
+        <div class="project-desc">Migración de <strong>estudios actuariales</strong> disponibles en archivos Excel para <strong>años anteriores al 2017</strong> hacia la plataforma de datos centralizada. Garantiza acceso estructurado, trazable y limpio a los estudios históricos para análisis comparativos y regulatorios posteriores.</div>
         <div id="picker-mig"></div>
       </div>
       <div class="project-pipeline">
@@ -1633,7 +1821,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
   <!-- ② OPTIMIZACIÓN -->
   <section class="pillar" id="pillar-ops" data-panel="ops">
-    <div class="pillar-header pillar-ops"><div class="pillar-num">②</div><div><h2>Optimización de Procesos Operativos</h2><p>Automatizar, estandarizar y escalar la operación con IA · Lenin Torres</p></div></div>
+    <div class="pillar-header pillar-ops"><div class="pillar-num">2</div><div style="flex:1;"><h2>Optimización de Procesos Operativos</h2><p>Automatizar, estandarizar y escalar la operación con IA</p></div><div class="pillar-owner-badge" style="border-color:var(--pillar-ops);"><span class="pob-label">Dueño del pilar</span><span class="pob-dot" style="background:var(--pillar-ops);">LT</span><span class="pob-name">Lenin Torres</span></div></div>
     <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Automatización End-to-End del Estudio Actuarial</div><div class="resp-chips" id="chips-e2e"></div></div>
       <div class="project-desc">Digitalización y automatización completa del proceso de estudio actuarial mediante <strong>agentes de IA</strong>. Cubre desde el levantamiento de información y los cálculos actuariales hasta la revisión automatizada, integración con CRM y generación del informe final.</div>
@@ -1705,11 +1893,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
   <!-- ③ ACTUARIA+ -->
   <section class="pillar" id="pillar-act" data-panel="act">
-    <div class="pillar-header pillar-act"><div class="pillar-num">③</div><div><h2>Productos Digitales · Actuaria+</h2><p>Ingresos recurrentes y mayor valor para el cliente (SaaS)</p></div></div>
+    <div class="pillar-header pillar-act"><div class="pillar-num">3</div><div style="flex:1;"><h2>Productos Digitales · Actuaria+</h2><p>Ingresos recurrentes y mayor valor para el cliente (SaaS)</p></div><div class="pillar-owner-badge" style="border-color:var(--pillar-act);"><span class="pob-label">Dueño del pilar</span><span class="pob-dot" style="background:var(--pillar-act);">JN</span><span class="pob-name">Jonathan Narváez</span></div></div>
     <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Simulador de Beneficios Post-Empleo</div><div class="resp-chips" id="chips-sim"></div></div>
       <div class="project-desc">Plataforma SaaS B2B para la simulación y análisis de <strong>beneficios post-empleo bajo NIIF 19</strong>. El proyecto contempla la <strong>actualización de funcionalidades y optimización de la herramienta</strong> en base al feedback de clientes, incluyendo una nueva conceptualización apegada a sus requerimientos. Incorpora <strong>información tributaria proveniente de los cálculos del Control Tributario de Provisiones</strong>, enriqueciendo el análisis de obligaciones laborales y provisiones actuariales.</div>
-      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Datos Históricos</span></div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Estudios Actuariales</span></div>
       <div class="pipeline-track">
         <div class="phase ph-client"><span class="phase-tag">👥 Cliente</span><span class="phase-num">Fase 1</span><span class="phase-name">Reunión con clientes — feedback sobre funcionamiento</span></div><div class="phase-arrow">›</div>
         <div class="phase ph-internal"><span class="phase-num">Fase 2</span><span class="phase-name">Conceptualización interna de nuevas funcionalidades</span></div><div class="phase-arrow">›</div>
@@ -1721,7 +1909,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
     <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Control Tributario de Provisiones</div><div class="resp-chips" id="chips-ctrl"></div></div>
       <div class="project-desc">Herramienta digital para el control, seguimiento y reporte tributario de <strong>provisiones actuariales (NIIF 19)</strong>. Requiere una <strong>nueva conceptualización apegada al feedback de los clientes</strong>, junto con la reestructuración del motor de cálculo y un nuevo frontend más intuitivo. Requiere que la migración de datos ActuaFast esté completada previamente.</div>
-      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Datos Históricos</span></div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Estudios Actuariales</span></div>
       <div class="pipeline-track">
         <div class="phase ph-prereq" style="min-width:162px;"><span class="phase-tag">⚠ Prereq. Externo</span><span class="phase-num">Fase 1</span><span class="phase-name">Migración datos ActuaFast completa</span><span class="phase-sub">No ejecutado por ActuaLab — mapear tiempos</span></div><div class="phase-arrow">›</div>
         <div class="phase ph-external"><span class="phase-tag">↗ Externo (ActuaLab mapea)</span><span class="phase-num">Fase 2</span><span class="phase-name">Conceptualización del nuevo modelo</span><span class="phase-sub">Equipo externo al área</span></div><div class="phase-arrow">›</div>
@@ -1755,7 +1943,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
     <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p2">P2</div><div class="project-name">NavIA – Asistente Inteligente Actuarial</div><div class="resp-chips" id="chips-navia"></div></div>
       <div class="project-desc"><strong>Chatbot de soporte inteligente</strong> integrado en el ecosistema Actuaria+. Enfocado en tres ejes: <strong>soporte en la carga de información</strong> (guía al usuario durante el ingreso de datos en cada módulo), <strong>asistencia en el uso de los distintos módulos</strong> (responde dudas operativas y funcionales en lenguaje natural), y <strong>generación de insights</strong> específicos por herramienta (analiza resultados del Control Tributario, Simulador y actas para destacar hallazgos relevantes). Se integra directamente en el frontend de cada herramienta del ecosistema.</div>
-      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Datos Históricos</span><span class="dep-tag dep-tag-act">Control Tributario de Provisiones</span><span class="dep-tag dep-tag-act">Simulador Beneficios Post-Empleo</span><span class="dep-tag dep-tag-act">Actuaria+ (plataforma host)</span></div>
+      <div class="dep-row"><span class="dep-label">Requiere ·</span><span class="dep-tag dep-tag-gov">Migración Estudios Actuariales</span><span class="dep-tag dep-tag-act">Control Tributario de Provisiones</span><span class="dep-tag dep-tag-act">Simulador Beneficios Post-Empleo</span><span class="dep-tag dep-tag-act">Actuaria+ (plataforma host)</span></div>
       <div class="pipeline-track">
         <div class="phase ph-internal" style="min-width:172px;"><span class="phase-num">Fase 1</span><span class="phase-name">Integración BD resultados Control Tributario + Simulador</span><span class="phase-sub">Ambos deben estar en prod.</span></div><div class="phase-arrow">›</div>
         <div class="phase ph-internal" style="min-width:165px;"><span class="phase-num">Fase 2</span><span class="phase-name">Integración actas jubilación patronal e impuestos diferidos</span></div><div class="phase-arrow">›</div>
@@ -1769,7 +1957,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
   <!-- ④ NUEVOS PRODUCTOS -->
   <section class="pillar" id="pillar-new" data-panel="new">
-    <div class="pillar-header pillar-new"><div class="pillar-num">④</div><div><h2>Nuevos Productos Digitales</h2><p>Ciclo estándar: Diseño → Desarrollo → QA → Lanzamiento</p></div></div>
+    <div class="pillar-header pillar-new"><div class="pillar-num">4</div><div style="flex:1;"><h2>Nuevos Productos Digitales</h2><p>Ciclo estándar: Diseño → Desarrollo → QA → Lanzamiento</p></div><div class="pillar-owner-badge" style="border-color:var(--pillar-new);"><span class="pob-label">Dueño del pilar</span><span class="pob-dot" style="background:var(--pillar-new);">RF</span><span class="pob-name">Raimundo Frohlich</span></div></div>
     <div class="project-pipeline">
       <div class="project-pipeline-head"><div class="priority-badge p1">P1</div><div class="project-name">Jubilación Ideal <span style="font-size:12px;font-weight:400;color:var(--gray);">· B2C · IESS</span></div><div class="resp-chips" id="chips-jub"></div></div>
       <div class="project-desc">Producto digital <strong>B2C</strong> que permite a personas naturales simular y planificar su jubilación IESS con datos reales. Proyecta montos de pensión estimados, tiempos de aporte faltantes y estrategias de optimización, con experiencia accesible al público general.</div>
@@ -1836,8 +2024,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
   <section id="resumen" data-panel="resumen" style="margin-bottom:52px;">
     <div class="section-label" style="color:var(--navy)">Resumen de Proyectos y Prioridades</div>
     <p style="font-size:12px;color:var(--gray);margin-bottom:14px;">Ordenado por pilar estratégico · Los integrantes se actualizan automáticamente al modificar la asignación en cada proyecto.</p>
+    <div class="summary-legend">
+      <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--fg-weak);">Leyenda:</span>
+      <span class="sl-item"><span class="sl-chip">Nombre</span>Integrante del equipo</span>
+      <span class="sl-item"><span class="sl-chip sl-lead"><span class="chip-icon">★</span> Nombre</span>Encargado del proyecto (L2)</span>
+      <span class="sl-item"><span class="sl-chip sl-owner"><span class="chip-icon">◆</span> Nombre</span>Dueño del pilar (L1)</span>
+      <span class="sl-item"><span class="sl-chip sl-both"><span class="chip-icon">★◆</span> Nombre</span>Dueño del pilar como Encargado</span>
+    </div>
     <table class="summary-table">
-      <thead><tr><th>#</th><th>Proyecto</th><th>Pilar</th><th>Prioridad</th><th>Mes entrega</th><th>Integrantes asignados</th></tr></thead>
+      <thead><tr><th>#</th><th>Proyecto</th><th>Pilar</th><th>Prioridad</th><th>Encargado</th><th>Mes entrega</th><th>Integrantes asignados</th></tr></thead>
       <tbody id="summary-body"></tbody>
     </table>
   </section>
@@ -1858,6 +2053,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
     <div class="chart-wrap">
       <div class="chart-bars" id="chart-bars"></div>
       <div class="chart-baseline"></div>
+    </div>
+  </section>
+
+  <!-- GRÁFICO PROYECTOS A CARGO (ENCARGADOS · L2) -->
+  <section id="chart-leads-section" data-panel="dist" style="scroll-margin-top:54px;margin-bottom:52px;">
+    <div class="section-label" style="color:var(--navy)">Proyectos a Cargo · Línea 2 (Encargados)</div>
+    <p style="font-size:12px;color:var(--gray);margin-bottom:16px;">Cuenta cuántos proyectos tiene cada persona como <strong>Encargado directo</strong>. Un Dueño de pilar (L1) <strong>sí puede</strong> ser Encargado de un proyecto, pero aparece marcado <span style="background:#dbeafe;color:#1e3a8a;padding:1px 6px;border-radius:6px;font-size:10px;font-weight:700;">L1 · no bono</span> porque no cuenta para la bonificación de Encargado.</p>
+    <div class="chart-wrap">
+      <div class="chart-bars" id="chart-leads-bars"></div>
+      <div class="chart-baseline"></div>
+      <div id="chart-leads-empty" style="display:none;font-size:12px;color:var(--gray);text-align:center;padding:24px 0;font-style:italic;">Sin encargados asignados todavía.</div>
     </div>
   </section>
 
@@ -1990,19 +2196,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
         <!-- Transversal profiles -->
         <div style="margin-top:20px;">
-          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;">Perfiles Transversales — Medición Especial</div>
-          <p style="font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:14px;">Algunos roles no son responsables directos de un proyecto específico, sino que su trabajo impacta transversalmente en múltiples productos. Para estos perfiles, el componente del 30% se mide sobre el conjunto de proyectos que deben influir según su especialidad.</p>
-
-          <div class="bonus-callout callout-pb">
-            <div class="bonus-callout-icon" style="background:#b56030;">PB</div>
-            <div class="bonus-callout-content">
-              <strong>Pamela Beltrán — Product Operations</strong>
-              <p>Pamela es responsable de la gestión operativa y calidad de entrega de los proyectos del pilar de <strong style="color:var(--green);">Optimización de Procesos</strong> y de <strong style="color:var(--orange);">ActuaFast</strong>. Su 30% se mide por la entrega a tiempo y la calidad de producto de estos proyectos, donde ella coordina la ejecución, documenta procesos y asegura la adherencia al cronograma.</p>
-              <span class="callout-metric" style="background:#d5edd9;color:var(--green);">Optimización de Procesos</span>
-              <span class="callout-metric" style="background:#fde0d0;color:var(--orange);">ActuaFast</span>
-              <p style="margin-top:8px;font-size:11px;font-style:italic;color:var(--gray2);">Cálculo: proyectos entregados de su alcance / total × 30%.</p>
-            </div>
-          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;">Perfil Transversal — Medición Especial</div>
+          <p style="font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:14px;">El rol de UI/UX no es responsable directo de un proyecto específico, sino que su trabajo impacta transversalmente en múltiples productos. Para este perfil, el componente del 30% se mide sobre el conjunto de proyectos que debe influir según su especialidad.</p>
 
           <div class="bonus-callout callout-rp">
             <div class="bonus-callout-icon" style="background:#7c4d9e;">RP</div>
@@ -2011,7 +2206,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
               <p>Renato es responsable de la revisión y aseguramiento de calidad de la experiencia de usuario (UI/UX) de todos los productos de los pilares <strong style="color:var(--orange);">Actuaria+</strong> y <strong style="color:var(--purple);">Nuevos Productos</strong>. Su 30% se basa en la entrega de los proyectos de estos dos pilares, ya que su trabajo de diseño y validación visual es requisito para que cada producto pueda lanzarse al mercado.</p>
               <span class="callout-metric" style="background:#fde0d0;color:var(--orange);">Actuaria+</span>
               <span class="callout-metric" style="background:#ead8f5;color:var(--purple);">Nuevos Productos</span>
-              <p style="margin-top:8px;font-size:11px;font-style:italic;color:var(--gray2);">Cálculo: proyectos entregados de su alcance / total × 30%.</p>
+              <p style="margin-top:8px;font-size:11px;font-style:italic;color:var(--gray2);">Cálculo especial: <strong>60% Área Digital + 40% Calidad de los proyectos en los que está enrolado</strong> (el componente de alcance del 30% no aplica para este rol transversal).</p>
             </div>
           </div>
         </div>
@@ -2112,11 +2307,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
         </div>
         <div class="bonus-explain-card b2-explain-card ec-b2support">
           <h4><span class="ec-pct" style="color:var(--green);">30%</span> Soporte al Producto</h4>
-          <p>Evalúa la calidad del soporte, acompañamiento y seguimiento que cada persona brinda a los productos bajo su responsabilidad. Medido proyecto a proyecto (0–100).</p>
+          <p>Componente individual que mide la <strong>calidad del acompañamiento continuo</strong> que cada persona brinda a los productos bajo su responsabilidad. Se evalúa proyecto a proyecto (0–100) y refleja la estabilidad, documentación y respuesta durante todo el ciclo de vida del producto.</p>
           <ul>
-            <li><strong style="color:var(--navy);">Línea 1:</strong> promedio de soporte de todos los proyectos de su pilar</li>
-            <li><strong style="color:var(--navy);">Línea 2:</strong> promedio de soporte de los proyectos que tiene asignados como responsable directo</li>
-            <li>Criterios: respuesta a incidentes, documentación, capacitación al cliente, disponibilidad</li>
+            <li><strong style="color:var(--navy);">Línea 1 (líderes de pilar):</strong> promedio del score de soporte de todos los proyectos entregados de su pilar</li>
+            <li><strong style="color:var(--navy);">Línea 2 (responsables directos):</strong> promedio del score de los proyectos que tiene asignados como Encargado (L2)</li>
+            <li><strong style="color:var(--navy);">Criterios de evaluación:</strong> tiempo de respuesta ante incidentes, estabilidad del producto en operación, calidad de la documentación, capacitación a usuarios finales, disponibilidad para resolver dudas y adopción sostenida</li>
+            <li><strong style="color:var(--navy);">Evaluador:</strong> el CTO en conjunto con el líder del pilar, sobre la base de la retroalimentación del cliente interno y métricas de producción</li>
           </ul>
         </div>
       </div>
@@ -2293,34 +2489,56 @@ const MEMBERS = [
 
 const PROJECTS = [
   // ── GOBERNANZA ──
-  { id:'mig',   name:'Migración Datos Históricos',                         pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
-  { id:'govsf', name:'Gobierno e Integración Datos Clientes (Salesforce)', pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:5,  def:['pr'] },
-  { id:'dhub',  name:'Data Hub Supercias (SCVS)',                          pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
-  { id:'mjub',  name:'Migración Histórica de Actas de Jubilación Patronal',pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:7,  def:['pr'] },
-  { id:'mfact', name:'Migración de Datos de Facturación Open Bravo',       pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:8,  def:['pr'] },
+  { id:'mig',   name:'Migración Estudios Actuariales',                         pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr','cpuc'] },
+  { id:'govsf', name:'Gobierno e Integración Datos Clientes (Salesforce)', pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:5,  def:['pr','cpuc'] },
+  { id:'dhub',  name:'Data Hub Supercias (SCVS)',                          pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr','cpuc'] },
+  { id:'mjub',  name:'Migración Histórica de Actas de Jubilación Patronal',pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:7,  def:['pr','cpuc'] },
+  { id:'mfact', name:'Migración de Datos de Facturación Open Bravo',       pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:8,  def:['pr','cpuc'] },
   // ── OPTIMIZACIÓN ──
   { id:'e2e',   name:'Automatización E2E del Estudio Actuarial',           pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','pe','jn','pb'] },
-  { id:'vcx',   name:'Agente Virtual CX',                                  pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,   def:['lt','jn','fv','pb'] },
-  { id:'suite', name:'Suite de Asistentes Operativos',                     pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:9,  def:['lt','pe','cp','ac','cpuc','jn','pb'] },
+  { id:'vcx',   name:'Agente Virtual CX',                                  pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','jn','pb','fv'] },
+  { id:'suite', name:'Suite de Asistentes Operativos',                     pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:9,  def:['lt','pe','cp','jn','pb'] },
   { id:'com',   name:'Automatización Comercial y Facturación',             pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:10, def:['lt','pe','cm','pb'] },
-  { id:'afast', name:'ActuaFast',                                          pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['cm','ac','cpuc','jn','pb'] },
+  { id:'afast', name:'ActuaFast',                                          pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','cm','ac','cpuc','jn','pb'] },
   // ── ACTUARIA+ ──
-  { id:'sim',   name:'Simulador de Beneficios Post-Empleo',                pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:8,  def:['pr','cm','rpu','jn','fv'] },
-  { id:'ctrl',  name:'Control Tributario de Provisiones',                  pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:10, def:['pr','cp','cm','rpu','jn','fv'] },
-  { id:'actas', name:'Módulo de Actas de Jubilación Patronal',             pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['pb','cm','cp','jn'] },
-  { id:'pag',   name:'Actuaria+ con Pagos Integrados',                     pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:7,  def:['cp','cm','rf','jn'] },
-  { id:'navia', name:'NavIA – Asistente Inteligente Actuarial',            pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:5,  def:['rf','jn'] },
+  { id:'sim',   name:'Simulador de Beneficios Post-Empleo',                pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:8,  def:['pr','cm','jn','rpu','fv'] },
+  { id:'ctrl',  name:'Control Tributario de Provisiones',                  pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:10, def:['pr','cp','cm','jn','rpu','fv'] },
+  { id:'actas', name:'Módulo de Actas de Jubilación Patronal',             pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['cp','cm','jn','pb','fv'] },
+  { id:'pag',   name:'Actuaria+ con Pagos Integrados',                     pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:7,  def:['cp','cm','rf','jn','rpu','fv'] },
+  { id:'navia', name:'NavIA – Asistente Inteligente Actuarial',            pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:5,  def:['cm','rf','jn','rpu','fv'] },
   // ── NUEVOS PRODUCTOS ──
-  { id:'jub',   name:'Jubilación Ideal',                                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:6,  def:['pe','rpu','jn','fv'] },
-  { id:'bench', name:'Plataforma de Benchmark Salarial',                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:8,  def:['pr','ac','jn'] },
-  { id:'comp',  name:'Producto de Análisis de Competencia',                pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:7,  def:['pr','cpuc','jn'] },
-  { id:'legal', name:'Asistente de Asesoría Legal',                        pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:8,  def:['lt','rf','jn'] },
-  { id:'nom',   name:'Sistema de Gestión de Nómina',                       pillar:'new', pillarName:'Nuevos Productos', priority:'P3', deliveryMonth:10, def:['lt','rf'] },
+  { id:'jub',   name:'Jubilación Ideal',                                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:6,  def:['pe','rf','jn','rpu'] },
+  { id:'bench', name:'Plataforma de Benchmark Salarial',                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:8,  def:['pr','ac','rf','jn','rpu'] },
+  { id:'comp',  name:'Producto de Análisis de Competencia',                pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:7,  def:['ac','rf','jn','rpu'] },
+  { id:'legal', name:'Asistente de Asesoría Legal',                        pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:8,  def:['lt','rf','jn','rpu','cpo'] },
+  { id:'nom',   name:'Sistema de Gestión de Nómina',                       pillar:'new', pillarName:'Nuevos Productos', priority:'P3', deliveryMonth:10, def:['lt','rf','jn','rpu'] },
 ];
 
 const PILLAR_ORDER  = {gov:0, ops:1, act:2, new:3};
 const PILLAR_COLORS = {gov:'#3061AA', ops:'#1a7a4a', act:'#C9521A', new:'#5c2f90'};
 const PILLAR_NAMES  = {gov:'Gobernanza', ops:'Optimización', act:'Actuaria+', new:'Nuevos Productos'};
+
+// Dueño del pilar (líder de Línea 1) — uno por pilar
+const PILLAR_LEADS = { gov:'pr', ops:'lt', act:'jn', new:'rf' };
+
+// Encargado por proyecto — debe ser DIFERENTE al dueño del pilar
+// Se escoge un integrante del equipo por defecto (no el líder del pilar)
+const PROJECT_LEADS_DEFAULT = {
+  // Gobernanza (dueño: Pablo Rueda)
+  mig:'cpuc',  govsf:'cpuc', dhub:'cpuc', mjub:'cpuc', mfact:'cpuc',
+  // Optimización (dueño: Lenin Torres)
+  e2e:'pb',    vcx:'fv',     suite:'pe',  com:'pb',    afast:'pb',
+  // Actuaria+ (dueño: Jonathan Narváez)
+  sim:'cm',    ctrl:'cp',    actas:'pb',  pag:'cp',    navia:'rf',
+  // Nuevos Productos (dueño: Raimundo Frohlich)
+  jub:'pe',    bench:'ac',   comp:'ac',   legal:'lt',  nom:'lt'
+};
+
+// Mutable state
+const projectLeads = {...PROJECT_LEADS_DEFAULT};
+
+function getProjectLead(pid){ return projectLeads[pid]; }
+function getPillarLead(pillar){ return PILLAR_LEADS[pillar]; }
 
 const MONTHS = ['','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 const MONTH_SHORT = ['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
@@ -2357,7 +2575,7 @@ function syncAllViews(changedProjectId){
   // 3. Distribución (filtro + grid + chart)
   renderFilterRow();
   renderDistGrid();
-  renderChart();
+  renderChart(); renderLeadChart();
   // 4. Calendario
   renderCalendar();
   // 5. Marcar cambios sin guardar
@@ -2376,10 +2594,42 @@ function syncAllViews(changedProjectId){
 function renderChips(projectId){
   const el = document.getElementById(`chips-${projectId}`);
   if(!el) return;
+  const project = PROJECTS.find(p => p.id === projectId);
   const members = getCheckedMembers(projectId);
-  el.innerHTML = members.length
-    ? members.map(m => `<span class="resp-chip" style="background:${m.color}">${m.name}</span>`).join('')
+  const leadId = getProjectLead(projectId);
+  const pillarLeadId = project ? getPillarLead(project.pillar) : null;
+  const leadMember = members.find(m => m.id === leadId) || getMember(leadId);
+  const leadIsPillarLead = leadId && leadId === pillarLeadId;
+
+  // Inline "Encargado" pill (always shown, distinguishes from pillar owner)
+  let leadPill = '';
+  if(leadMember){
+    const warnCls = leadIsPillarLead ? ' info' : '';
+    const warnTip = leadIsPillarLead
+      ? ' title="El encargado es el dueño del pilar (permitido · no cuenta para bonificación de Encargado)."'
+      : ` title="Encargado · distinto al dueño del pilar (${getMember(pillarLeadId)?.name || '—'})"`;
+    leadPill = `<span class="lead-pill-inline${warnCls}"${warnTip}>
+        <span class="lp-label">Encargado${leadIsPillarLead?' (L1)':''}:</span>
+        <span class="lp-name">${leadMember.name}</span>
+      </span>`;
+  } else {
+    leadPill = `<span class="lead-pill-inline warn" title="Sin encargado asignado">
+        <span class="lp-label">Encargado:</span>
+        <span class="lp-name">— sin asignar —</span>
+      </span>`;
+  }
+
+  const chips = members.length
+    ? members.map(m => {
+        const isLead = m.id === leadId;
+        const cls = `resp-chip${isLead?' is-lead':''}`;
+        const style = `background:${m.color}${isLead?';color:#fff;':''}`;
+        const title = isLead ? ' title="Encargado del proyecto"' : '';
+        return `<span class="${cls}" style="${style}"${title}>${m.name}</span>`;
+      }).join('')
     : '<span style="font-size:11px;color:#94a3b8;font-style:italic;">Sin asignar</span>';
+
+  el.innerHTML = leadPill + chips;
 }
 
 /* ══════════════════════════════════════════════════
@@ -2393,13 +2643,43 @@ function renderSummary(){
   tbody.innerHTML = sorted.map(p => {
     n++;
     const members = getCheckedMembers(p.id);
+    const leadId = getProjectLead(p.id);
+    const leadMember = getMember(leadId);
+    const pillarLeadId = getPillarLead(p.pillar);
+    const leadIsPillarOwner = leadId && leadId === pillarLeadId;
+    const leadCell = leadMember
+      ? `<span class="lead-pill-inline${leadIsPillarOwner?' info':''}" style="font-size:10.5px;padding:3px 9px 3px 7px;"${leadIsPillarOwner?' title="Dueño del pilar actuando como Encargado · no cuenta para bonificación"':''}><span class="lp-name">${leadMember.name}</span></span>`
+      : `<span style="font-size:11px;color:#94a3b8;font-style:italic;">—</span>`;
     const chips = members.length
-      ? members.map(m => `<span class="resp-chip" style="background:${m.color};margin:2px 2px 2px 0;">${m.name}</span>`).join('')
+      ? members.map(m => {
+          const isLead = m.id === leadId;
+          const isPillarOwner = m.id === pillarLeadId;
+          let cls = 'resp-chip';
+          let icon = '';
+          let title = '';
+          if(isPillarOwner && isLead){
+            // L1 actuando también como Encargado de este proyecto
+            cls += ' is-both';
+            icon = '★◆';
+            title = 'Dueño del pilar + Encargado (L1 · no cuenta para bono L2)';
+          } else if(isLead){
+            cls += ' is-lead';
+            icon = '★';
+            title = 'Encargado del proyecto (L2)';
+          } else if(isPillarOwner){
+            cls += ' is-pillar-owner';
+            icon = '◆';
+            title = 'Dueño del pilar (L1)';
+          } else {
+            title = 'Integrante del equipo';
+          }
+          return `<span class="${cls}" style="background:${m.color};margin:2px 2px 2px 0;" title="${title}">${icon?`<span class="chip-icon">${icon}</span> `:''}${m.name}</span>`;
+        }).join('')
       : `<span class="no-members">Sin asignar</span>`;
     let divider = '';
     if(p.pillar !== lastPillar){
       lastPillar = p.pillar;
-      divider = `<tr class="pillar-divider"><td colspan="5" style="color:${PILLAR_COLORS[p.pillar]};border-bottom:1px solid ${PILLAR_COLORS[p.pillar]}22;">${PILLAR_NAMES[p.pillar].toUpperCase()}</td></tr>`;
+      divider = `<tr class="pillar-divider"><td colspan="7" style="color:${PILLAR_COLORS[p.pillar]};border-bottom:1px solid ${PILLAR_COLORS[p.pillar]}22;">${PILLAR_NAMES[p.pillar].toUpperCase()} · Dueño del pilar: ${getMember(getPillarLead(p.pillar))?.name || '—'}</td></tr>`;
     }
     const monthDisp = p.deliveryMonth ? `<span style="font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;background:#e8f2ff;color:var(--blue);">${MONTHS[p.deliveryMonth]}</span>` : `<span style="font-size:11px;color:#94a3b8;font-style:italic;">—</span>`;
     return divider + `<tr>
@@ -2407,6 +2687,7 @@ function renderSummary(){
       <td style="font-weight:600;">${p.name}</td>
       <td><span class="pillar-tag ${p.pillar}">${p.pillarName}</span></td>
       <td><span class="priority-badge ${p.priority.toLowerCase()}" style="width:28px;height:28px;font-size:10px;">${p.priority}</span></td>
+      <td>${leadCell}</td>
       <td>${monthDisp}</td>
       <td style="line-height:2;">${chips}</td>
     </tr>`;
@@ -2489,47 +2770,118 @@ function renderDistGrid(){
     expanded.classList.add('visible');
     const m = getMember(activeFilter);
     if(!m){ expanded.innerHTML=''; return; }
-    const projects = getMemberProjects(m.id);
-    const byPillar = {};
-    projects.forEach(p => { (byPillar[p.pillar] = byPillar[p.pillar]||[]).push(p); });
-    const pillarSections = Object.entries(byPillar)
-      .sort(([a],[b]) => PILLAR_ORDER[a]-PILLAR_ORDER[b])
-      .map(([pillar, ps]) => `
-        <div>
-          <div class="dist-section-header">
-            <span class="dist-section-dot" style="background:${PILLAR_COLORS[pillar]}"></span>
-            <span class="dist-section-lbl" style="color:${PILLAR_COLORS[pillar]}">${PILLAR_NAMES[pillar]}</span>
-            <span style="font-size:11px;color:#94a3b8;margin-left:6px;">${ps.length} proyecto${ps.length>1?'s':''}</span>
-          </div>
-          ${ps.map(p => `<div class="dist-project-item">
-            <span class="dist-prio dp${p.priority[1]}">${p.priority}</span>
-            <span>${p.name}</span>
-          </div>`).join('')}
-        </div>`).join('');
-    // Frequent collaborators
+    const allProjects = getMemberProjects(m.id);
+
+    // Split: projects where this person is Encargado vs just a collaborator
+    const leadProjects = allProjects.filter(p => getProjectLead(p.id) === m.id);
+    const memberProjects = allProjects.filter(p => getProjectLead(p.id) !== m.id);
+    const leadCount = leadProjects.length;
+
+    // Check if this member is L1 (pillar owner)
+    const pillarLeadEntry = Object.entries(PILLAR_LEADS).find(([_,lid]) => lid === m.id);
+    const isL1 = !!pillarLeadEntry;
+    const ownedPillar = isL1 ? pillarLeadEntry[0] : null;
+
+    // Helper: render a project row (with pillar color strip)
+    const projectRow = (p, opts={}) => {
+      const leadId = getProjectLead(p.id);
+      const leadM = getMember(leadId);
+      const isMeLead = leadId === m.id;
+      const leadSuffix = opts.showLeader && leadM
+        ? `<span style="font-size:10px;color:var(--gray);margin-left:8px;">· Encargado: <strong style="color:${leadM.color};">${leadM.name.split(' ')[0]}</strong></span>`
+        : '';
+      const star = opts.starred ? '<span style="color:#d97706;margin-right:4px;" title="Encargado">★</span>' : '';
+      return `<div class="dist-project-item" style="border-left:3px solid ${PILLAR_COLORS[p.pillar]};padding-left:10px;">
+        <span class="dist-prio dp${p.priority[1]}">${p.priority}</span>
+        <span>${star}${p.name}${leadSuffix}</span>
+      </div>`;
+    };
+
+    // Group projects by pillar inside a section
+    const sectionByPillar = (projects, opts={}) => {
+      if(projects.length === 0) return '';
+      const byP = {};
+      projects.forEach(p => { (byP[p.pillar] = byP[p.pillar]||[]).push(p); });
+      return Object.entries(byP)
+        .sort(([a],[b]) => PILLAR_ORDER[a]-PILLAR_ORDER[b])
+        .map(([pillar, ps]) => `
+          <div>
+            <div class="dist-section-header">
+              <span class="dist-section-dot" style="background:${PILLAR_COLORS[pillar]}"></span>
+              <span class="dist-section-lbl" style="color:${PILLAR_COLORS[pillar]}">${PILLAR_NAMES[pillar]}</span>
+              <span style="font-size:11px;color:#94a3b8;margin-left:6px;">${ps.length} proyecto${ps.length>1?'s':''}</span>
+            </div>
+            ${ps.map(p => projectRow(p, opts)).join('')}
+          </div>`).join('');
+    };
+
+    // Frequent collaborators (across all projects)
     const collabCount = {};
-    projects.forEach(p => {
+    allProjects.forEach(p => {
       getCheckedMembers(p.id).forEach(cm => {
         if(cm.id !== m.id) collabCount[cm.name] = (collabCount[cm.name]||0)+1;
       });
     });
     const collabs = Object.entries(collabCount).sort((a,b)=>b[1]-a[1]).map(([name,cnt])=>`${name} (${cnt})`).join(' · ');
+
+    // Role badge (L1 / L2 / equipo)
+    let roleBadge = '';
+    if(isL1){
+      roleBadge = `<span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px;background:${PILLAR_COLORS[ownedPillar]}18;border:1.5px solid ${PILLAR_COLORS[ownedPillar]};font-size:10px;font-weight:700;color:${PILLAR_COLORS[ownedPillar]};letter-spacing:0.4px;">L1 · Dueño de ${PILLAR_NAMES[ownedPillar]}</span>`;
+    } else if(leadCount > 0){
+      roleBadge = `<span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px;background:#fef3c7;border:1.5px solid #d97706;font-size:10px;font-weight:700;color:#92400e;letter-spacing:0.4px;">L2 · Encargado de ${leadCount} proyecto${leadCount>1?'s':''}</span>`;
+    } else {
+      roleBadge = `<span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px;background:var(--bg);border:1.5px solid var(--border);font-size:10px;font-weight:700;color:var(--gray);letter-spacing:0.4px;">Integrante del equipo</span>`;
+    }
+
+    // Build the two sections
+    const leadSection = leadCount > 0 ? `
+      <div style="margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:10px 14px;background:#fef3c7;border:1px solid #fbbf24;border-radius:10px;">
+          <span style="font-size:16px;color:#d97706;">★</span>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:800;color:#92400e;letter-spacing:0.3px;text-transform:uppercase;">Encargado directo</div>
+            <div style="font-size:11px;color:#92400e99;margin-top:1px;">Proyectos que lidera operativamente · ${leadCount} en total</div>
+          </div>
+        </div>
+        <div class="dist-projects-grid">${sectionByPillar(leadProjects)}</div>
+      </div>` : '';
+
+    const memberSection = memberProjects.length > 0 ? `
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;">
+          <span style="width:18px;height:18px;border-radius:50%;background:${m.color};color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;">${m.initials}</span>
+          <div style="flex:1;">
+            <div style="font-size:12px;font-weight:800;color:var(--fg-strong);letter-spacing:0.3px;text-transform:uppercase;">Participa como integrante</div>
+            <div style="font-size:11px;color:var(--gray);margin-top:1px;">Colabora en el equipo del proyecto · ${memberProjects.length} en total</div>
+          </div>
+        </div>
+        <div class="dist-projects-grid">${sectionByPillar(memberProjects, {showLeader:true})}</div>
+      </div>` : '';
+
+    const emptyMsg = allProjects.length === 0
+      ? '<div style="font-size:13px;color:#94a3b8;text-align:center;padding:30px;font-style:italic;">Sin proyectos asignados.</div>'
+      : '';
+
     expanded.innerHTML = `
       <button class="dist-back" onclick="setFilter('all')">← Ver todos los integrantes</button>
       <div class="dist-exp-head">
         <div class="team-avatar" style="background:${m.color};width:52px;height:52px;font-size:16px;flex-shrink:0;">${m.initials}</div>
         <div>
-          <div class="dist-exp-title">${m.name}</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <div class="dist-exp-title">${m.name}</div>
+            ${roleBadge}
+          </div>
           <div class="dist-exp-role">${m.role}${m.id!=='rf' ? ' · ' + (m.group==='actualab'?'ActuaLab':'Desarrollador TI') : ''}</div>
         </div>
         <div class="dist-exp-stats">
-          <div class="dist-stat-box"><strong class="dist-stat-num">${projects.length}</strong><span class="dist-stat-lbl">Proyectos</span></div>
-          <div class="dist-stat-box"><strong class="dist-stat-num">${Object.keys(byPillar).length}</strong><span class="dist-stat-lbl">Pilares</span></div>
+          <div class="dist-stat-box" title="Proyectos totales en los que participa"><strong class="dist-stat-num">${allProjects.length}</strong><span class="dist-stat-lbl">Proyectos</span></div>
+          <div class="dist-stat-box" title="Proyectos donde es Encargado directo" style="${leadCount>0?'background:#fef3c7;':''}"><strong class="dist-stat-num" style="${leadCount>0?'color:#d97706;':''}">${leadCount}</strong><span class="dist-stat-lbl">A cargo</span></div>
         </div>
       </div>
-      <div class="dist-projects-grid">
-        ${projects.length > 0 ? pillarSections : '<div style="font-size:13px;color:#94a3b8;text-align:center;padding:30px;font-style:italic;">Sin proyectos asignados.</div>'}
-      </div>
+      ${leadSection}
+      ${memberSection}
+      ${emptyMsg}
       ${collabs ? `<div class="dist-collab"><strong>Colabora frecuentemente con:</strong> ${collabs}</div>` : ''}`;
   }
 }
@@ -2552,13 +2904,16 @@ function buildPicker(project){
   const product  = MEMBERS.filter(m => m.group === 'product');
   const initCount = project.def.length;
 
+  const currentLead = getProjectLead(project.id);
   function makeItems(members){
     return members.map(m => {
       const checked = project.def.includes(m.id);
-      return `<label class="picker-item${checked?' sel-'+m.group:''}" data-group="${m.group}">
+      const isLead = m.id === currentLead;
+      return `<label class="picker-item${checked?' sel-'+m.group:''}${isLead?' is-lead':''}" data-group="${m.group}" data-member="${m.id}">
         <input type="checkbox" name="proj-${project.id}" value="${m.id}"${checked?' checked':''}>
         <span class="pick-box">${checked?'✓':''}</span>
         <span class="pick-name">${m.name}</span>
+        <span class="pick-lead-star" title="Encargado">★</span>
         <span class="pick-role">${m.role}</span>
       </label>`;
     }).join('');
@@ -2567,6 +2922,12 @@ function buildPicker(project){
   const monthOptions = MONTHS.slice(1).map((name,i) =>
     `<option value="${i+1}"${project.deliveryMonth===i+1?' selected':''}>${name} 2026</option>`
   ).join('');
+
+  const leadOptions = MEMBERS.map(m =>
+    `<option value="${m.id}"${currentLead===m.id?' selected':''}>${m.name} · ${m.role}</option>`
+  ).join('');
+  const pillarLeadId = getPillarLead(project.pillar);
+  const pillarLeadName = getMember(pillarLeadId)?.name || '—';
 
   container.innerHTML = `
     <div class="picker-header">
@@ -2593,6 +2954,13 @@ function buildPicker(project){
         <div class="picker-items">${makeItems(product)}</div>
       </div>
     </div>
+    <div class="lead-picker-row">
+      <span class="lp-lbl">Encargado del Proyecto</span>
+      <select id="leadsel-${project.id}" onchange="setProjectLead('${project.id}', this.value)">
+        ${leadOptions}
+      </select>
+      <div class="lp-hint" id="leadhint-${project.id}">El encargado es la persona responsable directa del proyecto. Normalmente debe ser <strong>distinto</strong> al dueño del pilar (<strong>${pillarLeadName}</strong>); si coincide, se permite pero <strong>no cuenta para la bonificación de Encargado</strong>.</div>
+    </div>
     <div class="month-row">
       <span class="month-label">📅 Mes de entrega estimado:</span>
       <select class="month-select" id="monthsel-${project.id}" onchange="setDeliveryMonth('${project.id}', this.value)">
@@ -2603,16 +2971,25 @@ function buildPicker(project){
     </div>`;
 
   container.querySelectorAll('.picker-item').forEach(label => {
-    label.addEventListener('click', function(){
+    label.addEventListener('click', function(ev){
       const cb  = this.querySelector('input');
       const box = this.querySelector('.pick-box');
       const grp = this.dataset.group;
+      const memberId = this.dataset.member;
+      // Prevent unchecking the current lead
+      if(cb.checked && memberId === getProjectLead(project.id)){
+        // About to be unchecked — block it
+        ev.preventDefault();
+        const m = getMember(memberId);
+        alert(`No puedes quitar a ${m?.name || memberId} del equipo: es el Encargado del proyecto.\n\nAsigna a otra persona como Encargado primero.`);
+        return;
+      }
       setTimeout(() => {
         if(cb.checked){
           this.classList.add('sel-'+grp);
           box.textContent = '✓';
         } else {
-          this.classList.remove('sel-actualab','sel-dev');
+          this.classList.remove('sel-actualab','sel-dev','sel-product');
           box.textContent = '';
         }
         const total = container.querySelectorAll('input:checked').length;
@@ -2638,11 +3015,60 @@ function showTab(tabId){
   });
   window.scrollTo({top:0, behavior:'smooth'});
   // Re-render dynamic sections when opened
-  if(tabId === 'dist')      { renderFilterRow(); renderDistGrid(); renderChart(); }
+  if(tabId === 'dist')      { renderFilterRow(); renderDistGrid(); renderChart(); renderLeadChart(); }
   if(tabId === 'resumen')   { renderSummary(); }
   if(tabId === 'calendario'){ renderCalendar(); }
   if(tabId === 'bonos')     { renderBonusPanel(); }
   if(tabId === 'bono2')     { renderBono2Panel(); }
+}
+
+/* ══════════════════════════════════════════════════
+   PROJECT LEAD (Encargado)
+══════════════════════════════════════════════════ */
+function setProjectLead(projectId, memberId){
+  projectLeads[projectId] = memberId;
+  // Auto-check member as team member too
+  const cb = document.querySelector(`input[name="proj-${projectId}"][value="${memberId}"]`);
+  if(cb && !cb.checked){
+    cb.checked = true;
+    const label = cb.closest('.picker-item');
+    if(label){
+      const box = label.querySelector('.pick-box');
+      const grp = label.dataset.group;
+      label.classList.add('sel-'+grp);
+      if(box) box.textContent = '✓';
+    }
+    const pickerCont = document.getElementById('picker-'+projectId);
+    if(pickerCont){
+      const total = pickerCont.querySelectorAll('input:checked').length;
+      const cntEl = document.getElementById(`cnt-${projectId}`);
+      if(cntEl) cntEl.textContent = `${total} seleccionado${total!==1?'s':''}`;
+    }
+  }
+  // Refresh is-lead class on all picker items for this project
+  const cont = document.getElementById('picker-'+projectId);
+  if(cont){
+    cont.querySelectorAll('.picker-item').forEach(it => {
+      it.classList.toggle('is-lead', it.dataset.member === memberId);
+    });
+  }
+  // Update hint to warning if lead === pillar lead
+  const proj = PROJECTS.find(p => p.id === projectId);
+  const hint = document.getElementById('leadhint-'+projectId);
+  if(hint && proj){
+    const pillarLeadId = getPillarLead(proj.pillar);
+    const pillarLeadName = getMember(pillarLeadId)?.name || '—';
+    if(memberId === pillarLeadId){
+      hint.className = 'lp-info';
+      hint.innerHTML = `ⓘ El encargado es el dueño del pilar (<strong>${pillarLeadName}</strong>). Está permitido, pero <strong>no contabiliza para la bonificación de Encargado</strong> (evita doble bonificación L1+L2).`;
+    } else {
+      hint.className = 'lp-hint';
+      hint.innerHTML = `El encargado es la persona responsable directa del proyecto. Normalmente debe ser <strong>distinto</strong> al dueño del pilar (<strong>${pillarLeadName}</strong>); si coincide, se permite pero <strong>no cuenta para la bonificación de Encargado</strong>.`;
+    }
+  }
+  renderChips(projectId);
+  renderSummary();
+  markUnsaved();
 }
 
 /* ══════════════════════════════════════════════════
@@ -2679,15 +3105,20 @@ function renderCalendar(){
   if(!grid) return;
 
   const QUARTERS = [
-    {label:'Q1 — Primer Trimestre', months:[1,2,3]},
-    {label:'Q2 — Segundo Trimestre', months:[4,5,6]},
-    {label:'Q3 — Tercer Trimestre', months:[7,8,9]},
-    {label:'Q4 — Cuarto Trimestre', months:[10,11,12]},
+    {label:'Q1', subtitle:'Primer Trimestre', months:[1,2,3]},
+    {label:'Q2', subtitle:'Segundo Trimestre', months:[4,5,6]},
+    {label:'Q3', subtitle:'Tercer Trimestre', months:[7,8,9]},
+    {label:'Q4', subtitle:'Cuarto Trimestre', months:[10,11,12]},
   ];
+
+  // Change the grid to a single column and let each quarter row handle its own 3-column layout
+  grid.className = 'cal-year';
 
   let html = '';
   for(const q of QUARTERS){
-    html += `<div style="grid-column:1/-1;"><span class="cal-quarter-label">${q.label}</span></div>`;
+    // Count total projects in this quarter
+    const qTotal = q.months.reduce((sum,m) => sum + PROJECTS.filter(p => p.deliveryMonth === m).length, 0);
+    let monthsHtml = '';
     for(const m of q.months){
       const projects = PROJECTS.filter(p => p.deliveryMonth === m);
       const count = projects.length;
@@ -2701,7 +3132,7 @@ function renderCalendar(){
             </div>`;
           }).join('')
         : `<span class="cal-empty-msg">Sin proyectos asignados</span>`;
-      html += `<div class="cal-month">
+      monthsHtml += `<div class="cal-month${count===0?' cal-month-empty':''}">
         <div class="cal-month-head">
           <span class="cal-month-name">${MONTHS[m]}</span>
           <span class="cal-count-badge${count>0?' active':''}">${count}</span>
@@ -2709,6 +3140,16 @@ function renderCalendar(){
         <div class="cal-body">${projItems}</div>
       </div>`;
     }
+    html += `<div class="cal-quarter">
+      <div class="cal-quarter-head">
+        <div class="cal-quarter-label">
+          <span class="cal-q-tag">${q.label}</span>
+          <span class="cal-q-sub">${q.subtitle}</span>
+        </div>
+        <span class="cal-q-total">${qTotal} proyecto${qTotal!==1?'s':''}</span>
+      </div>
+      <div class="cal-months-row">${monthsHtml}</div>
+    </div>`;
   }
   grid.innerHTML = html;
 }
@@ -2737,6 +3178,75 @@ function renderChart(){
       </div>
       <div class="chart-initials">${d.m.initials}</div>
       <div class="chart-name">${d.m.name.split(' ')[0]}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════════════════════════════════
+   LEAD CHART — proyectos a cargo (L2 Encargados)
+══════════════════════════════════════════════════ */
+function renderLeadChart(){
+  const container = document.getElementById('chart-leads-bars');
+  const emptyEl = document.getElementById('chart-leads-empty');
+  if(!container) return;
+
+  // IDs de líderes de pilar (L1)
+  const L1 = new Set(Object.values(PILLAR_LEADS));
+
+  // Conteo de proyectos a cargo por persona
+  const leadCounts = {};
+  PROJECTS.forEach(p => {
+    const lead = getProjectLead(p.id);
+    if(!lead) return;
+    leadCounts[lead] = (leadCounts[lead] || 0) + 1;
+  });
+
+  // Mostrar:
+  //  · L2 siempre (aunque tenga 0, para hacer visible la carga posible)
+  //  · L1 solo si tiene ≥1 proyecto a cargo (marcado como "no cuenta para bono L2")
+  const data = MEMBERS
+    .map(m => ({ m, count: leadCounts[m.id] || 0, isL1: L1.has(m.id) }))
+    .filter(d => !d.isL1 || d.count > 0);
+
+  // Orden: L2 con carga ≫ L2 sin carga ≫ L1 al final
+  data.sort((a,b) => {
+    if(a.isL1 !== b.isL1) return a.isL1 ? 1 : -1;
+    return (b.count - a.count) || a.m.name.localeCompare(b.m.name);
+  });
+
+  if(data.length === 0){
+    container.innerHTML = '';
+    if(emptyEl) emptyEl.style.display = 'block';
+    return;
+  }
+  if(emptyEl) emptyEl.style.display = 'none';
+
+  const maxCount = Math.max(...data.map(d => d.count), 1);
+  const CHART_H = 160;
+
+  container.innerHTML = data.map(d => {
+    const barH = d.count > 0 ? Math.max(Math.round(d.count / maxCount * CHART_H), 12) : 4;
+    const color = d.m.color;
+    // L1 actuando como Encargado: se muestra en gris/rayado para indicar "no bonificable"
+    const isL1Lead = d.isL1 && d.count > 0;
+    const barStyle = isL1Lead
+      ? `background:repeating-linear-gradient(45deg, ${color}, ${color} 6px, ${color}88 6px, ${color}88 12px);opacity:.8;`
+      : `background:${color};`;
+    const tip = isL1Lead
+      ? ` title="${d.m.name} es Dueño de pilar (L1). Puede liderar proyectos pero NO cuenta para la bonificación de Encargado (L2)."`
+      : ` title="Encargado directo de ${d.count} proyecto${d.count!==1?'s':''}"`;
+    const badge = isL1Lead
+      ? '<div style="font-size:8px;font-weight:700;color:#1e3a8a;background:#dbeafe;border-radius:8px;padding:1px 5px;margin-top:3px;letter-spacing:0.3px;">L1 · no bono</div>'
+      : '';
+    return `<div class="chart-col"${tip}>
+      <div class="chart-bar-outer">
+        <div class="chart-bar" style="height:${barH}px;${barStyle}">
+          <span class="chart-bar-val">${d.count}</span>
+        </div>
+      </div>
+      <div class="chart-initials">${d.m.initials}</div>
+      <div class="chart-name">${d.m.name.split(' ')[0]}</div>
+      ${badge}
     </div>`;
   }).join('');
 }
@@ -2787,7 +3297,7 @@ document.addEventListener('DOMContentLoaded', function(){
   renderSummary();
   renderFilterRow();
   renderDistGrid();
-  renderChart();
+  renderChart(); renderLeadChart();
   renderCalendar();
   // Show initial panel
   showTab('inicio');
@@ -2868,6 +3378,7 @@ function saveChanges(){
     savedAt: new Date().toISOString(),
     assignments: {},
     deliveryMonths: {},
+    projectLeads: {...projectLeads},
     bonusDel: {...bonusDel},
     bonusQ: {...bonusQ},
     projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
@@ -2943,6 +3454,23 @@ function loadChanges(){
       });
     }
 
+    // Restore project leads (Encargados)
+    if(data.projectLeads){
+      Object.keys(data.projectLeads).forEach(pid => {
+        projectLeads[pid] = data.projectLeads[pid];
+        const sel = document.getElementById('leadsel-'+pid);
+        if(sel) sel.value = projectLeads[pid];
+        // Update is-lead on picker items
+        const cont = document.getElementById('picker-'+pid);
+        if(cont){
+          cont.querySelectorAll('.picker-item').forEach(it => {
+            it.classList.toggle('is-lead', it.dataset.member === projectLeads[pid]);
+          });
+        }
+        renderChips(pid);
+      });
+    }
+
     // Restore bonus state
     if(data.bonusDel) Object.assign(bonusDel, data.bonusDel);
     if(data.bonusQ) Object.assign(bonusQ, data.bonusQ);
@@ -2962,7 +3490,7 @@ function loadChanges(){
     renderSummary();
     renderFilterRow();
     renderDistGrid();
-    renderChart();
+    renderChart(); renderLeadChart();
     renderCalendar();
     // Refresh bonus panels if they have been rendered
     if(document.getElementById('b2-table-body')) renderBono2Panel();
@@ -3001,7 +3529,6 @@ BONUS_IDS.forEach(id => {
   }
 });
 const TRANSVERSAL = {
-  pb:  {label:'Product Ops · Optimización + ActuaFast', scope:['e2e','vcx','suite','com','afast']},
   rpu: {label:'UI/UX · Actuaria+ y Nuevos',             scope:['sim','ctrl','actas','pag','navia','jub','bench','comp','legal','nom']},
 };
 Object.entries(TRANSVERSAL).forEach(([id,cfg]) => { LEVEL2_SCOPE[id] = cfg.scope; });
@@ -3020,6 +3547,20 @@ function bonusTotPillar(pillar){ return PROJECTS.filter(p => p.pillar===pillar).
 
 function calcBonus(id){
   const area = bonusF(bonusDelTotal());
+
+  // ── Caso especial: Renato (UI/UX transversal)
+  // Su fórmula es 60% Área Digital + 40% Calidad de los proyectos en los que está enrolado
+  if(id === 'rpu'){
+    const quality = (bonusQ[id]/100)*40;
+    // Scope (para la regla umbral): entregados del scope UI/UX
+    const sc = LEVEL2_SCOPE[id]||[];
+    const del = sc.filter(pid => bonusDel[pid]).length;
+    const scopeRatio = sc.length > 0 ? del/sc.length : 0;
+    const raw = area + quality;
+    const gated = scopeRatio < 0.5;
+    return {area, scope:0, scopeRatio, quality, raw, gated, total: gated ? 0 : raw, special:'rpu'};
+  }
+
   let scope = 0, scopeRatio = 0;
   if(LEVEL1[id]){
     const pil = LEVEL1[id].pillar;
@@ -3406,8 +3947,8 @@ function renderBonusTable(){
       </div></td>
       <td>${lvl}</td>
       <td><div style="font-weight:700;font-size:14px;color:var(--navy);">${sc.area.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">f(${bonusDelTotal()})</div></td>
-      <td><div style="font-weight:700;font-size:14px;color:${sc.gated?'#ef4444':'var(--blue)'};">${sc.scope.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">${scopeDet} (${scopePct}%)</div>${sc.gated ? '<div class="bonus-gate-badge" style="margin-top:4px;">&lt;50% → Sin bono</div>' : ''}</td>
-      <td><input class="score-input" type="number" min="0" max="100" value="${bonusQ[id]}" onchange="setBonusQ('${id}',this.value)" onfocus="this.select()"><div style="font-size:9px;color:var(--gray2);margin-top:2px;">= ${sc.quality.toFixed(1)}%</div></td>
+      <td>${sc.special==='rpu' ? `<div style="font-weight:700;font-size:12px;color:var(--gray);">N/A</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">No aplica (40% calidad)</div>${sc.gated ? '<div class="bonus-gate-badge" style="margin-top:4px;">&lt;50% entregas → Sin bono</div>' : ''}` : `<div style="font-weight:700;font-size:14px;color:${sc.gated?'#ef4444':'var(--blue)'};">${sc.scope.toFixed(1)}%</div><div style="font-size:9px;color:var(--gray2);margin-top:1px;">${scopeDet} (${scopePct}%)</div>${sc.gated ? '<div class="bonus-gate-badge" style="margin-top:4px;">&lt;50% → Sin bono</div>' : ''}`}</td>
+      <td><input class="score-input" type="number" min="0" max="100" value="${bonusQ[id]}" onchange="setBonusQ('${id}',this.value)" onfocus="this.select()"><div style="font-size:9px;color:${sc.special==='rpu'?'var(--grape)':'var(--gray2)'};margin-top:2px;font-weight:${sc.special==='rpu'?'700':'400'};">= ${sc.quality.toFixed(1)}%${sc.special==='rpu'?' <span style="font-weight:600;">(40%)</span>':''}</div></td>
       <td class="bonus-total-cell" style="color:${barCol};">${sc.gated ? '0.0%' : sc.total.toFixed(1)+'%'}${sc.gated ? `<div style="font-size:9px;color:var(--gray2);text-decoration:none;margin-top:1px;">(${sc.raw.toFixed(1)}%)</div>` : ''}</td>
       <td><div class="bonus-bar-mini"><div class="bonus-bar-mini-fill" style="width:${barPct}%;background:${barCol};"></div></div></td>
     </tr>`;
@@ -3781,6 +4322,7 @@ saveChanges = function(){
   const data = {
     savedAt: new Date().toISOString(),
     assignments: {}, deliveryMonths: {},
+    projectLeads: {...projectLeads},
     bonusDel: {...bonusDel}, bonusQ: {...bonusQ},
     projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
     b2KPI: JSON.parse(JSON.stringify(b2KPI)),
@@ -3801,6 +4343,101 @@ saveChanges = function(){
     }, 2000);
   } catch(e){ alert('Error al guardar: ' + e.message); }
 };
+
+/* ══════════════════════════════════════════════════
+   EXPORT / IMPORT — JSON portable
+══════════════════════════════════════════════════ */
+function _saveToast(msg, kind){
+  let el = document.getElementById('save-toast');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'save-toast';
+    el.className = 'save-toast';
+    document.body.appendChild(el);
+  }
+  el.className = 'save-toast show' + (kind ? ' ' + kind : '');
+  el.innerHTML = msg;
+  clearTimeout(_saveToast._t);
+  _saveToast._t = setTimeout(() => { el.className = 'save-toast'; }, 3400);
+}
+
+function exportData(){
+  // Build a portable snapshot (same shape as localStorage + metadata)
+  const snapshot = {
+    _app: 'actualab-planificacion',
+    _version: 1,
+    _exportedAt: new Date().toISOString(),
+    savedAt: new Date().toISOString(),
+    assignments: {},
+    deliveryMonths: {},
+    projectLeads: {...projectLeads},
+    bonusDel: {...bonusDel},
+    bonusQ: {...bonusQ},
+    projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
+    b2KPI: JSON.parse(JSON.stringify(b2KPI)),
+    b2ProjKPI: JSON.parse(JSON.stringify(b2ProjKPI)),
+    b2Support: {...b2Support}
+  };
+  PROJECTS.forEach(p => {
+    snapshot.assignments[p.id] = getCheckedMembers(p.id).map(m => m.id);
+    snapshot.deliveryMonths[p.id] = p.deliveryMonth;
+  });
+  try {
+    const blob = new Blob([JSON.stringify(snapshot, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const stamp = new Date().toISOString().slice(0,10);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `actualab-planificacion-${stamp}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    _saveToast(`✓ Exportado · actualab-planificacion-${stamp}.json`, 'ok');
+  } catch(e){
+    _saveToast('✗ Error al exportar: ' + e.message, 'err');
+  }
+}
+
+function importData(ev){
+  const file = ev.target.files && ev.target.files[0];
+  ev.target.value = ''; // reset so same file can be re-picked
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if(data._app && data._app !== 'actualab-planificacion'){
+        if(!confirm('Este archivo no parece ser de esta aplicación (_app='+data._app+'). ¿Continuar igualmente?')) return;
+      }
+      if(!data.assignments && !data.projectLeads && !data.deliveryMonths){
+        _saveToast('✗ El archivo no contiene datos reconocibles.', 'err');
+        return;
+      }
+      const changesDesc = [];
+      if(data.assignments) changesDesc.push(Object.keys(data.assignments).length + ' asignaciones');
+      if(data.projectLeads) changesDesc.push(Object.keys(data.projectLeads).length + ' encargados');
+      if(data.deliveryMonths) changesDesc.push('meses de entrega');
+      if(data.b2KPI || data.b2ProjKPI) changesDesc.push('KPIs y bonos');
+      const ok = confirm(
+        '¿Reemplazar los datos actuales con el archivo importado?\n\n' +
+        'Contenido: ' + changesDesc.join(' · ') + '\n' +
+        (data._exportedAt ? 'Exportado: ' + new Date(data._exportedAt).toLocaleString() + '\n' : '') +
+        '\nEsta acción sobrescribe lo que tengas ahora. Se recomienda exportar primero.'
+      );
+      if(!ok) return;
+
+      // Write to localStorage and reload so the existing loadChanges() path runs cleanly
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      _saveToast('✓ Importado correctamente · recargando…', 'ok');
+      setTimeout(() => { location.reload(); }, 900);
+    } catch(err){
+      _saveToast('✗ Archivo inválido: ' + err.message, 'err');
+    }
+  };
+  reader.onerror = () => _saveToast('✗ No se pudo leer el archivo.', 'err');
+  reader.readAsText(file);
+}
 
 /* ══════════════════════════════════════════════════
    V2 · HEADER PROGRESS PILLS
