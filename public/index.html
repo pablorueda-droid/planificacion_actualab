@@ -1639,16 +1639,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
     <div>
       <div class="page-header-brand">
         <img src="assets/actuaria-logo-white.png?v=2" alt="ACTUARIA" class="page-header-logo-img">
-        <div class="page-header-brand-text"><em>Área Digital · TI</em></div>
       </div>
       <div class="header-label">Planificación Estratégica 2026</div>
       <h1 class="header-title">Área <span>Digital</span> · TI</h1>
-      <p class="header-sub">Unidad ActuaLab + Desarrolladores · Pipeline de proyectos, dependencias y responsables.</p>
+      <p class="header-sub">Pipeline de proyectos, dependencias y responsables.</p>
     </div>
     <div class="header-meta">
       <strong>Abril 2026</strong><br>
-      Confidencial<br>
-      v2 · Rediseño
+      Confidencial
     </div>
   </div>
   <!-- Progress pills per pillar — clickable -->
@@ -2071,11 +2069,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
   <section id="leyenda" data-panel="resumen" style="scroll-margin-top:54px;margin-bottom:52px;">
     <div class="section-label" style="color:var(--navy)">Leyenda</div>
     <div class="legend-grid">
-      <div class="legend-item"><div class="legend-swatch internal"></div><div><strong>Fase interna</strong><br><span style="color:var(--gray);font-size:11px;">Ejecutada por el equipo ActuaLab o TI bajo liderazgo de ActuaLab</span></div></div>
-      <div class="legend-item"><div class="legend-swatch external"></div><div><strong>Fase externa (ActuaLab mapea)</strong><br><span style="color:var(--gray);font-size:11px;">Ejecutada externamente; ActuaLab registra y hace seguimiento</span></div></div>
-      <div class="legend-item"><div class="legend-swatch client"></div><div><strong>Fase con cliente</strong><br><span style="color:var(--gray);font-size:11px;">Requiere participación activa del cliente</span></div></div>
-      <div class="legend-item"><div class="legend-swatch prereq"></div><div><strong>Prerrequisito externo</strong><br><span style="color:var(--gray);font-size:11px;">Debe completarse antes de iniciar — no ejecutado por ActuaLab</span></div></div>
       <div class="legend-item" style="gap:10px;"><div style="display:flex;gap:5px;align-items:center;"><span class="resp-chip actualab" style="font-size:11px;">Nombre</span><span class="resp-chip dev" style="font-size:11px;">Nombre</span></div><div><strong>Chip responsable</strong><br><span style="color:var(--gray);font-size:11px;">Azul oscuro = ActuaLab &nbsp;·&nbsp; Verde azulado = Desarrollador TI</span></div></div>
+      <div class="legend-item" style="gap:10px;"><span class="resp-chip actualab is-lead" style="font-size:11px;position:relative;padding-right:18px;">Nombre<span style="position:absolute;top:-4px;right:-4px;background:#f59e0b;color:#fff;font-size:9px;width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;">★</span></span><div><strong>Encargado de proyecto</strong><br><span style="color:var(--gray);font-size:11px;">Chip con estrella = responsable directo (L2)</span></div></div>
       <div class="legend-item" style="gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--p1c);width:36px;text-align:center;">P1</span><div><strong>Prioridad Alta</strong><br><span style="color:var(--gray);font-size:11px;">Arranque inmediato</span></div></div>
       <div class="legend-item" style="gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--p2c);width:36px;text-align:center;">P2</span><div><strong>Prioridad Media</strong><br><span style="color:var(--gray);font-size:11px;">Inicia tras desbloqueo de P1</span></div></div>
       <div class="legend-item" style="gap:8px;"><span style="font-size:18px;font-weight:700;color:var(--p3c);width:36px;text-align:center;">P3</span><div><strong>Prioridad Baja</strong><br><span style="color:var(--gray);font-size:11px;">Segunda ola</span></div></div>
@@ -2133,16 +2128,24 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
           <ul>
             <li><strong style="color:var(--navy);">Línea 1 (líderes):</strong> se mide la entrega proporcional del pilar que lidera. Ejemplo: si el pilar tiene 5 proyectos y se entregan 4, el score es 4/5 × 30% = 24%</li>
             <li><strong style="color:var(--navy);">Línea 2 (ejecutores):</strong> se mide la entrega proporcional de los proyectos asignados a cada persona como responsable directo</li>
-            <li><strong style="color:var(--navy);">Perfiles transversales:</strong> se miden por el cumplimiento de los proyectos que impactan según su rol específico (ver detalle abajo)</li>
+            <li><strong style="color:var(--navy);">Perfiles transversales (UI/UX):</strong> <strong style="color:var(--red);">este componente no aplica.</strong> En su lugar, el 30% se redistribuye al componente de Calidad, que pasa del 10% al 40% (ver fórmula especial abajo)</li>
           </ul>
+          <div style="margin-top:12px;padding:10px 12px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;display:flex;gap:10px;align-items:flex-start;">
+            <div style="width:22px;height:22px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;color:#fff;font-weight:800;line-height:1;">!</div>
+            <div style="font-size:11px;color:#7f1d1d;line-height:1.55;">
+              <strong style="color:#991b1b;">Regla de umbral: Alcance &ge; 50%.</strong> Si un integrante entrega menos del 50% de los proyectos bajo su responsabilidad, su bonificación se reduce automáticamente a <strong>0%</strong>, independientemente del resultado calculado en los otros componentes. Regla automática, reflejada en la tabla del simulador.
+            </div>
+          </div>
         </div>
 
         <div class="bonus-explain-card ec-quality">
           <h4><span class="ec-pct" style="color:var(--green);">10%</span> Calidad del Entregable</h4>
-          <p>Evaluación cualitativa del funcionamiento y calidad de los productos entregados por cada integrante. Este componente asegura que la entrega a tiempo no comprometa la calidad.</p>
+          <p>Evaluación cualitativa del funcionamiento y calidad de los productos entregados. Asegura que la entrega a tiempo no comprometa la calidad.</p>
           <ul>
-            <li>Evaluado por el CTO (Raimundo Frohlich) como responsable técnico del área</li>
-            <li>Se califica de 0 a 100 puntos. El score se traduce proporcionalmente al 10% del bono</li>
+            <li><strong style="color:var(--navy);">Línea 1 (líderes):</strong> promedio de los scores individuales de calidad de cada producto entregado dentro de su pilar</li>
+            <li><strong style="color:var(--navy);">Línea 2 (ejecutores):</strong> promedio de los scores de calidad de cada uno de los proyectos que tiene a cargo como responsable directo</li>
+            <li><strong style="color:var(--navy);">Línea transversal (UI/UX — Renato Puente):</strong> este componente pesa <strong style="color:var(--green);">40%</strong> en lugar de 10%, dado que su rol es fundamental en la calidad del entregable en términos de diseño y usabilidad</li>
+            <li>Evaluado por el CTO (Raimundo Frohlich) junto con el líder de cada pilar. Se califica de 0 a 100 y se traduce proporcionalmente al porcentaje del bono</li>
             <li>Criterios: funcionalidad correcta, estabilidad, cumplimiento de estándares técnicos, experiencia de usuario</li>
           </ul>
         </div>
@@ -2162,12 +2165,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
               Cada líder responde por la entrega total de su pilar. La escala es proporcional lineal: el porcentaje de proyectos entregados dentro del pilar se multiplica por 30%.
               <table>
                 <thead><tr><th>Líder</th><th>Pilar</th><th>Proyectos</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>Pablo Rueda</strong></td><td style="color:var(--blue);">Gobernanza</td><td>4 proyectos</td></tr>
-                  <tr><td><strong>Lenin Torres</strong></td><td style="color:var(--green);">Optimización</td><td>4 proyectos</td></tr>
-                  <tr><td><strong>Jonathan Narváez</strong></td><td style="color:var(--orange);">Actuaria+</td><td>5 proyectos</td></tr>
-                  <tr><td><strong>Raimundo Frohlich</strong></td><td style="color:var(--purple);">Nuevos Productos</td><td>5 proyectos</td></tr>
-                </tbody>
+                <tbody id="scope-l1-body"></tbody>
               </table>
             </div>
           </div>
@@ -2181,14 +2179,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
               Cada integrante de la segunda línea tiene productos específicos a su cargo. Su 30% depende de cuántos de esos productos entrega a tiempo.
               <table>
                 <thead><tr><th>Responsable</th><th>Proyectos a cargo</th></tr></thead>
-                <tbody>
-                  <tr><td><strong>Cristopher Palacios</strong></td><td>Control Tributario, ActuaFast</td></tr>
-                  <tr><td><strong>Cristián Mejía</strong></td><td>Aut. Comercial, Simulador, Pagos Integrados</td></tr>
-                  <tr><td><strong>Arthur Chavez</strong></td><td>NavIA, Plataforma Benchmark</td></tr>
-                  <tr><td><strong>Carlos Puco</strong></td><td>Data Hub Supercias, Migración Facturación Open Bravo</td></tr>
-                  <tr><td><strong>Pablo Encalada</strong></td><td>Suite Asistentes Operativos, Jubilación Ideal</td></tr>
-                  <tr><td><strong>Fernanda Villa</strong></td><td>Agente Virtual CX</td></tr>
-                </tbody>
+                <tbody id="scope-l2-body"></tbody>
               </table>
             </div>
           </div>
@@ -2222,18 +2213,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
         <div class="bonus-example-row"><span class="bonus-example-label">Bono total de Cristián</span><span class="bonus-example-calc"></span><span class="bonus-example-val" style="font-size:16px;">76.6%</span></div>
       </div>
 
-      <!-- Regla umbral 50% -->
-      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;">
-        <div style="width:40px;height:40px;border-radius:50%;background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#fff;font-weight:800;">!</div>
-        <div style="flex:1;">
-          <strong style="font-size:13px;color:#991b1b;display:block;margin-bottom:4px;">Regla de umbral: Alcance &ge; 50%</strong>
-          <p style="font-size:12px;color:#7f1d1d;line-height:1.6;margin:0;">Si un integrante entrega menos del <strong>50% de los proyectos bajo su responsabilidad</strong> (segundo componente — alcance), su bonificación se reduce automáticamente a <strong>0%</strong>, independientemente del resultado calculado en los otros componentes. Para L1 se evalúa el porcentaje de proyectos entregados en su pilar; para L2 el porcentaje de proyectos propios entregados. Esta regla es automática y se refleja en la tabla del simulador.</p>
-        </div>
-      </div>
+      <!-- Hierarchy removed — info is duplicated in "Detalle del componente de Alcance" below -->
     </div>
-
-    <!-- Hierarchy (dynamic) -->
-    <div class="bonus-hierarchy-grid" id="bonus-hierarchy"></div>
 
     <!-- Curve -->
     <div class="bonus-curve-wrap">
@@ -2489,29 +2470,29 @@ const MEMBERS = [
 
 const PROJECTS = [
   // ── GOBERNANZA ──
-  { id:'mig',   name:'Migración Estudios Actuariales',                         pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr','cpuc'] },
-  { id:'govsf', name:'Gobierno e Integración Datos Clientes (Salesforce)', pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:5,  def:['pr','cpuc'] },
-  { id:'dhub',  name:'Data Hub Supercias (SCVS)',                          pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr','cpuc'] },
-  { id:'mjub',  name:'Migración Histórica de Actas de Jubilación Patronal',pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:7,  def:['pr','cpuc'] },
-  { id:'mfact', name:'Migración de Datos de Facturación Open Bravo',       pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:8,  def:['pr','cpuc'] },
+  { id:'mig',   name:'Migración Estudios Actuariales',                         pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
+  { id:'govsf', name:'Gobierno e Integración Datos Clientes (Salesforce)', pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:5,  def:['pr'] },
+  { id:'dhub',  name:'Data Hub Supercias (SCVS)',                          pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:6,  def:['pr'] },
+  { id:'mjub',  name:'Migración Histórica de Actas de Jubilación Patronal',pillar:'gov', pillarName:'Gobernanza',       priority:'P1', deliveryMonth:7,  def:['pr'] },
+  { id:'mfact', name:'Migración de Datos de Facturación Open Bravo',       pillar:'gov', pillarName:'Gobernanza',       priority:'P2', deliveryMonth:8,  def:['pr'] },
   // ── OPTIMIZACIÓN ──
   { id:'e2e',   name:'Automatización E2E del Estudio Actuarial',           pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','pe','jn','pb'] },
-  { id:'vcx',   name:'Agente Virtual CX',                                  pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','jn','pb','fv'] },
-  { id:'suite', name:'Suite de Asistentes Operativos',                     pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:9,  def:['lt','pe','cp','jn','pb'] },
+  { id:'vcx',   name:'Agente Virtual CX',                                  pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,   def:['lt','jn','fv','pb'] },
+  { id:'suite', name:'Suite de Asistentes Operativos',                     pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:9,  def:['lt','pe','cp','ac','cpuc','jn','pb'] },
   { id:'com',   name:'Automatización Comercial y Facturación',             pillar:'ops', pillarName:'Optimización',     priority:'P2', deliveryMonth:10, def:['lt','pe','cm','pb'] },
-  { id:'afast', name:'ActuaFast',                                          pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['lt','cm','ac','cpuc','jn','pb'] },
+  { id:'afast', name:'ActuaFast',                                          pillar:'ops', pillarName:'Optimización',     priority:'P1', deliveryMonth:9,  def:['cm','ac','cpuc','jn','pb'] },
   // ── ACTUARIA+ ──
-  { id:'sim',   name:'Simulador de Beneficios Post-Empleo',                pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:8,  def:['pr','cm','jn','rpu','fv'] },
-  { id:'ctrl',  name:'Control Tributario de Provisiones',                  pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:10, def:['pr','cp','cm','jn','rpu','fv'] },
-  { id:'actas', name:'Módulo de Actas de Jubilación Patronal',             pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['cp','cm','jn','pb','fv'] },
-  { id:'pag',   name:'Actuaria+ con Pagos Integrados',                     pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:7,  def:['cp','cm','rf','jn','rpu','fv'] },
-  { id:'navia', name:'NavIA – Asistente Inteligente Actuarial',            pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:5,  def:['cm','rf','jn','rpu','fv'] },
+  { id:'sim',   name:'Simulador de Beneficios Post-Empleo',                pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:8,  def:['pr','cm','rpu','jn','fv'] },
+  { id:'ctrl',  name:'Control Tributario de Provisiones',                  pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:10, def:['pr','cp','cm','rpu','jn','fv'] },
+  { id:'actas', name:'Módulo de Actas de Jubilación Patronal',             pillar:'act', pillarName:'Actuaria+',        priority:'P1', deliveryMonth:9,  def:['pb','cm','cp','jn'] },
+  { id:'pag',   name:'Actuaria+ con Pagos Integrados',                     pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:7,  def:['cp','cm','rf','jn'] },
+  { id:'navia', name:'NavIA – Asistente Inteligente Actuarial',            pillar:'act', pillarName:'Actuaria+',        priority:'P2', deliveryMonth:5,  def:['rf','jn'] },
   // ── NUEVOS PRODUCTOS ──
-  { id:'jub',   name:'Jubilación Ideal',                                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:6,  def:['pe','rf','jn','rpu'] },
-  { id:'bench', name:'Plataforma de Benchmark Salarial',                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:8,  def:['pr','ac','rf','jn','rpu'] },
-  { id:'comp',  name:'Producto de Análisis de Competencia',                pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:7,  def:['ac','rf','jn','rpu'] },
-  { id:'legal', name:'Asistente de Asesoría Legal',                        pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:8,  def:['lt','rf','jn','rpu','cpo'] },
-  { id:'nom',   name:'Sistema de Gestión de Nómina',                       pillar:'new', pillarName:'Nuevos Productos', priority:'P3', deliveryMonth:10, def:['lt','rf','jn','rpu'] },
+  { id:'jub',   name:'Jubilación Ideal',                                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:6,  def:['pe','rpu','jn','fv'] },
+  { id:'bench', name:'Plataforma de Benchmark Salarial',                   pillar:'new', pillarName:'Nuevos Productos', priority:'P1', deliveryMonth:8,  def:['pr','ac','jn'] },
+  { id:'comp',  name:'Producto de Análisis de Competencia',                pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:7,  def:['pr','cpuc','jn'] },
+  { id:'legal', name:'Asistente de Asesoría Legal',                        pillar:'new', pillarName:'Nuevos Productos', priority:'P2', deliveryMonth:8,  def:['lt','rf','jn'] },
+  { id:'nom',   name:'Sistema de Gestión de Nómina',                       pillar:'new', pillarName:'Nuevos Productos', priority:'P3', deliveryMonth:10, def:['lt','rf'] },
 ];
 
 const PILLAR_ORDER  = {gov:0, ops:1, act:2, new:3};
@@ -2524,15 +2505,17 @@ const PILLAR_LEADS = { gov:'pr', ops:'lt', act:'jn', new:'rf' };
 // Encargado por proyecto — debe ser DIFERENTE al dueño del pilar
 // Se escoge un integrante del equipo por defecto (no el líder del pilar)
 const PROJECT_LEADS_DEFAULT = {
-  // Gobernanza (dueño: Pablo Rueda)
-  mig:'cpuc',  govsf:'cpuc', dhub:'cpuc', mjub:'cpuc', mfact:'cpuc',
+  // Gobernanza (dueño: Pablo Rueda). Cristopher Palacios para dhub, Carlos Puco para migraciones de actas.
+  mig:'cpuc',  govsf:'cpuc', dhub:'cpuc', mjub:'cpuc', mfact:'cm',
   // Optimización (dueño: Lenin Torres)
-  e2e:'pb',    vcx:'fv',     suite:'pe',  com:'pb',    afast:'pb',
+  e2e:'pe',    vcx:'fv',     suite:'pe',  com:'cm',    afast:'cp',
   // Actuaria+ (dueño: Jonathan Narváez)
-  sim:'cm',    ctrl:'cp',    actas:'pb',  pag:'cp',    navia:'rf',
+  sim:'cm',    ctrl:'cp',    actas:'pb',  pag:'cm',    navia:'rpu',
   // Nuevos Productos (dueño: Raimundo Frohlich)
-  jub:'pe',    bench:'ac',   comp:'ac',   legal:'lt',  nom:'lt'
+  jub:'pe',    bench:'ac',   comp:'ac',   legal:'rf',  nom:'lt'
 };
+// NOTE: legal/rf coincide con dueño del pilar -> corregimos abajo
+PROJECT_LEADS_DEFAULT.legal = 'lt'; // Legal: Lenin Torres (IA) como encargado
 
 // Mutable state
 const projectLeads = {...PROJECT_LEADS_DEFAULT};
@@ -3068,6 +3051,9 @@ function setProjectLead(projectId, memberId){
   }
   renderChips(projectId);
   renderSummary();
+  rebuildLevel2Scope();
+  if(typeof renderBonusPanel === 'function'){ renderBonusPanel(); }
+  if(typeof renderBono2Panel === 'function' && document.getElementById('b2-table-body')){ renderBono2Panel(); }
   markUnsaved();
 }
 
@@ -3522,12 +3508,21 @@ const PROJECT_OWNERS = {
 };
 
 const LEVEL2_SCOPE = {};
-BONUS_IDS.forEach(id => {
-  if(!LEVEL1[id]){
-    LEVEL2_SCOPE[id] = Object.entries(PROJECT_OWNERS)
-      .filter(([_,oid]) => oid === id).map(([pid]) => pid);
-  }
-});
+function rebuildLevel2Scope(){
+  BONUS_IDS.forEach(id => {
+    if(!LEVEL1[id]){
+      LEVEL2_SCOPE[id] = Object.entries(projectLeads)
+        .filter(([_,oid]) => oid === id).map(([pid]) => pid);
+    }
+  });
+  // Restore transversal scopes (they don't come from projectLeads)
+  try {
+    if(typeof TRANSVERSAL !== 'undefined' && TRANSVERSAL){
+      Object.entries(TRANSVERSAL).forEach(([id,cfg]) => { LEVEL2_SCOPE[id] = cfg.scope; });
+    }
+  } catch(e){ /* TRANSVERSAL not yet initialized (initial load) — skip */ }
+}
+rebuildLevel2Scope();
 const TRANSVERSAL = {
   rpu: {label:'UI/UX · Actuaria+ y Nuevos',             scope:['sim','ctrl','actas','pag','navia','jub','bench','comp','legal','nom']},
 };
@@ -3674,6 +3669,60 @@ function renderBonusPanel(){
   renderBonusCurve();
   renderBonusTable();
   renderBonusHero();
+  renderScopeDetail();
+}
+
+function renderScopeDetail(){
+  // ── L1: Líderes de Pilar ──
+  const l1Body = document.getElementById('scope-l1-body');
+  if(l1Body){
+    const pillarMeta = {
+      gov: {name:'Gobernanza',       color:'var(--blue)'},
+      ops: {name:'Optimización',     color:'var(--green)'},
+      act: {name:'Actuaria+',        color:'var(--orange)'},
+      new: {name:'Nuevos Productos', color:'var(--purple)'},
+    };
+    l1Body.innerHTML = Object.entries(LEVEL1).map(([memberId, info]) => {
+      const m = getMember(memberId);
+      const meta = pillarMeta[info.pillar] || {name:info.pillar, color:'var(--gray)'};
+      const count = PROJECTS.filter(p => p.pillar === info.pillar).length;
+      return `<tr>
+        <td><strong>${m ? m.name : memberId}</strong></td>
+        <td style="color:${meta.color};">${meta.name}</td>
+        <td>${count} proyecto${count!==1?'s':''}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ── L2: Responsables de Proyecto ──
+  const l2Body = document.getElementById('scope-l2-body');
+  if(l2Body){
+    // Agrupar proyectos por encargado (excluyendo L1 y transversales)
+    const byOwner = {};
+    Object.entries(PROJECT_OWNERS).forEach(([pid, ownerId]) => {
+      if(LEVEL1[ownerId]) return;       // L1 actuando como encargado: no cuenta en L2 bono
+      if(TRANSVERSAL[ownerId]) return;  // transversales se listan aparte
+      (byOwner[ownerId] = byOwner[ownerId] || []).push(pid);
+    });
+    // Ordenar por cantidad de proyectos desc, luego por nombre
+    const rows = Object.entries(byOwner)
+      .map(([ownerId, pids]) => ({ownerId, pids, member:getMember(ownerId)}))
+      .filter(r => r.member)
+      .sort((a,b) => b.pids.length - a.pids.length || a.member.name.localeCompare(b.member.name));
+
+    l2Body.innerHTML = rows.length
+      ? rows.map(r => {
+          const projNames = r.pids.map(pid => {
+            const p = PROJECTS.find(x => x.id === pid);
+            return p ? p.name : pid;
+          }).join(', ');
+          return `<tr>
+            <td><strong>${r.member.name}</strong><div style="font-size:10px;color:var(--gray2);font-weight:400;">${r.pids.length} proyecto${r.pids.length!==1?'s':''}</div></td>
+            <td>${projNames}</td>
+          </tr>`;
+        }).join('')
+      : `<tr><td colspan="2" style="text-align:center;color:var(--gray2);font-style:italic;padding:14px;">Sin responsables L2 asignados todavía</td></tr>`;
+  }
 }
 
 function renderBonusHero(){
@@ -3743,7 +3792,7 @@ function renderBonusDelivery(){
       </div>
       <div class="bonus-pillar-body">
         ${projs.map(p => {
-          const owner = getMember(PROJECT_OWNERS[p.id]);
+          const owner = getMember(projectLeads[p.id] || PROJECT_OWNERS[p.id]);
           const chk = bonusDel[p.id];
           const isExpanded = bonusExpandedProj.has(p.id);
           // Build mini-picker chips for each member
@@ -4250,7 +4299,7 @@ function renderBono2Support(){
       </div>
       <div class="b2-support-card-body">
         ${projs.map(p => {
-          const owner = getMember(PROJECT_OWNERS[p.id]);
+          const owner = getMember(projectLeads[p.id] || PROJECT_OWNERS[p.id]);
           return `<div class="b2-support-row">
             <span class="index-prio i${p.priority.toLowerCase()}" style="font-size:9px;padding:1px 6px;">${p.priority}</span>
             <span class="b2-sp-name">${p.name}</span>
