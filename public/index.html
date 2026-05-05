@@ -1629,6 +1629,41 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 /* Hide legacy header artifacts */
 .header-accent{display:none !important;}
 
+
+/* ── BONOS-ONLY PROFILE (emi.donoso) ── */
+/* Hide non-bonus navigation */
+body.bonos-only .toc-links > a[data-tab="inicio"],
+body.bonos-only .toc-links > a[data-tab="equipo"],
+body.bonos-only .toc-links > a[data-tab="resumen"],
+body.bonos-only .toc-links > a[data-tab="calendario"],
+body.bonos-only .toc-links > a[data-tab="dist"],
+body.bonos-only #pillars-dropdown,
+body.bonos-only .toc-sep,
+body.bonos-only .toc-search,
+body.bonos-only #search-results,
+body.bonos-only #density-toggle,
+body.bonos-only #header-progress { display: none !important; }
+body.bonos-only #bonos-dropdown { margin-left: 0; }
+/* Hide save/export/import */
+body.bonos-only #save-group { display: none !important; }
+/* Read-only: disable all interactive controls in bonus sections */
+body.bonos-only .bonus-proj-row input[type="checkbox"],
+body.bonos-only .score-input,
+body.bonos-only .bonus-kpi-slider,
+body.bonos-only .b2m-input,
+body.bonos-only .b2-support-row input,
+body.bonos-only .b2-kpi-input input { pointer-events: none !important; opacity: 0.7; }
+body.bonos-only .bonus-select-all-btn,
+body.bonos-only .bonus-proj-expand,
+body.bonos-only .bonus-mini-picker,
+body.bonos-only .b2-fill-btn { display: none !important; }
+/* Read-only badge */
+.bonos-readonly-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 5px 14px; border-radius: 20px;
+  background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d;
+}
 </style>
 </head>
 <body>
@@ -4889,6 +4924,84 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   }
+})();
+
+/* ══════════════════════════════════════════════════
+   PROFILE-BASED UI RESTRICTION (bonos-only mode)
+══════════════════════════════════════════════════ */
+(function(){
+  var BONOS_ONLY_USERS = ['emi.donoso'];
+
+  function applyBonosOnlyMode(){
+    document.body.classList.add('bonos-only');
+
+    // Update header subtitle
+    var sub = document.querySelector('.header-sub');
+    if(sub){
+      sub.dataset.originalText = sub.textContent;
+      sub.textContent = 'Vista Bonificaciones · Solo lectura';
+    }
+
+    // Replace the bonos dropdown with direct tab links + read-only badge
+    var bonosDD = document.getElementById('bonos-dropdown');
+    if(bonosDD){
+      var wrapper = document.createElement('div');
+      wrapper.style.cssText = 'display:flex;gap:2px;align-items:center;';
+      var a1 = document.createElement('a');
+      a1.href = '#'; a1.dataset.tab = 'bonos'; a1.className = 'bono';
+      a1.onclick = function(){ showTab('bonos'); return false; };
+      a1.style.cssText = 'display:inline-flex;align-items:center;gap:7px;padding:14px;font-size:13px;font-weight:600;color:var(--fg-base);text-decoration:none;border-bottom:2.5px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;';
+      a1.innerHTML = '<span class="toc-num" style="background:var(--pillar-act);display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;color:#fff;font-size:10px;font-weight:700;">1</span>Entrega de Productos';
+
+      var a2 = document.createElement('a');
+      a2.href = '#'; a2.dataset.tab = 'bono2'; a2.className = 'bono2';
+      a2.onclick = function(){ showTab('bono2'); return false; };
+      a2.style.cssText = 'display:inline-flex;align-items:center;gap:7px;padding:14px;font-size:13px;font-weight:600;color:var(--fg-base);text-decoration:none;border-bottom:2.5px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;';
+      a2.innerHTML = '<span class="toc-num" style="background:var(--pillar-new);display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;color:#fff;font-size:10px;font-weight:700;">2</span>Experiencia de Producto';
+
+      var badge = document.createElement('span');
+      badge.className = 'bonos-readonly-badge';
+      badge.style.marginLeft = '12px';
+      badge.textContent = 'Solo lectura';
+
+      wrapper.appendChild(a1);
+      wrapper.appendChild(a2);
+      wrapper.appendChild(badge);
+      bonosDD.replaceWith(wrapper);
+    }
+
+    // Neutralize all mutation functions
+    window.setBonusQ = function(){};
+    window.setB2ProjKPI = function(){};
+    window.setB2Support = function(){};
+    window.setB2KPI = function(){};
+    window.b2FillAll = function(){};
+    window.toggleAllDelivered = function(){};
+    window.saveChanges = function(){};
+    window.markUnsaved = function(){};
+    window.exportData = function(){};
+    window.importData = function(){};
+
+    // Block delivery checkbox clicks
+    document.addEventListener('click', function(e){
+      if(!document.body.classList.contains('bonos-only')) return;
+      var row = e.target.closest('.bonus-proj-row');
+      if(row && e.target.type === 'checkbox'){ e.preventDefault(); }
+    }, true);
+
+    // Show bonos tab as default
+    showTab('bonos');
+  }
+
+  // Fetch user identity from server
+  fetch('/api/me')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if(data && BONOS_ONLY_USERS.indexOf(data.user) !== -1){
+        applyBonosOnlyMode();
+      }
+    })
+    .catch(function(){ /* local/offline — full access fallback */ });
 })();
 
 </script>

@@ -8,12 +8,18 @@ const PORT = process.env.PORT || 3000;
 // Basic authentication
 app.use(basicAuth({
   users: {
-    'equipo_TI': '@ctuar!a3223'
+    'equipo_TI': '@ctuar!a3223',
+    'emi.donoso': '@ctuariA123'
   },
   challenge: true,
   realm: 'ActuaLab',
   unauthorizedResponse: () => 'Acceso no autorizado.'
 }));
+
+// User identity endpoint — used by frontend to apply role-based UI
+app.get('/api/me', (req, res) => {
+  res.json({ user: req.auth.user });
+});
 
 // Serve the HTML file
 app.get('/', (req, res) => {
