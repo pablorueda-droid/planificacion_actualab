@@ -870,7 +870,7 @@ body.density-compact .pillar{margin-bottom:36px;}
 .toc a.tab-active .toc-icon{opacity:1;}
 
 /* Tools cluster right side of nav */
-.toc-tools{display:flex;align-items:center;gap:8px;flex-shrink:0;padding:8px 0;}
+.toc-tools{display:flex;align-items:center;gap:8px;flex-shrink:1;min-width:0;padding:8px 0;}
 
 /* Pillars dropdown */
 .toc-dropdown{position:relative;display:inline-flex;align-items:stretch;}
@@ -1523,19 +1523,43 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 .hl-match{background:rgba(76,100,217,0.25);padding:0 2px;border-radius:2px;font-weight:700;}
 
 /* ── RESPONSIVE ── */
+
+/* ≤1350px: reducir padding del nav y limitar search */
+@media(max-width:1350px){
+  .toc{padding:0 20px;gap:10px;}
+  .toc-search{width:160px;}
+  .toc-search:focus-within{width:220px;}
+  .user-chip{max-width:200px;}
+}
+
+/* ≤1200px: ocultar search, compactar nav */
 @media(max-width:1200px){
   .header-progress{grid-template-columns:repeat(2,1fr);}
-  .toc-search{width:180px;}
-  .toc-search:focus-within{width:240px;}
+  .toc{padding:0 16px;gap:8px;}
+  .toc-search{display:none;}
+  .user-chip{max-width:180px;}
+  .toc a{padding:14px 10px;font-size:12px;}
+  .toc-dd-trigger{padding:7px 11px;font-size:12px;}
 }
+
+/* ≤1100px: user chip muestra solo avatar + logout (oculta nombre y badge) */
+@media(max-width:1100px){
+  .user-chip > span:not(.uc-badge):not(.uc-avatar) { display:none; }
+  .user-chip .uc-badge { display:none; }
+  .user-chip { max-width:72px; padding:4px 8px; gap:6px; }
+  .toc a{padding:12px 9px;font-size:12px;}
+}
+
+/* ≤900px: vista móvil */
 @media(max-width:900px){
   .page-header{padding:32px 24px 28px;}
   .content{padding:28px 24px 56px;}
-  .toc{padding:0 16px;}
+  .toc{padding:0 12px;gap:6px;}
   .toc-search{display:none;}
   .bonus-hero{grid-template-columns:1fr;}
   .page-header-inner{flex-direction:column;align-items:flex-start;}
   .header-meta{text-align:left;}
+  .toc a{padding:12px 8px;font-size:11px;}
 }
 
 /* ── B2 MATRIX (unificada KPIs+Soporte por proyecto) ── */
@@ -1646,6 +1670,10 @@ body.read-only .lead-picker-row { opacity: 0.8; }
   padding: 5px 12px 5px 6px; border-radius: 20px;
   background: var(--fill-weaker); border: 1.5px solid var(--stroke-weak);
   color: var(--fg-strong); white-space: nowrap;
+  max-width: 260px; overflow: hidden;
+}
+.user-chip > span:not(.uc-badge) {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;
 }
 .user-chip img { width:24px; height:24px; border-radius:50%; flex-shrink:0; }
 .user-chip .uc-avatar { width:24px; height:24px; border-radius:50%; flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; }
