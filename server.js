@@ -80,6 +80,9 @@ function requireAuth(req, res, next) {
   res.redirect('/login');
 }
 
+// ── Public assets (needed by login page before auth) ──
+app.use('/assets', express.static(path.join(__dirname, 'public', 'assets')));
+
 // ── Auth routes ──
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
