@@ -1744,21 +1744,12 @@ body.read-only .lead-picker-row { opacity: 0.8; }
   </div>
 </nav>
 
-<!-- Floating save + export/import group -->
+<!-- Floating save group (Firestore — export/import removed) -->
 <div class="save-group" id="save-group">
   <button class="save-btn save-btn-float" id="save-btn" onclick="saveChanges()" type="button">
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M3 2.5h8l2 2v9H3v-11zM5 2.5v4h5v-4M5 13.5v-4h6v4" stroke-linejoin="round"/></svg>
     Guardar
   </button>
-  <button class="save-mini-btn" id="export-btn" onclick="exportData()" type="button" title="Exportar a archivo JSON (para compartir o respaldar)">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M8 10V2M4.5 6.5L8 10l3.5-3.5M2.5 12v1.5h11V12" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Exportar
-  </button>
-  <button class="save-mini-btn" id="import-btn" onclick="document.getElementById('import-file').click()" type="button" title="Importar desde archivo JSON previamente exportado">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M8 2v8M4.5 6L8 2.5 11.5 6M2.5 12v1.5h11V12" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Importar
-  </button>
-  <input type="file" id="import-file" accept=".json,application/json" style="display:none;" onchange="importData(event)">
 </div>
 
 <main class="content">
@@ -4425,95 +4416,6 @@ function _saveToast(msg, kind){
   _saveToast._t = setTimeout(() => { el.className = 'save-toast'; }, 3400);
 }
 
-function exportData(){
-  // Build a portable snapshot (same shape as localStorage + metadata)
-  const snapshot = {
-    _app: 'actualab-planificacion',
-    _version: 1,
-    _exportedAt: new Date().toISOString(),
-    savedAt: new Date().toISOString(),
-    assignments: {},
-    deliveryMonths: {},
-    projectLeads: {...projectLeads},
-    bonusDel: {...bonusDel},
-    bonusQ: {...bonusQ},
-    projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
-    b2KPI: JSON.parse(JSON.stringify(b2KPI)),
-    b2ProjKPI: JSON.parse(JSON.stringify(b2ProjKPI)),
-    b2Support: {...b2Support}
-  };
-  PROJECTS.forEach(p => {
-    snapshot.assignments[p.id] = getCheckedMembers(p.id).map(m => m.id);
-    snapshot.deliveryMonths[p.id] = p.deliveryMonth;
-  });
-  try {
-    const blob = new Blob([JSON.stringify(snapshot, null, 2)], {type:'application/json'});
-    const url = URL.createObjectURL(blob);
-    const stamp = new Date().toISOString().slice(0,10);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `actualab-planificacion-${stamp}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    _saveToast(`✓ Exportado · actualab-planificacion-${stamp}.json`, 'ok');
-  } catch(e){
-    _saveToast('✗ Error al exportar: ' + e.message, 'err');
-  }
-}
-
-function importData(ev){
-  const file = ev.target.files && ev.target.files[0];
-  ev.target.value = ''; // reset so same file can be re-picked
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    try {
-      const data = JSON.parse(e.target.result);
-      if(data._app && data._app !== 'actualab-planificacion'){
-        if(!confirm('Este archivo no parece ser de esta aplicación (_app='+data._app+'). ¿Continuar igualmente?')) return;
-      }
-      if(!data.assignments && !data.projectLeads && !data.deliveryMonths){
-        _saveToast('✗ El archivo no contiene datos reconocibles.', 'err');
-        return;
-      }
-      const changesDesc = [];
-      if(data.assignments) changesDesc.push(Object.keys(data.assignments).length + ' asignaciones');
-      if(data.projectLeads) changesDesc.push(Object.keys(data.projectLeads).length + ' encargados');
-      if(data.deliveryMonths) changesDesc.push('meses de entrega');
-      if(data.b2KPI || data.b2ProjKPI) changesDesc.push('KPIs y bonos');
-      const ok = confirm(
-        '¿Reemplazar los datos actuales con el archivo importado?\n\n' +
-        'Contenido: ' + changesDesc.join(' · ') + '\n' +
-        (data._exportedAt ? 'Exportado: ' + new Date(data._exportedAt).toLocaleString() + '\n' : '') +
-        '\nEsta acción sobrescribe lo que tengas ahora. Se recomienda exportar primero.'
-      );
-      if(!ok) return;
-
-      // POST to Firestore via API, then reload
-      fetch('/api/data', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      .then(function(r){ return r.json(); })
-      .then(function(res){
-        if(res && res.ok){
-          _saveToast('✓ Importado correctamente · recargando…', 'ok');
-          setTimeout(function(){ location.reload(); }, 900);
-        } else {
-          _saveToast('✗ Error al guardar: ' + ((res && res.error) || ''), 'err');
-        }
-      })
-      .catch(function(e){ _saveToast('✗ Error: ' + e.message, 'err'); });
-    } catch(err){
-      _saveToast('✗ Archivo inválido: ' + err.message, 'err');
-    }
-  };
-  reader.onerror = () => _saveToast('✗ No se pudo leer el archivo.', 'err');
-  reader.readAsText(file);
-}
 
 /* ══════════════════════════════════════════════════
    V2 · HEADER PROGRESS PILLS
@@ -4949,8 +4851,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Neutralize all write functions
     window.saveChanges   = function(){};
     window.markUnsaved   = function(){};
-    window.exportData    = function(){};
-    window.importData    = function(){};
     window.setProjectLead = function(){};
 
     // Block picker checkbox clicks
