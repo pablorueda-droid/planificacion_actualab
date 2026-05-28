@@ -1736,10 +1736,7 @@ body.read-only .lead-picker-row { opacity: 0.8; }
     </div>
     <div class="search-results" id="search-results" role="listbox" aria-label="Resultados de búsqueda"></div>
 
-    <!-- Density toggle -->
-    <button class="toc-iconbtn" id="density-toggle" type="button" title="Alternar densidad compacta / confortable" aria-label="Alternar densidad">
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" id="density-icon-comfy"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke-linecap="round"/></svg>
-    </button>
+
 
   </div>
 </nav>
@@ -4449,27 +4446,7 @@ function renderHeaderProgress(){
   }).join('');
 }
 
-/* ══════════════════════════════════════════════════
-   V2 · DENSITY TOGGLE
-══════════════════════════════════════════════════ */
-(function initDensity(){
-  const btn = document.getElementById('density-toggle');
-  if(!btn) return;
-  const saved = localStorage.getItem('actualab_density') || 'comfy';
-  const setMode = (mode) => {
-    document.body.classList.toggle('density-compact', mode === 'compact');
-    btn.classList.toggle('active', mode === 'compact');
-    btn.setAttribute('title', mode === 'compact' ? 'Vista compacta activa · clic para confortable' : 'Vista confortable · clic para compactar');
-    btn.innerHTML = mode === 'compact'
-      ? `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke-linecap="round"/></svg>`
-      : `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke-linecap="round"/></svg>`;
-    localStorage.setItem('actualab_density', mode);
-  };
-  setMode(saved);
-  btn.addEventListener('click', () => {
-    setMode(document.body.classList.contains('density-compact') ? 'comfy' : 'compact');
-  });
-})();
+
 
 /* ══════════════════════════════════════════════════
    V2 · GLOBAL SEARCH (projects + people)
