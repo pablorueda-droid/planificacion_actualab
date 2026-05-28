@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso · Área Digital TI</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{
+  font-family:'Nunito',system-ui,sans-serif;
+  background:#f5f6fa;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#151F47;
+}
+.card{
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 8px 40px rgba(21,31,71,.12);
+  padding:48px 48px 40px;
+  width:100%;
+  max-width:400px;
+  text-align:center;
+}
+.logo-wrap{
+  width:64px; height:64px; border-radius:16px;
+  background:#151F47;
+  display:inline-flex; align-items:center; justify-content:center;
+  margin-bottom:24px;
+  box-shadow:0 4px 16px rgba(21,31,71,.25);
+}
+.logo-wrap img{ height:38px; width:auto; }
+h1{
+  font-size:22px; font-weight:800; color:#151F47;
+  margin-bottom:6px; line-height:1.2;
+}
+.subtitle{
+  font-size:13px; color:rgba(0,9,51,.55);
+  margin-bottom:32px; line-height:1.5;
+}
+.google-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:12px;
+  width:100%; padding:14px 24px;
+  background:#fff; border:2px solid #e2e6f0;
+  border-radius:12px; cursor:pointer;
+  font-family:inherit; font-size:15px; font-weight:700; color:#151F47;
+  text-decoration:none;
+  transition:all .2s ease;
+  box-shadow:0 2px 8px rgba(21,31,71,.06);
+}
+.google-btn:hover{
+  border-color:#4c64d9;
+  box-shadow:0 4px 16px rgba(76,100,217,.15);
+  transform:translateY(-1px);
+}
+.google-btn svg{ flex-shrink:0; }
+.domain-note{
+  margin-top:20px;
+  font-size:11px; color:rgba(0,9,51,.38);
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.domain-note::before{
+  content:'';
+  display:inline-block; width:6px; height:6px;
+  border-radius:50%; background:#1a7a4a; flex-shrink:0;
+}
+.error-msg{
+  margin-bottom:20px; padding:10px 16px;
+  background:#fef2f2; border:1px solid #fecaca;
+  border-radius:10px; font-size:13px; color:#991b1b;
+  display:none;
+}
+.error-msg.visible{ display:block; }
+.divider{
+  border:none; border-top:1px solid #eef0f7;
+  margin:28px 0 20px;
+}
+.footer-note{
+  font-size:11px; color:rgba(0,9,51,.35); line-height:1.6;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo-wrap">
+    <img src="assets/actuaria-logo-white.png" alt="Actuaria" onerror="this.style.display='none'">
+  </div>
+
+  <h1>Área Digital · TI</h1>
+  <p class="subtitle">Planificación Estratégica 2026<br>Accede con tu cuenta corporativa</p>
+
+  <div class="error-msg" id="error-msg">
+    Tu cuenta no pertenece al dominio <strong>@actuaria.com</strong>.<br>
+    Usa tu correo corporativo para acceder.
+  </div>
+
+  <a class="google-btn" href="/auth/google">
+    <svg width="20" height="20" viewBox="0 0 48 48">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+    Entrar con Google
+  </a>
+
+  <p class="domain-note">Solo cuentas @actuaria.com</p>
+
+  <hr class="divider">
+  <p class="footer-note">Área Digital TI · ActuaLab + Desarrollo<br>Planificación Estratégica · Confidencial</p>
+</div>
+
+<script>
+  // Show error if redirected back with error param
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('error') === 'dominio'){
+    document.getElementById('error-msg').classList.add('visible');
+  }
+</script>
+</body>
+</html>
