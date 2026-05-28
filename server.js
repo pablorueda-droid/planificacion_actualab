@@ -20,25 +20,29 @@ const db = new Firestore({
 const STATE_REF = db.collection('planificacion').doc('state');
 
 // ── Google OAuth strategy ──
-passport.use(new GoogleStrategy(
-  {
-    clientID:     process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL:  process.env.OAUTH_CALLBACK_URL || '/auth/google/callback',
-  },
-  (accessToken, refreshToken, profile, done) => {
-    const email = (profile.emails?.[0]?.value || '').toLowerCase();
-    if (!email.endsWith('@' + ALLOWED_DOMAIN)) {
-      return done(null, false, { message: 'Dominio no autorizado' });
+// Only register if credentials are configured (prevents crash on first deploy)
+const OAUTH_CONFIGURED = !!(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
+if (OAUTH_CONFIGURED) {
+  passport.use(new GoogleStrategy(
+    {
+      clientID:     process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL:  process.env.OAUTH_CALLBACK_URL || '/auth/google/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      const email = (profile.emails?.[0]?.value || '').toLowerCase();
+      if (!email.endsWith('@' + ALLOWED_DOMAIN)) {
+        return done(null, false, { message: 'Dominio no autorizado' });
+      }
+      done(null, {
+        email,
+        name: profile.displayName,
+        avatar: profile.photos?.[0]?.value || null,
+        canWrite: WRITE_EMAILS.includes(email),
+      });
     }
-    done(null, {
-      email,
-      name: profile.displayName,
-      avatar: profile.photos?.[0]?.value || null,
-      canWrite: WRITE_EMAILS.includes(email),
-    });
-  }
-));
+  ));
+}
 
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
@@ -81,14 +85,17 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
-);
+app.get('/auth/google', (req, res, next) => {
+  if (!OAUTH_CONFIGURED) {
+    return res.status(503).send('OAuth no configurado. Define GOOGLE_CLIENT_ID y GOOGLE_CLIENT_SECRET en Cloud Run.');
+  }
+  passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
+});
 
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/login?error=dominio' }),
-  (req, res) => res.redirect('/')
-);
+app.get('/auth/google/callback', (req, res, next) => {
+  if (!OAUTH_CONFIGURED) return res.redirect('/login');
+  passport.authenticate('google', { failureRedirect: '/login?error=dominio' })(req, res, () => res.redirect('/'));
+});
 
 app.get('/auth/logout', (req, res, next) => {
   req.logout((err) => {
