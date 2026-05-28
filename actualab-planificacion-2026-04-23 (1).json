@@ -1,0 +1,458 @@
+{
+  "_app": "actualab-planificacion",
+  "_version": 1,
+  "_exportedAt": "2026-04-23T22:38:39.227Z",
+  "savedAt": "2026-04-23T22:38:39.227Z",
+  "assignments": {
+    "mig": [
+      "pr",
+      "cpuc"
+    ],
+    "govsf": [
+      "pr",
+      "cpuc"
+    ],
+    "dhub": [
+      "pr",
+      "cpuc"
+    ],
+    "mjub": [
+      "pr",
+      "cpuc"
+    ],
+    "mfact": [
+      "pr",
+      "cpuc"
+    ],
+    "e2e": [
+      "lt",
+      "pe",
+      "jn",
+      "pb"
+    ],
+    "vcx": [
+      "lt",
+      "jn",
+      "pb",
+      "fv"
+    ],
+    "suite": [
+      "lt",
+      "pe",
+      "cp",
+      "jn",
+      "pb"
+    ],
+    "com": [
+      "lt",
+      "pe",
+      "cm",
+      "pb"
+    ],
+    "afast": [
+      "lt",
+      "cm",
+      "ac",
+      "cpuc",
+      "jn",
+      "pb"
+    ],
+    "sim": [
+      "pr",
+      "cm",
+      "jn",
+      "rpu",
+      "fv"
+    ],
+    "ctrl": [
+      "pr",
+      "cp",
+      "cm",
+      "jn",
+      "rpu",
+      "fv"
+    ],
+    "actas": [
+      "cp",
+      "cm",
+      "jn",
+      "pb",
+      "fv"
+    ],
+    "pag": [
+      "cp",
+      "cm",
+      "rf",
+      "jn",
+      "rpu",
+      "fv"
+    ],
+    "navia": [
+      "cm",
+      "rf",
+      "jn",
+      "rpu",
+      "fv"
+    ],
+    "jub": [
+      "pe",
+      "rf",
+      "jn",
+      "rpu"
+    ],
+    "bench": [
+      "pr",
+      "ac",
+      "rf",
+      "jn",
+      "rpu"
+    ],
+    "comp": [
+      "ac",
+      "rf",
+      "jn",
+      "rpu"
+    ],
+    "legal": [
+      "lt",
+      "rf",
+      "jn",
+      "rpu",
+      "cpo"
+    ],
+    "nom": [
+      "lt",
+      "rf",
+      "jn",
+      "rpu"
+    ]
+  },
+  "deliveryMonths": {
+    "mig": 6,
+    "govsf": 5,
+    "dhub": 6,
+    "mjub": 7,
+    "mfact": 8,
+    "e2e": 9,
+    "vcx": 9,
+    "suite": 9,
+    "com": 10,
+    "afast": 9,
+    "sim": 8,
+    "ctrl": 10,
+    "actas": 9,
+    "pag": 7,
+    "navia": 5,
+    "jub": 6,
+    "bench": 8,
+    "comp": 7,
+    "legal": 8,
+    "nom": 10
+  },
+  "projectLeads": {
+    "mig": "cpuc",
+    "govsf": "cpuc",
+    "dhub": "cpuc",
+    "mjub": "cpuc",
+    "mfact": "cpuc",
+    "e2e": "pb",
+    "vcx": "fv",
+    "suite": "pe",
+    "com": "pb",
+    "afast": "pb",
+    "sim": "cm",
+    "ctrl": "cp",
+    "actas": "pb",
+    "pag": "cp",
+    "navia": "rf",
+    "jub": "pe",
+    "bench": "ac",
+    "comp": "ac",
+    "legal": "lt",
+    "nom": "lt"
+  },
+  "bonusDel": {
+    "mig": false,
+    "govsf": false,
+    "dhub": false,
+    "mjub": false,
+    "mfact": false,
+    "e2e": false,
+    "vcx": false,
+    "suite": false,
+    "com": false,
+    "afast": false,
+    "sim": false,
+    "ctrl": false,
+    "actas": false,
+    "pag": false,
+    "navia": false,
+    "jub": false,
+    "bench": false,
+    "comp": false,
+    "legal": false,
+    "nom": false
+  },
+  "bonusQ": {
+    "pr": 0,
+    "lt": 0,
+    "jn": 0,
+    "rf": 0,
+    "cp": 0,
+    "cm": 0,
+    "ac": 0,
+    "cpuc": 0,
+    "pe": 0,
+    "pb": 0,
+    "rpu": 0,
+    "fv": 0
+  },
+  "projectKPIs": {
+    "mig": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "govsf": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "dhub": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "mjub": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "mfact": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "e2e": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "vcx": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "suite": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "com": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "afast": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "sim": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "ctrl": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "actas": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "pag": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "navia": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "jub": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "bench": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "comp": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "legal": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    },
+    "nom": {
+      "alcance": 0,
+      "calidad": 0,
+      "tiempo": 0
+    }
+  },
+  "b2KPI": {
+    "gov": [
+      0,
+      0,
+      0
+    ],
+    "ops": [
+      0,
+      0,
+      0
+    ],
+    "act": [
+      0,
+      0,
+      0
+    ],
+    "new": [
+      0,
+      0,
+      0
+    ]
+  },
+  "b2ProjKPI": {
+    "mig": [
+      0,
+      0,
+      0
+    ],
+    "govsf": [
+      0,
+      0,
+      0
+    ],
+    "dhub": [
+      0,
+      0,
+      0
+    ],
+    "mjub": [
+      0,
+      0,
+      0
+    ],
+    "mfact": [
+      0,
+      0,
+      0
+    ],
+    "e2e": [
+      0,
+      0,
+      0
+    ],
+    "vcx": [
+      0,
+      0,
+      0
+    ],
+    "suite": [
+      0,
+      0,
+      0
+    ],
+    "com": [
+      0,
+      0,
+      0
+    ],
+    "afast": [
+      0,
+      0,
+      0
+    ],
+    "sim": [
+      0,
+      0,
+      0
+    ],
+    "ctrl": [
+      0,
+      0,
+      0
+    ],
+    "actas": [
+      0,
+      0,
+      0
+    ],
+    "pag": [
+      0,
+      0,
+      0
+    ],
+    "navia": [
+      0,
+      0,
+      0
+    ],
+    "jub": [
+      0,
+      0,
+      0
+    ],
+    "bench": [
+      0,
+      0,
+      0
+    ],
+    "comp": [
+      0,
+      0,
+      0
+    ],
+    "legal": [
+      0,
+      0,
+      0
+    ],
+    "nom": [
+      0,
+      0,
+      0
+    ]
+  },
+  "b2Support": {
+    "mig": 0,
+    "govsf": 0,
+    "dhub": 0,
+    "mjub": 0,
+    "mfact": 0,
+    "e2e": 0,
+    "vcx": 0,
+    "suite": 0,
+    "com": 0,
+    "afast": 0,
+    "sim": 0,
+    "ctrl": 0,
+    "actas": 0,
+    "pag": 0,
+    "navia": 0,
+    "jub": 0,
+    "bench": 0,
+    "comp": 0,
+    "legal": 0,
+    "nom": 0
+  }
+}

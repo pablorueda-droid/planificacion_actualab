@@ -1,0 +1,7 @@
+node_modules
+scripts
+*.json
+!package*.json
+.git
+.gitignore
+*.md

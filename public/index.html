@@ -3297,16 +3297,24 @@ function buildIndex(){
 document.addEventListener('DOMContentLoaded', function(){
   PROJECTS.forEach(p => { buildPicker(p); renderChips(p.id); });
   buildIndex();
-  // Load saved state (assignments, months, bonus) before rendering
-  const hadSaved = loadChanges();
-  renderSummary();
-  renderFilterRow();
-  renderDistGrid();
-  renderChart(); renderLeadChart();
-  renderCalendar();
-  // Show initial panel
+
+  // Show initial panel immediately
   showTab('inicio');
-  if(hadSaved){ console.log('ActuaLab: estado restaurado desde almacenamiento local.'); }
+
+  // Initial render with default values
+  function renderAll(){ renderSummary(); renderFilterRow(); renderDistGrid(); renderChart(); renderLeadChart(); renderCalendar(); }
+  renderAll();
+
+  // ── Load state from Firestore via API ──
+  fetch('/api/data')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if(data){
+        loadChanges(data);
+        console.log('ActuaLab: estado restaurado desde Firestore.');
+      }
+    })
+    .catch(function(err){ console.warn('No se pudo cargar desde servidor, usando valores por defecto.', err); });
 
   /* ── GLOBAL TOOLTIP (body-anchored, never clipped by overflow) ── */
   const tt = document.createElement('div');
@@ -3367,9 +3375,8 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 /* ══════════════════════════════════════════════════
-   SAVE / LOAD SYSTEM (localStorage)
+   SAVE / LOAD SYSTEM (Firestore via /api/data)
 ══════════════════════════════════════════════════ */
-const STORAGE_KEY = 'actualab_planificacion_v1';
 let _hasUnsaved = false;
 
 function markUnsaved(){
@@ -3381,38 +3388,47 @@ function markUnsaved(){
 function saveChanges(){
   const data = {
     savedAt: new Date().toISOString(),
-    assignments: {},
-    deliveryMonths: {},
+    assignments: {}, deliveryMonths: {},
     projectLeads: {...projectLeads},
-    bonusDel: {...bonusDel},
-    bonusQ: {...bonusQ},
+    bonusDel: {...bonusDel}, bonusQ: {...bonusQ},
     projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
     b2KPI: JSON.parse(JSON.stringify(b2KPI)),
+    b2ProjKPI: JSON.parse(JSON.stringify(b2ProjKPI)),
     b2Support: {...b2Support}
   };
-  // Capture member assignments per project
   PROJECTS.forEach(p => {
     data.assignments[p.id] = getCheckedMembers(p.id).map(m => m.id);
     data.deliveryMonths[p.id] = p.deliveryMonth;
   });
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    _hasUnsaved = false;
-    const btn = document.getElementById('save-btn');
-    if(btn){ btn.className = 'save-btn saved'; btn.innerHTML = '✓ Guardado'; }
-    setTimeout(() => {
-      if(!_hasUnsaved && btn){ btn.className = 'save-btn'; btn.innerHTML = '💾 Guardar cambios'; }
-    }, 2000);
-  } catch(e){
+  const btn = document.getElementById('save-btn');
+  if(btn){ btn.className = 'save-btn has-changes'; btn.innerHTML = '⏳ Guardando…'; }
+  fetch('/api/data', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(res){
+    if(res && res.ok){
+      _hasUnsaved = false;
+      if(btn){ btn.className = 'save-btn saved'; btn.innerHTML = '✓ Guardado'; }
+      setTimeout(function(){
+        if(!_hasUnsaved && btn){ btn.className = 'save-btn'; btn.innerHTML = '💾 Guardar'; }
+      }, 2000);
+    } else {
+      alert('Error al guardar: ' + ((res && res.error) || 'respuesta inesperada'));
+      if(btn){ btn.className = 'save-btn'; btn.innerHTML = '💾 Guardar'; }
+    }
+  })
+  .catch(function(e){
     alert('Error al guardar: ' + e.message);
-  }
+    if(btn){ btn.className = 'save-btn'; btn.innerHTML = '💾 Guardar'; }
+  });
 }
 
-function loadChanges(){
+function loadChanges(data){
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return false;
-    const data = JSON.parse(raw);
+    if(!data) return false;
 
     // Restore assignments
     if(data.assignments){
@@ -4386,31 +4402,7 @@ markUnsaved = function(){
   const btn = document.getElementById('save-btn');
   if(btn){ btn.className = 'save-btn has-changes'; btn.innerHTML = _SAVE_BTN_DIRTY; }
 };
-saveChanges = function(){
-  const data = {
-    savedAt: new Date().toISOString(),
-    assignments: {}, deliveryMonths: {},
-    projectLeads: {...projectLeads},
-    bonusDel: {...bonusDel}, bonusQ: {...bonusQ},
-    projectKPIs: JSON.parse(JSON.stringify(projectKPIs)),
-    b2KPI: JSON.parse(JSON.stringify(b2KPI)),
-    b2ProjKPI: JSON.parse(JSON.stringify(b2ProjKPI)),
-    b2Support: {...b2Support}
-  };
-  PROJECTS.forEach(p => {
-    data.assignments[p.id] = getCheckedMembers(p.id).map(m => m.id);
-    data.deliveryMonths[p.id] = p.deliveryMonth;
-  });
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    _hasUnsaved = false;
-    const btn = document.getElementById('save-btn');
-    if(btn){ btn.className = 'save-btn saved'; btn.innerHTML = _SAVE_BTN_OK; }
-    setTimeout(() => {
-      if(!_hasUnsaved && btn){ btn.className = 'save-btn'; btn.innerHTML = _SAVE_BTN_DEFAULT; }
-    }, 2000);
-  } catch(e){ alert('Error al guardar: ' + e.message); }
-};
+// saveChanges: already defined above with Firestore API (V2 override removed)
 
 /* ══════════════════════════════════════════════════
    EXPORT / IMPORT — JSON portable
@@ -4495,10 +4487,22 @@ function importData(ev){
       );
       if(!ok) return;
 
-      // Write to localStorage and reload so the existing loadChanges() path runs cleanly
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      _saveToast('✓ Importado correctamente · recargando…', 'ok');
-      setTimeout(() => { location.reload(); }, 900);
+      // POST to Firestore via API, then reload
+      fetch('/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res && res.ok){
+          _saveToast('✓ Importado correctamente · recargando…', 'ok');
+          setTimeout(function(){ location.reload(); }, 900);
+        } else {
+          _saveToast('✗ Error al guardar: ' + ((res && res.error) || ''), 'err');
+        }
+      })
+      .catch(function(e){ _saveToast('✗ Error: ' + e.message, 'err'); });
     } catch(err){
       _saveToast('✗ Archivo inválido: ' + err.message, 'err');
     }
